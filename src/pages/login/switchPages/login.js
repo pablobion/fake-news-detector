@@ -1,0 +1,63 @@
+import React, { useReducer } from 'react';
+import axios from 'axios';
+import { LoginArea, LinkCreateAccount } from './styles/loginStyles.js'
+import { useForm } from 'react-hook-form'
+import {Link} from 'react-router-dom'
+
+function SwitchPages(props) {
+
+        const { register, handleSubmit } = useForm()
+
+        const handleChange = evt => {
+                const name = evt.target.name;
+                const newValue = evt.target.value;
+                setUserInput({ [name]: newValue });
+        }
+
+        const [userInput, setUserInput] = useReducer(
+                (state, newState) => ({ ...state, ...newState }),
+                {
+                        userName: '',
+                        userPassword: '',
+                }
+        );
+
+        const loginPage = (data) => {
+                alert('oi')
+                axios.post('http://tcspedroverani.herokuapp.com/user/login', data)
+                        .then(function (response) {
+                                console.log('Acessou')
+                        });
+
+        }
+
+        return (
+                <>
+                        <LinkCreateAccount>
+                                <Link to="/createaccount" style={{ textDecoration: 'none' }}><span>Crie sua conta</span></Link>
+                        </LinkCreateAccount>
+                        <LoginArea>
+                                <form onSubmit={handleSubmit(loginPage)}>
+                                        <div>
+                                                <span>E-mail</span>
+                                                <input name='userName' value={userInput.userName} onChange={handleChange} ref={register({ required: true })} />
+                                        </div>
+                                        <div>
+                                                <span>Senha</span>
+                                                <input name='userPassword' value={userInput.userPassword} onChange={handleChange} ref={register({ required: true })} />
+                                                <small>Esqueceu sua senha?</small>
+                                        </div>
+                                        <button type='submit'>Entrar</button>
+
+                                </form>
+                        </LoginArea>
+
+
+
+
+
+                </>
+        )
+}
+
+export default SwitchPages;
