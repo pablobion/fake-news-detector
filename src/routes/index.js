@@ -8,6 +8,8 @@ function routes() {
      
     <Switch>
         <Route path='/' exact component={Login} />
+        <Route path='/lostaccount' exact component={Login} />
+        <Route path='/createaccount' exact component={Login} />
     </Switch>
   )
 }

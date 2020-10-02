@@ -6,11 +6,14 @@ import { LostAccountArea } from './styles'
 import LeftArrow from '../../../../assets/left-arrow.svg'
 import {Link} from 'react-router-dom'
 
+import Animation from './animation'
+
 function SwitchPages() {
 
       const { register, handleSubmit } = useForm()
 
       const [email, setEmail] = useState('')
+      const [play, setPlay] = useState(false)
 
       const handleChange = (e) => {
             setEmail(e.target.value)
@@ -18,6 +21,7 @@ function SwitchPages() {
 
       const submit = (data) => {
             console.log(data)
+            setPlay(true)
       }
 
       return (
@@ -36,6 +40,10 @@ function SwitchPages() {
                                     <span>E-mail</span>
                                     <input name='email' onChange={handleChange} ref={register({ required: true })} />
                               </div>
+                              <div>
+                                    <Animation autoplay={play}/>
+                              </div>
+                              
                               <button type='submit'>Recuperar</button>
 
                         </form>
