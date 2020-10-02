@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import { LoginArea, LinkCreateAccount } from './styles/loginStyles.js'
+import { LoginArea, LinkCreateAccount } from './styles.js'
 import { useForm } from 'react-hook-form'
 import {Link} from 'react-router-dom'
 
@@ -45,9 +45,9 @@ function SwitchPages(props) {
                                         <div>
                                                 <span>Senha</span>
                                                 <input name='userPassword' value={userInput.userPassword} onChange={handleChange} ref={register({ required: true })} />
-                                                <small>Esqueceu sua senha?</small>
+                                                <Link to="/lostaccount" style={{ textDecoration: 'none' }}><small className='lostaccount'>Esqueceu sua senha?</small></Link>
                                         </div>
-                                        <button type='submit'>Entrar</button>
+                                                <button type='submit'>Entrar</button>
 
                                 </form>
                         </LoginArea>

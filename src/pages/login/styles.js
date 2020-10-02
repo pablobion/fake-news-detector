@@ -4,18 +4,43 @@ import styled from 'styled-components'
 export const Container = styled.div`
     height: 100vh;
     display: flex;
+   
 
     .backgroundImage {
-        position: absolute;
-        height: 80vh;
-        bottom: 0;
-        left: 0;
+        background-size: cover;
+        position:fixed;
         z-index: -1;
+        width:100%;
+        bottom: 10;
+
+
+        @media (min-width: 700px){
+            background-size: cover;
+            position:fixed;
+            z-index: -1;
+            width:100%;
+            bottom: 0;
+        }
+        @media (min-width: 1600px){ /* Para a imagem não ficar muito grande caso a tela seja super widescreen */
+            background-size: cover;
+            position:fixed;
+            z-index: -1;
+            width:100%;
+            height: 80%;
+            bottom: 0;
+        }
+
+        
     }
     .page { 
         flex: 1;
         display: flex;
-        margin: 5% 5% 5% 5%;
+        margin: 5% 5% 5% 5%; 
+       
+
+        @media (max-width: 700px){  /* Se for para tela pequena, ele centralziza o modal de login/lost/create para o meio */
+            justify-content: center;
+        }
     }
 
     .leftside {
@@ -39,6 +64,7 @@ export const Container = styled.div`
                 width: 3rem;
             }
             p {
+                color: #595959;
                 margin-left: 10px;
                 font-size: 20px;    
             }
@@ -48,8 +74,10 @@ export const Container = styled.div`
             padding: 5% 5% 5% 5%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;    
+    
+            align-items: center;   
+            height: 430px;
+
         }   
     }
 

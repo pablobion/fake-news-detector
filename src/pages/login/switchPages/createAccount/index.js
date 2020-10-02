@@ -1,13 +1,12 @@
 import axios from 'axios';
 import React, { useReducer } from 'react';
 import { useForm } from 'react-hook-form'
-import { CreateArea } from './styles/createStyles'
-import LeftArrow from '../../../assets/left-arrow.svg'
+import { CreateArea } from './styles'
+import LeftArrow from '../../../../assets/left-arrow.svg'
 
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function SwitchPages() {
-      const history = useHistory();
 
       const { register, handleSubmit } = useForm()
 

@@ -8,11 +8,12 @@ export default createGlobalStyle`
           outline: 0;
           box-sizing: border-box;
      }
+     body {
+          background-color: #FFFDFB; 
+     }
 
      body, input, button {
           font: 62.5% Roboto, sans-serif;
-          background-color: #FFFDFB; 
-          /* //FFFDFB */
      }
 
      #root {

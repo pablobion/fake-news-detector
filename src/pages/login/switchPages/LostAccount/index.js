@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
 
-import { LostAccountArea } from './styles/lostAccountStyles'
+import { LostAccountArea } from './styles'
 
-import LeftArrow from '../../../assets/left-arrow.svg'
+import LeftArrow from '../../../../assets/left-arrow.svg'
+import {Link} from 'react-router-dom'
 
 function SwitchPages() {
 
@@ -24,7 +25,7 @@ function SwitchPages() {
                   <LostAccountArea>
                         <div className="header">
                               <div>
-                                    <img src={LeftArrow} alt="" className='back-icon' />
+                                    <Link to="/"><img src={LeftArrow} alt="" className='back-icon' /></Link>
                               </div>
                               <div className='div-title-header'>
                                     <p className='title-header'>Recuperação de conta</p>

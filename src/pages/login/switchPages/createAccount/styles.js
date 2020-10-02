@@ -1,13 +1,46 @@
 import styled from 'styled-components'
 import { shade } from 'polished'
 
-export const LoginArea = styled.div`
+export const CreateArea = styled.div`
 
-        form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+
+        .header {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 20px;
+                .back-icon {
+                        width: 25px;
+                    
+                }
+                
+                .div-title-header{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        padding-right: 10px;
+                        .title-header {
+                        font-size: 1.3rem;
+                        color: #595959;
+                        }
+                }
+        }
+
+        
+
+
+            form {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                div {
+                margin-bottom: 80px; /* nao mexer */
+                  div {
                         display: flex;
                         flex-direction: column;
                         span{
@@ -24,18 +57,14 @@ export const LoginArea = styled.div`
                                 border: 1px solid #6e6e6e;
                                 border-radius: 0.9vh;
                         }
-                        small{
-                                margin: 10px 0px 10px 0px;
-                                font-size: 0.8rem;
-                                color: black;
-                                &:hover {
-                                color: ${shade(0.5, '#00B0FF')}
-                                } 
-                                cursor: pointer;
-                        }
-                }
-                button{
-                        background: #00B0FF;
+                       
+                  }
+                  button{
+                        position: absolute;
+                                bottom: 0;
+                                margin-bottom: 20px;
+
+                        background:  #009b00;
                         border-radius: 1.2vh;
                         border: 0;
                         color: #FFF;
@@ -43,27 +72,12 @@ export const LoginArea = styled.div`
                         transition: background-color 0.2s;
                         cursor: pointer;
                         &:hover {
-                                background: ${shade(0.2, '#00B0FF')}
+                                background: ${shade(0.2, '#009b00')}
                         } 
                         margin-top: 30px;
                         height: 50px;
                         font-size: 20px;
                         width: 150px;
                 }
-        }
-`
-
-export const LinkCreateAccount = styled.div`
-        flex: 1;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        text-decoration: none;
-        span{
-                font-size: 1.3rem;
-                color: #008ac6;
-                
-                
-        }
+                }
 `

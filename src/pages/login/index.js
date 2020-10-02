@@ -26,12 +26,12 @@ function login() {
               </BrowserRouter>
             </div>
           </div>
-          <div className="rightside">
+          {/* <div className="rightside">
             <div>
               <p className='detec-news'>Vamos ajudar você a detectar noticias falsas.</p>
               <p className='detec-emails'>Já encontramos 2 noticias falsas e enviamos mais de 90 e-mails avisando colegas.</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
 

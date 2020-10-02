@@ -1,42 +1,39 @@
 import styled from 'styled-components'
 import { shade } from 'polished'
 
-export const CreateArea = styled.div`
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-
-        .header {
+export const LostAccountArea = styled.div`
+.header {
                 display: flex;
                 align-items: center;
                 width: 100%;
                 margin-top: 20px;
+             
                 .back-icon {
                         width: 25px;
                     
                 }
-                
+                .title-header {
+                        font-size: 1.3rem;
+                        color: #595959;
+                        
+                }
                 .div-title-header{
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         width: 100%;
                         padding-right: 10px;
-                        .title-header {
-                        font-size: 1.3rem;
-                        }
                 }
         }
 
-        
-
-
-            form {
+form {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin: 30px 0px 80px 0px;
+                
+
+
                   div {
                         display: flex;
                         flex-direction: column;
@@ -57,7 +54,12 @@ export const CreateArea = styled.div`
                        
                   }
                   button{
-                        background:  #009b00;
+
+                        position: absolute;
+                                bottom: 0;
+                                margin-bottom: 20px;
+
+                        background:  #d8be07;
                         border-radius: 1.2vh;
                         border: 0;
                         color: #FFF;
@@ -65,12 +67,13 @@ export const CreateArea = styled.div`
                         transition: background-color 0.2s;
                         cursor: pointer;
                         &:hover {
-                                background: ${shade(0.2, '#009b00')}
+                                background: ${shade(0.2, '#d8be07')}
                         } 
                         margin-top: 30px;
                         height: 50px;
                         font-size: 20px;
                         width: 150px;
                 }
-                }
+}
 `
+
