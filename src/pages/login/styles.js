@@ -11,7 +11,7 @@ export const Container = styled.div`
         position:fixed;
         z-index: -1;
         width:100%;
-        bottom: 10;
+        bottom: 0;
 
 
         @media (min-width: 700px){
@@ -40,8 +40,10 @@ export const Container = styled.div`
 
         @media (max-width: 700px){  /* Se for para tela pequena, ele centralziza o modal de login/lost/create para o meio */
             justify-content: center;
+        
         }
-    }
+
+    
 
     .leftside {
         box-shadow: #c0c0c0 0px 0px 1vh 0.3px;
@@ -54,6 +56,8 @@ export const Container = styled.div`
         background-color: rgba(255, 255, 255, 0.4) ;
         border-radius: 2vw; 
         backdrop-filter: blur(3px);
+
+        
         
         .title {
             display: flex;
@@ -68,6 +72,19 @@ export const Container = styled.div`
                 margin-left: 10px;
                 font-size: 20px;    
             }
+        }
+
+        .leftside-phone{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+                font-size: 14px; 
+
+                p {
+                    margin-top: 10px;  
+                }
         }
 
         .modalLogin{
@@ -85,11 +102,9 @@ export const Container = styled.div`
         width: 100%;
         flex: 1.5;
         margin-left: 2%;
-        border: 1px solid;
         .detec-news{
             color: gray;
             font-size: 2.5vw;
-            border: 1px solid;
             text-align: center;
         }
 
@@ -97,10 +112,10 @@ export const Container = styled.div`
             margin-top: 10px;
             color: gray;
             font-size: 1.2vw;
-            border: 1px solid;
             text-align: center;
         }
     }
+}
 
 
 `

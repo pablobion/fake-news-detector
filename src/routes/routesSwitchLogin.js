@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route , Redirect } from 'react-router-dom'
 
 import Login from '../pages/login/switchPages/login/index'
 import CreateAccount from '../pages/login/switchPages/createAccount/index'

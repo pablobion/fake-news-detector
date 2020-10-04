@@ -50,6 +50,7 @@ form {
                                 padding: 0 10px;
                                 border: 1px solid #6e6e6e;
                                 border-radius: 0.9vh;
+                                margin-bottom: 17px;
                         }
                        
                   }

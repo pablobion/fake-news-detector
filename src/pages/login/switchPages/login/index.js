@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import { LoginArea, LinkCreateAccount } from './styles.js'
 import { useForm } from 'react-hook-form'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SwitchPages(props) {
 
@@ -23,7 +23,6 @@ function SwitchPages(props) {
         );
 
         const loginPage = (data) => {
-                alert('oi')
                 axios.post('http://tcspedroverani.herokuapp.com/user/login', data)
                         .then(function (response) {
                                 console.log('Acessou')
@@ -47,7 +46,7 @@ function SwitchPages(props) {
                                                 <input name='userPassword' value={userInput.userPassword} onChange={handleChange} ref={register({ required: true })} />
                                                 <Link to="/lostaccount" style={{ textDecoration: 'none' }}><small className='lostaccount'>Esqueceu sua senha?</small></Link>
                                         </div>
-                                                <button type='submit'>Entrar</button>
+                                        <button type='submit'>Entrar</button>
 
                                 </form>
                         </LoginArea>
