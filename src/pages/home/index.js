@@ -7,6 +7,47 @@ import Switch from '../../components/switchToggle/index'
 import Menu from '../../components/menu/index'
 
 function HomePage() {
+
+	const scrapUrl = async url => {
+		const settings = {
+			method: 'POST',
+			body: JSON.stringify(url),
+			headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			}
+		}
+		try {
+			const response = await fetch('http://tcspedroverani.herokuapp.com/news/scrap', settings);
+			const data = await response.json();
+			if(data) {
+				//aqui vai retornar uma string gigante com o conteudo coletado da noticia, tem que colocar o valor disso aqui, no text area
+			}
+
+		} catch (error) {
+			alert('Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto');
+		}
+
+	}
+
+	const sendNews = async (content, url = '') => {
+		const authorization = localStorage.getItem('qwert');
+		if(!authorization) window.location.reload(true); //supondo que o usuario ta logado, deletou o localStorage,e tenta enviar uma noticia, é pra desloga-lo, o reload fará isso
+		const settings = {
+			method: 'POST',
+			body: JSON.stringify({content, url, authorization}),
+			headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			}
+		}
+		
+
+		const response = await fetch('http://tcspedroverani.herokuapp.com/news/create', settings);
+	}
+
+
+
   return (
     <>
       <Menu/>
