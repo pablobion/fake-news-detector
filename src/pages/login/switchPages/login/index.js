@@ -22,12 +22,9 @@ function SwitchPages(props) {
                 }
         );
 
-        const loginPage = (data) => {
-                axios.post('http://tcspedroverani.herokuapp.com/user/login', data)
-                        .then(function (response) {
-                                console.log('Acessou')
-                        });
-
+        const loginPage = async data => {
+                const response = await axios.post('http://tcspedroverani.herokuapp.com/user/login', data);
+                if(response.data.success === 'Ok') alert('login feito com sucesso');
         }
 
         return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
+import axios from 'axios';
 
 import { LostAccountArea } from './styles'
 
@@ -19,8 +20,9 @@ function SwitchPages() {
             setEmail(e.target.value)
       }
 
-      const submit = (data) => {
-            console.log(data)
+      const submit = async data => {
+            const response = await axios.post('http://tcspedroverani.herokuapp.com/user/recover', data);
+            if(response.data.success === 'Ok') alert('Uma nova senha foi enviada para o e-mail informado');
             setPlay(true)
       }
 
