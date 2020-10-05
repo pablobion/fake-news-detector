@@ -25,18 +25,24 @@ function SwitchPages() {
             setUserInput({ [name]: newValue });
       }
 
-      const createAccount = (data) => {
+      const createAccount = async (data) => {
             if (userInput.password !== userInput.passAgain) {
                   alert('As senhas não conferem');
                   return false;
             }
             console.log(data)
 
-
-            axios.post('http://tcspedroverani.herokuapp.com/user/create', data)
-                  .then(function (response) {
-                        console.log('salvo com sucesso')
-            });
+          try {
+			const response = await axios.post('http://tcspedroverani.herokuapp.com/user/create', data);
+			console.log(response);
+			if(response.data.auth) {
+				alert('Logado');
+			}
+		  } catch (error) {
+			  
+		  }
+           
+                
       }
 
       return (
