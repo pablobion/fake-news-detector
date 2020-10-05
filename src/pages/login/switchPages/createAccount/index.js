@@ -41,8 +41,6 @@ function SwitchPages() {
 		  } catch (error) {
 			  
 		  }
-           
-                
       }
 
       return (
