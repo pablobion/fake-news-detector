@@ -26,18 +26,28 @@ function SwitchPages() {
       }
 
       const createAccount = async (data) => {
+			//axios.defaults.withCredentials = true
             if (userInput.password !== userInput.passAgain) {
                   alert('As senhas não conferem');
                   return false;
             }
-            console.log(data)
+			console.log(data)
+			const settings = {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+				  'Accept': 'application/json',
+				  'Content-Type': 'application/json',
+				},
+				credentials: 'include',
+			  }
 
           try {
-			const response = await axios.post('http://tcspedroverani.herokuapp.com/user/create', data);
-			console.log(response);
-			if(response.data.auth) {
-				alert('Logado');
-			}
+			//const response = await axios.post('http://tcspedroverani.herokuapp.com/user/create', data);
+			const response = await fetch('http://tcspedroverani.herokuapp.com/user/create', settings);
+			if (!response.ok) throw Error(response.message);
+			const data = await response.json();
+			if(data.auth) alert('Logou');
 		  } catch (error) {
 			  
 		  }
