@@ -1,9 +1,18 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Menu } from './styles';
 
-function menu() {
-  return <div />;
+function MenuComponent() {
+  return (
+    <Menu>
+      <div className='cell'>
+        <p>fgfgddfgdfgdfgdfgdfgdfgdgf</p>
+      </div>
+      <h1>Menuzão</h1>
+    </Menu>
+
+
+  )
 }
 
-export default menu;
+export default MenuComponent;

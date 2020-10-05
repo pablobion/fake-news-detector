@@ -8,7 +8,7 @@ import { BrowserRouter, Link } from 'react-router-dom'
 import Routes from '../../routes/routesSwitchLogin'
 
 
-function Login() {
+function LoginPage() {
 
  
   const [widthscreen, setWidthscreen] = useState(window.screen.width);
@@ -56,4 +56,4 @@ function Login() {
 
 }
 
-export default Login;
+export default LoginPage;
