@@ -24,7 +24,7 @@ function SwitchPages(props) {
 
         const loginPage = async data => {
                 const response = await axios.post('http://tcspedroverani.herokuapp.com/user/login', data);
-                if(response.data.success === 'Ok') alert('login feito com sucesso');
+                if(response.data.success) alert('login feito com sucesso'); //aqui será o location.href = '/home'
         }
 
         return (

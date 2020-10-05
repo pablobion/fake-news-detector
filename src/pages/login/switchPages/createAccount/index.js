@@ -36,8 +36,9 @@ function SwitchPages() {
 
           try {
 			const response = await axios.post('http://tcspedroverani.herokuapp.com/user/create', data);
-			if(response.data.auth) alert('Logou');
-			localStorage.setItem('qwert', response.data.token);
+			if(response.data.auth) alert('Logou'); 
+                  localStorage.setItem('qwert', response.data.token);
+                  //location.href = '/home'
 		  } catch (error) {
 			  
 		  }
