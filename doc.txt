@@ -1,7 +1,7 @@
 endpoints : 
 
 
-1 ) https://tcspedroverani.herokuapp.com/news/scrap 
+1 ) http://tcspedroverani.herokuapp.com/news/scrap 
 Aqui envia-se uma url e devolverá o conteúdo;
 Exemplo de body: 
 {
@@ -13,7 +13,7 @@ Retorno será uma String com o conteudo
 
 Headers : content-type : application/json e accept : application/json
 
-2) https://tcspedroverani.herokuapp.com/news/create
+2) http://tcspedroverani.herokuapp.com/news/create
 
 Exemplo de body : 
 {
@@ -24,24 +24,24 @@ Exemplo de body :
 Objeto com propriedade url e content
 
 
-3)  https://tcspedroverani.herokuapp.com/user/recover
+3)  http://tcspedroverani.herokuapp.com/user/recover
 Endpoint pra recuperar a senha 
 enviar objeto com propriedade email : email
 
 4) GET   https://tcspedroverani.herokuapp.com/user/clean
 Ao bater na url o usuário da sessão terá todo o histórico deletado, (não vai funcionar no teu react)
 
-5) https://tcspedroverani.herokuapp.com/user/login
+5) http://tcspedroverani.herokuapp.com/user/login
 Aqui recebe um objeto  { 
 userName: ‘pedrosarkisverani@gmail.com’
 userPassword:’ssffdd66’ }
 
 Por enquanto o retorno será somente  ‘Ok’ ou ‘ A senha está incorreta’ 
 
-6)GET   https://tcspedroverani.herokuapp.com/user/history
+6)GET   http://tcspedroverani.herokuapp.com/user/history
 Pega todas as notícias do usuário, não vai funcionário no react ainda
 
-7)  https://tcspedroverani.herokuapp.com/group/create
+7)  http://tcspedroverani.herokuapp.com/group/create
 
 enviar um objeto 
 {
@@ -52,10 +52,10 @@ createdBy: ‘pedro.verani@ahgora.com.br’,
 }
 Emails separados por vírgula.
 
-8) GET https://tcspedroverani.herokuapp.com/group/view
+8) GET http://tcspedroverani.herokuapp.com/group/view
 Ele vai retornar o grupo do usuário logado, não vai funcionar no react ainda 
 
-9)https://tcspedroverani.herokuapp.com/user/create
+9)http://tcspedroverani.herokuapp.com/user/create
 Aqui é pra mandar um objeto 
 {
 email: ‘pedropverani@hotmail.com’.
