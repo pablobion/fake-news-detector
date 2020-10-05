@@ -41,9 +41,16 @@ function HomePage() {
 			'Content-Type': 'application/json',
 			}
 		}
+		try {
+			const response = await fetch('http://tcspedroverani.herokuapp.com/news/create', settings);
+			const data = await response.json();
+			if(data.success === 'ok') {
+				console.log(data.veredict); //veredict diz se a noticia é true ou false;
+			}
+		} catch (error) {
+			
+		}
 		
-
-		const response = await fetch('http://tcspedroverani.herokuapp.com/news/create', settings);
 	}
 
 
