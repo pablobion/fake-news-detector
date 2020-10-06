@@ -12,6 +12,10 @@ export default createGlobalStyle`
           background-color: #FFFDFB; 
      }
 
+     html {
+          scroll-behavior: smooth;
+     }
+
      body, input, button {
           font: 62.5% Roboto, sans-serif;
      }

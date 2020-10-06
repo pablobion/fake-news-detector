@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const Switch = styled.p`
+export const Switch = styled.button`
     min-width: 50px;
     font-size: 0.5rem;
+    border: none;
+    background-color: transparent;
     
     @media (min-width: 700px){
         font-size: 0.9rem;
