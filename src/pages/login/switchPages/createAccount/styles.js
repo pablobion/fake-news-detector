@@ -8,6 +8,7 @@ export const CreateArea = styled.div`
         justify-content: center;
         align-items: center;
         
+        
 
         .header {
                 display: flex;

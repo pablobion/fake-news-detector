@@ -88,9 +88,10 @@ function HomePage() {
 				<div className="header" id="section1">
 					<div>
 						<p className='header-title'>Identifique se a noticia é falsa.</p>
-						<a href="#section2">Click Me</a>
-						<button onClick={changeMode}>Switch</button>
-
+						{/* <a href="#section2">Click Me</a> */}
+						{mode == 'text' && <button onClick={changeMode}>Mudar para {userInput.mode}</button>}
+						{mode == 'url' && <button onClick={changeMode}>Mudar para texto</button>}
+						
 					</div>
 				</div>
 				<div className="content">
@@ -107,7 +108,7 @@ function HomePage() {
 						<>
 							<div className='urlmode-title'>
 								<img src={UrlIcon2} alt="" />
-								<h3>Insira o texto da noticia abaixo</h3>
+								<h3>Insira a url da noticia abaixo</h3>
 							</div>
 							<div className="urlmode">
 								<img src={UrlIcon} alt="" />

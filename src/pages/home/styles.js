@@ -16,12 +16,23 @@ export const Home = styled.div`
 
             .header-title {
                 font-size: 14px;
-
                 @media (min-width: 700px){
                     font-size: 30px;
                 }
-
                 margin-right: 30px;
+            }
+
+            button {
+                font-size: 14px;
+                background: #00B0FF;
+                color: white;
+                border: none;
+                width: 150px;
+                height: 30px;
+                border-radius: 10vh;
+                &:hover {
+                    background: ${shade(0.1, '#00B0FF')}
+                } 
             }
         }
     }
