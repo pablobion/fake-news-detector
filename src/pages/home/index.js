@@ -35,10 +35,11 @@ function HomePage() {
 		if(!authorization) window.location.reload(true); //supondo que o usuario ta logado, deletou o localStorage,e tenta enviar uma noticia, é pra desloga-lo, o reload fará isso
 		const settings = {
 			method: 'POST',
-			body: JSON.stringify({content, url, authorization}),
+			body: JSON.stringify({content, url}),
 			headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
+			'Authorization': authorization,
 			}
 		}
 		try {
