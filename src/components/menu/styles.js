@@ -7,10 +7,9 @@ input{
   display:none;
 }
 
-.menu-hamb {
-      
+.menu-hamb {      
         width: 100vw;
-        height: 80px;
+        height: 60px;
         position: absolute;
         transition: .5s ease-in-out;
     }
