@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Login from '../pages/login'
-import Home from '../pages/home'
+import Detector from '../pages/detector'
 
 function routes() {
   return (
@@ -12,7 +12,7 @@ function routes() {
         <Route path='/lostaccount' exact component={Login} />
         <Route path='/createaccount' exact component={Login} />
 
-        <Route path='/home' exact component={Home} />
+        <Route path='/detector' exact component={Detector} />
 
         <Route path='/' exact component={Login}>
           <Redirect to="/login" />
