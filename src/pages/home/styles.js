@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const Home = styled.div`
-    
     background-color: white;
 
     .header {
         margin-top: 20px;
+
         div {
             display: flex;
             align-items: center;
@@ -16,13 +16,16 @@ export const Home = styled.div`
 
             .header-title {
                 font-size: 14px;
-                @media (min-width: 700px){
+                @media (min-width: 500px){
                     font-size: 30px;
                 }
                 margin-right: 30px;
             }
 
             button {
+                @media (max-width: 400px){
+                    margin-top: 10px;
+                }
                 font-size: 14px;
                 background: #00B0FF;
                 color: white;
@@ -36,9 +39,7 @@ export const Home = styled.div`
             }
         }
     }
-    html {
-  scroll-behavior: smooth;
-}
+    
 
     .content {
         display: flex;
@@ -53,14 +54,16 @@ export const Home = styled.div`
             border-radius: 1vh;
             resize: none;
             width: 80vw;
+
             @media (min-width: 700px){
                 width: 60vw;
             }
+
             height: 350px;
             padding: 10px;
             cursor: text;
-
             animation: grow1 1s forwards;
+
             @keyframes grow1 {
                 from {
                     height: 10%;
@@ -69,6 +72,7 @@ export const Home = styled.div`
                     height: 75%;
                 }
             }
+
         }
 
         textarea::-webkit-scrollbar {
@@ -83,9 +87,7 @@ export const Home = styled.div`
         }
 
             button{
-               
                 margin-bottom: 100px;
-
                 background:  #009b00;
                 border-radius: 1.2vh;
                 border: 0;
@@ -93,9 +95,11 @@ export const Home = styled.div`
                 font-weight: bold;
                 transition: background-color 0.2s;
                 cursor: pointer;
+
                 &:hover {
                     background: ${shade(0.2, '#009b00')}
                 } 
+
                 margin-top: 30px;
                 height: 50px;
                 font-size: 20px;
@@ -156,9 +160,9 @@ export const Home = styled.div`
             border: 0.5px solid;       
             border-radius: 1vh;
             padding: 10px;
+            
             img {
                 padding: 10px;
-
                 animation: grow2 1s forwards;
                 @keyframes grow2 {
                     from {
@@ -194,6 +198,9 @@ export const Home = styled.div`
 
     .result {
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
     }
 
 

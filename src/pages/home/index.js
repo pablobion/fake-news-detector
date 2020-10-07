@@ -42,11 +42,11 @@ function HomePage() {
 		if (!authorization) window.location.reload(true); //supondo que o usuario ta logado, deletou o localStorage,e tenta enviar uma noticia, é pra desloga-lo, o reload fará isso
 		const settings = {
 			method: 'POST',
-			body: JSON.stringify({content, url}),
+			body: JSON.stringify({ content, url }),
 			headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json',
-			'Authorization': authorization,
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': authorization,
 			}
 		}
 		try {
@@ -78,7 +78,7 @@ function HomePage() {
 	const [mode, setMode] = useState('text')
 
 	const changeMode = () => {
-		mode === 'url' ? setMode('text') : setMode('url') 
+		mode === 'url' ? setMode('text') : setMode('url')
 	}
 
 	return (
@@ -91,7 +91,7 @@ function HomePage() {
 						{/* <a href="#section2">Click Me</a> */}
 						{mode == 'text' && <button onClick={changeMode}>Mudar para {userInput.mode}</button>}
 						{mode == 'url' && <button onClick={changeMode}>Mudar para texto</button>}
-						
+
 					</div>
 				</div>
 				<div className="content">
@@ -116,9 +116,13 @@ function HomePage() {
 							</div>
 						</>
 					}
+					<a href="#section2">
 					<button type='submit'>Enviar noticia</button>
+					</a>
 				</div>
-				<div className="result" id="section2"></div>
+				<div className="result" id="section2">
+					<h1>Provavelmente é fake</h1>
+				</div>
 			</Home>
 		</>
 	)
