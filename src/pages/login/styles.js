@@ -10,7 +10,7 @@ export const Container = styled.div`
         position:fixed;
         z-index: -1;
         width:100%;
-        bottom: 0;
+        top: 50%;
         animation: grow0 1s forwards;
         @keyframes grow0 {
             from {

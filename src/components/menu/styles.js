@@ -87,10 +87,10 @@ input:checked ~ .ul-mbl {
 
 .ul-mbl div {
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
 
-  a {
+  span {
     margin-left: 20px;
   }
 }

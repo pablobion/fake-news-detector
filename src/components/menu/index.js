@@ -27,10 +27,10 @@ function MenuComponent() {
           </label>
 
           <ul class="ul-mbl">
-            <div><img className='icon' src={FakeIcon} alt="" /><a href='#'>Detector</a></div>
-            <div><img className='icon' src={GroupIcon} alt="" /><a href='#'>Grupos</a></div>
-            <div><img className='icon' src={AboutIcon} alt="" /><a href='#'>Sobre Nós</a></div>
-            
+            <a href='#'><div><img className='icon' src={FakeIcon} alt="" /><span>Detector</span></div></a>
+            <a href='#'><div><img className='icon' src={GroupIcon} alt="" /><span>Grupos</span></div></a>
+            <a href='#'><div><img className='icon' src={AboutIcon} alt="" /><span>Sobre Nós</span></div></a>
+
           </ul>
         </MenuMobile>
       }
