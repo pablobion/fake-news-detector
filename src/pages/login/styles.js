@@ -10,14 +10,15 @@ export const Container = styled.div`
         position:fixed;
         z-index: -1;
         width:100%;
-        top: 50%;
+        bottom: 0;
         animation: grow0 1s forwards;
-        @keyframes grow0 {
+
+            @keyframes grow0 {
             from {
                 height: 65%;
             }
             to {
-                height: 70%;
+                height: 25%;
             }
             }
         @media (min-width: 700px){
@@ -26,6 +27,16 @@ export const Container = styled.div`
             z-index: -1;
             width:100%;
             bottom: 0;
+            animation: grow0 1s forwards;
+
+            @keyframes grow0 {
+            from {
+                height: 65%;
+            }
+            to {
+                height: 75%;
+            }
+            }
         }
         @media (min-width: 1600px){ /* Para a imagem não ficar muito grande caso a tela seja super widescreen */
             background-size: cover;

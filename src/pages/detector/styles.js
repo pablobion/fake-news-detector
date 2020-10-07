@@ -206,7 +206,7 @@ export const Home = styled.div`
 
 
     #section2 {
-        background-color: yellow;
+        background-color: OldLace;
     }
 
 `
