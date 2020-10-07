@@ -17,7 +17,8 @@ input{
 
 
 input:checked ~ label .menu-hamb {
-        background: #fff;
+        background-color: rgba(255, 255, 255, 0.5) ;
+        backdrop-filter: blur(2px);
         width: 100vw;
         height: 100vh;
         position:fixed;
