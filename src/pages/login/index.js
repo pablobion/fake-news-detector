@@ -1,19 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter, Link } from 'react-router-dom'
+import Routes from '../../routes/routesSwitchLogin'
 
 import { Container } from './styles';
+
 import logoImg from '../../assets/logo4.svg'
 import fakeNewsIcon from '../../assets/fakenewsicon.svg'
 
-import { BrowserRouter, Link } from 'react-router-dom'
-import Routes from '../../routes/routesSwitchLogin'
 
 
 function LoginPage() {
 
- 
   const [widthscreen, setWidthscreen] = useState(window.screen.width);
-
-
 
   return (
     <>
@@ -52,8 +50,6 @@ function LoginPage() {
 
     </>
   )
-
-
 }
 
 export default LoginPage;

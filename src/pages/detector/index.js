@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react';
-
 import { Home } from './styles';
+
 
 
 //componentes
@@ -8,7 +8,6 @@ import Switch from '../../components/switchToggle/index'
 import Menu from '../../components/menu/index'
 
 //icons
-
 import UrlIcon from '../../assets/link.svg'
 import UrlIcon2 from '../../assets/link2.svg'
 import TextIcon from '../../assets/text.svg'
