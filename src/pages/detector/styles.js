@@ -4,6 +4,7 @@ import { shade } from 'polished'
 export const Home = styled.div`
     background-color: white;
 
+
     .header {
         margin-top: 20px;
 

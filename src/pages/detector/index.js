@@ -13,7 +13,7 @@ import UrlIcon from '../../assets/link.svg'
 import UrlIcon2 from '../../assets/link2.svg'
 import TextIcon from '../../assets/text.svg'
 
-function HomePage() {
+function DetectorPage() {
 
 	const scrapUrl = async url => {
 		const settings = {
@@ -128,4 +128,4 @@ function HomePage() {
 	)
 }
 
-export default HomePage;
+export default DetectorPage;
