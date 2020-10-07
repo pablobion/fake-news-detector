@@ -7,19 +7,18 @@ export const CreateArea = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
-        
 
         .header {
                 display: flex;
                 align-items: center;
                 width: 100%;
                 margin-top: 20px;
+
                 .back-icon {
                         width: 25px;
                     
                 }
-                
+            
                 .div-title-header{
                         display: flex;
                         align-items: center;
@@ -32,9 +31,6 @@ export const CreateArea = styled.div`
                         }
                 }
         }
-
-        
-
 
             form {
                 display: flex;

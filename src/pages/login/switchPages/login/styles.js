@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const LoginArea = styled.div`
-
-
         form {
                 display: flex;
                 flex-direction: column;
@@ -33,11 +31,8 @@ export const LoginArea = styled.div`
                                 color: ${shade(0.5, '#00B0FF')}
                                 } 
                                 cursor: pointer;
-                        }
-                      
-                       
+                        }             
                 }
-
                         button{
                                 position: absolute;
                                 bottom: 0;
@@ -56,11 +51,7 @@ export const LoginArea = styled.div`
                                 height: 50px;
                                 font-size: 20px;
                                 width: 150px;
-                        }
-
-                
-        
-             
+                        }      
         }
 `
 

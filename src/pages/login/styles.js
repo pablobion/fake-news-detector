@@ -13,14 +13,14 @@ export const Container = styled.div`
         bottom: 0;
         animation: grow0 1s forwards;
 
-            @keyframes grow0 {
+        @keyframes grow0 {
             from {
                 height: 65%;
             }
             to {
                 height: 25%;
             }
-            }
+        }
         @media (min-width: 700px){
             background-size: cover;
             position:fixed;
@@ -28,15 +28,15 @@ export const Container = styled.div`
             width:100%;
             bottom: 0;
             animation: grow0 1s forwards;
-
             @keyframes grow0 {
-            from {
-                height: 65%;
+                from {
+                    height: 65%;
+                }
+                to {
+                    height: 75%;
+                }
             }
-            to {
-                height: 75%;
-            }
-            }
+
         }
         @media (min-width: 1600px){ /* Para a imagem não ficar muito grande caso a tela seja super widescreen */
             background-size: cover;
@@ -107,7 +107,6 @@ export const Container = styled.div`
             padding: 5% 5% 5% 5%;
             display: flex;
             flex-direction: column;
-    
             align-items: center;   
             height: 430px;
         }   

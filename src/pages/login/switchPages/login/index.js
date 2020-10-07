@@ -1,8 +1,10 @@
 import React, { useReducer } from 'react';
-import axios from 'axios';
-import { LoginArea, LinkCreateAccount } from './styles.js'
-import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+
+import { LoginArea, LinkCreateAccount } from './styles.js'
+
+import { useForm } from 'react-hook-form'
 
 function SwitchPages(props) {
 
@@ -47,11 +49,6 @@ function SwitchPages(props) {
 
                                 </form>
                         </LoginArea>
-
-
-
-
-
                 </>
         )
 }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form'
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 import { LostAccountArea } from './styles'
 
-import LeftArrow from '../../../../assets/left-arrow.svg'
-import {Link} from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 
+import LeftArrow from '../../../../assets/left-arrow.svg'
 import Animation from './animation'
 
 function SwitchPages() {
