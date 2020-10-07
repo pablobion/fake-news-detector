@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
 export const Menu = styled.div`
-    border: 1px solid lightgray;
+   
     height: 60px;
     display: flex;
-    box-shadow: 1px 1px 10px 0.1px lightgray;
-    padding: 5px 5px 0px 50px;
+    padding: 5px 5px 10px 50px;
+
+    button {
+      border: none;
+      background-color: transparent;
+    }
 
     div {
         width: 80px;
