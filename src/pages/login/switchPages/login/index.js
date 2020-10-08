@@ -25,8 +25,24 @@ function SwitchPages(props) {
         );
 
         const loginPage = async data => {
-                const response = await axios.post('http://tcspedroverani.herokuapp.com/user/login', data);
-                if(response.data.success) alert('login feito com sucesso'); //aqui será o location.href = '/home'
+                const settings = {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			}
+		}
+		try {
+			const response = await fetch('http://tcspedroverani.herokuapp.com/user/login', settings);
+			const data = await response.json();
+			if (data.success) {
+			        window.location.href = '/detector';
+			}
+
+		} catch (error) {
+			alert('Erro ao fazer login');
+		}
         }
 
         return (

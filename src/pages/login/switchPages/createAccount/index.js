@@ -28,7 +28,6 @@ function SwitchPages() {
       }
 
       const createAccount = async (data) => {
-			//axios.defaults.withCredentials = true
             if (userInput.password !== userInput.passAgain) {
                   alert('As senhas não conferem');
                   return false;
