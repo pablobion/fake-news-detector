@@ -34,7 +34,7 @@ function SwitchPages(props) {
 			}
 		}
 		try {
-			const response = await fetch('http://tcspedroverani.herokuapp.com/user/login', settings);
+			const response = await fetch('https://tcspedroverani.herokuapp.com/user/login', settings);
 			const data = await response.json();
 			if (data.success) {
 			        window.location.href = '/detector';
