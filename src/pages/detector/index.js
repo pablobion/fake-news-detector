@@ -24,7 +24,7 @@ function DetectorPage() {
 			}
 		}
 		try {
-			const response = await fetch('http://tcspedroverani.herokuapp.com/news/scrap', settings);
+			const response = await fetch('https://tcspedroverani.herokuapp.com/news/scrap', settings);
 			const data = await response.json();
 			if (data) {
 				//aqui vai retornar uma string gigante com o conteudo coletado da noticia, tem que colocar o valor disso aqui, no text area
@@ -49,7 +49,7 @@ function DetectorPage() {
 			}
 		}
 		try {
-			const response = await fetch('http://tcspedroverani.herokuapp.com/news/create', settings);
+			const response = await fetch('https://tcspedroverani.herokuapp.com/news/create', settings);
 			const data = await response.json();
 			if (data.success === 'ok') {
 				console.log(data.veredict); //veredict diz se a noticia é true ou false;
