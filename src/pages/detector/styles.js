@@ -20,7 +20,6 @@ export const Home = styled.div`
 
     background-color: white;
 
-
     .header {
         margin-top: 20px;
 
@@ -73,14 +72,14 @@ export const Home = styled.div`
             border-radius: 1vh;
             resize: none;
             width: 80vw;
+            height: 350px;
+            padding: 10px;
+            cursor: text;
 
             @media (min-width: 700px){
                 width: 60vw;
             }
 
-            height: 350px;
-            padding: 10px;
-            cursor: text;
             animation: grow1 1s forwards;
 
             @keyframes grow1 {
@@ -91,7 +90,6 @@ export const Home = styled.div`
                     height: 75%;
                 }
             }
-
         }
 
         textarea::-webkit-scrollbar {
@@ -205,7 +203,6 @@ export const Home = styled.div`
 
 
             .content-footer {  
-
                 button{
                     background:  #009b00;
                     border-radius: 1.2vh;
@@ -301,14 +298,13 @@ export const Result = styled.div`
 		border-radius: 1vh;
 		resize: none;
 		width: 80vw;
+		height: 350px;
+		padding: 10px;
+		cursor: text;
 
 		@media (min-width: 700px) {
 			width: 60vw;
 		}
-
-		height: 350px;
-		padding: 10px;
-		cursor: text;
 	}
 
 	textarea::-webkit-scrollbar {
