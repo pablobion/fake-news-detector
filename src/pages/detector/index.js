@@ -134,9 +134,9 @@ function DetectorPage() {
 			<Menu />
 
 			<Home>
-				{/* <div id="animation-girlsearch">
+				<div id="animation-girlsearch">
 					<GirlSearch />
-				</div> */}
+				</div>
 
 				<div className="header" id="section1">
 					<div>
@@ -198,7 +198,7 @@ function DetectorPage() {
 					</div>
 				</div>
 
-				<Result id="section2" color="lightgreen">
+				<Result id="section2" color="transparent">
 					<div className="div-title-result">
 						<h1 className="title-result">A noticia provavelmente</h1>
 						<h1 className="title-result">FAKE</h1>

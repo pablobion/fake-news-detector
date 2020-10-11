@@ -21,8 +21,10 @@ export const Home = styled.div`
     /* animations lottie */
     #animation-girlsearch {
         position: absolute;
-        bottom: 0;
+        bottom: 3%;
+        width: 270px;
         @media (max-width: 700px){
+            width: 100px;
         }
     }
 
@@ -36,17 +38,20 @@ export const Home = styled.div`
             flex: 1;
             flex-wrap: wrap;
 
+
             .header-title {
                 font-size: 14px;
-                @media (min-width: 500px){
+                @media (min-width: 700px){
+                    margin-right: 30px;
                     font-size: 30px;
+                    
                 }
-                margin-right: 30px;
+                
             }
 
             button {
                 @media (max-width: 400px){
-                    margin-top: 10px;
+                    margin-top: 5px;
                 }
                 font-size: 14px;
                 background: #00B0FF;
@@ -70,10 +75,9 @@ export const Home = styled.div`
         justify-content: space-between;
         padding-top: 80px;
         flex: 1;
-        height: 80vh;
-        @media (min-width: 700px){
-            height: 90vh;
-        }
+        height: 85vh;
+       
+      
 
 
         /* TEXT MODE */
@@ -83,6 +87,10 @@ export const Home = styled.div`
             width: 80vw;
             height: 350px;
             padding: 10px;
+            margin-bottom: 5px;
+            z-index: 1; /* deixa em cima da animação */
+            background: rgba(255, 255, 255, 0.1); /* deixa o fundo branco transparente */
+            backdrop-filter: blur(1px);
             cursor: text;
 
             @media (min-width: 700px){
@@ -231,7 +239,10 @@ export const Home = styled.div`
                     width: 150px;
                 }
                 #sendnews {
-                    margin-bottom: 60px;
+                    margin-bottom: 20px;
+                    @media (min-width: 700px){
+                        margin-bottom: 60px;
+                    }
                 }
 
                 .pagination {
