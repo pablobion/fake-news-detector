@@ -27,10 +27,7 @@ function DetectorPage() {
 		try {
 			const response = await fetch('https://tcspedroverani.herokuapp.com/news/scrap', settings)
 			const data = await response.json()
-			return data
-			if (data) {
-				//aqui vai retornar uma string gigante com o conteudo coletado da noticia, tem que colocar o valor disso aqui, no text area
-			}
+			return data;
 		} catch (error) {
 			console.log(error)
 			alert('Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto')
@@ -111,7 +108,8 @@ function DetectorPage() {
 			document.getElementById('pagination1').style.background = 'white'
 			document.getElementById('pagination2').style.background = 'lightgray'
 			setUserInput({ ['nameButton']: 'Enviar Noticia' }) //Troca o nome do botão
-			await scrapUrl(userInput.url)
+			const contentScraped = await scrapUrl(userInput.url);
+			setUserInput({ ['content']: contentScraped.content})
 		} else {
 			shake('divurl')
 		}
