@@ -126,8 +126,9 @@ export const Home = styled.div`
         }
 
 
+
+
         /* URL MODE */
-       
 
         .urlmode-title {
             display: flex;
