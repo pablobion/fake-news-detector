@@ -197,15 +197,14 @@ function DetectorPage() {
 						)}
 					</div>
 				</div>
-
-				<Result id="section2" color="transparent">
-					<div className="div-title-result">
-						<h1 className="title-result">A noticia provavelmente</h1>
-						<h1 className="title-result">FAKE</h1>
-					</div>
-					<textarea className="content-textarea"></textarea>
-				</Result>
 			</Home>
+			<Result id="section2" color="green">
+				<div className="div-title-result">
+					<h1 className="title-result">A noticia provavelmente</h1>
+					<h1 className="title-result">FAKE</h1>
+				</div>
+				<textarea className="content-textarea"></textarea>
+			</Result>
 		</>
 	)
 }

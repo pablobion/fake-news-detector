@@ -1,14 +1,22 @@
 import styled from 'styled-components'
 
 export const MenuMobile = styled.div`
-	height: 50px;
+	height: 30px;
+	@media (min-width: 500px) {
+		height: 40px;
+	}
+
 	input {
 		display: none;
 	}
 
 	.menu-hamb {
 		width: 100vw;
-		height: 60px;
+		height: 30px;
+		@media (min-width: 500px) {
+			height: 60px;
+		}
+
 		position: absolute;
 		transition: 0.5s ease-in-out;
 	}

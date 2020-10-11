@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const Home = styled.div`
+    height: 100vh;
     /* Animations component */
 
     @keyframes shake {
@@ -21,7 +22,7 @@ export const Home = styled.div`
     /* animations lottie */
     #animation-girlsearch {
         position: absolute;
-        bottom: 3%;
+        bottom: 0;
         width: 270px;
         @media (max-width: 700px){
             width: 100px;
@@ -36,23 +37,25 @@ export const Home = styled.div`
             align-items: center;
             justify-content: center;
             flex: 1;
-            flex-wrap: wrap;
+            @media (max-width: 550px){
+                flex-direction: column;
+            }
 
 
             .header-title {
                 font-size: 14px;
-                @media (min-width: 700px){
-                    margin-right: 30px;
-                    font-size: 30px;
-                    
+                margin-right: 10px;
+                
+                @media (max-width: 550px){
+                    margin-bottom: 5px;
+                }
+                @media (min-width: 550px){
+                    font-size: 25px;  
                 }
                 
             }
 
             button {
-                @media (max-width: 400px){
-                    margin-top: 5px;
-                }
                 font-size: 14px;
                 background: #00B0FF;
                 color: white;
