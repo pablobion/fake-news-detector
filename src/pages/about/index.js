@@ -1,13 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './styles';
+import { Container } from './styles'
+
+import Menu from '../../components/menu'
 
 const About = () => {
-  return (
-    <Container>
-      <h1>about</h1>
-    </Container>
-  );
-};
+	return (
+		<>
+			<Menu />
+			<Container>
+				<h1>about</h1>
+			</Container>
+		</>
+	)
+}
 
-export default About;
+export default About
