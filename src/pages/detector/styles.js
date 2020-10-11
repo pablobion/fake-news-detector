@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const Home = styled.div`
-    /* Animations */
+    /* Animations component */
 
     @keyframes shake {
                 0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -18,7 +18,13 @@ export const Home = styled.div`
                 100% { transform: translate(1px, -2px) rotate(-1deg); }
     }
 
-    background-color: white;
+    /* animations lottie */
+    #animation-girlsearch {
+        position: absolute;
+        bottom: 0;
+        @media (max-width: 700px){
+        }
+    }
 
     .header {
         margin-top: 20px;
@@ -64,7 +70,10 @@ export const Home = styled.div`
         justify-content: space-between;
         padding-top: 80px;
         flex: 1;
-        height: 90vh;
+        height: 80vh;
+        @media (min-width: 700px){
+            height: 90vh;
+        }
 
 
         /* TEXT MODE */

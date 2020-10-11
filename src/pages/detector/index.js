@@ -9,28 +9,30 @@ import UrlIcon from '../../assets/link.svg'
 import UrlIcon2 from '../../assets/link2.svg'
 import TextIcon from '../../assets/text.svg'
 
-function DetectorPage() {
+//animations
+import GirlSearch from './animations/searchGirl/animation'
 
-	const scrapUrl = async url => {
+function DetectorPage() {
+	const scrapUrl = async (url) => {
 		const authorization = localStorage.getItem('qwert')
 		const settings = {
-			'method': 'POST',
-			'body': JSON.stringify({url}),
-			'headers': {
-				'Accept': 'application/json',
+			method: 'POST',
+			body: JSON.stringify({ url }),
+			headers: {
+				Accept: 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization': authorization
+				Authorization: authorization,
 			},
 		}
 		try {
 			const response = await fetch('https://tcspedroverani.herokuapp.com/news/scrap', settings)
 			const data = await response.json()
-			return data;
+			return data
 			if (data) {
 				//aqui vai retornar uma string gigante com o conteudo coletado da noticia, tem que colocar o valor disso aqui, no text area
 			}
 		} catch (error) {
-			console.log(error);
+			console.log(error)
 			alert('Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto')
 		}
 	}
@@ -42,9 +44,9 @@ function DetectorPage() {
 			method: 'POST',
 			body: JSON.stringify({ content, url }),
 			headers: {
-				'Accept': 'application/json',
+				Accept: 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization': authorization,
+				Authorization: authorization,
 			},
 		}
 		try {
@@ -109,7 +111,7 @@ function DetectorPage() {
 			document.getElementById('pagination1').style.background = 'white'
 			document.getElementById('pagination2').style.background = 'lightgray'
 			setUserInput({ ['nameButton']: 'Enviar Noticia' }) //Troca o nome do botão
-			await scrapUrl(userInput.url);
+			await scrapUrl(userInput.url)
 		} else {
 			shake('divurl')
 		}
@@ -130,7 +132,12 @@ function DetectorPage() {
 	return (
 		<>
 			<Menu />
+
 			<Home>
+				{/* <div id="animation-girlsearch">
+					<GirlSearch />
+				</div> */}
+
 				<div className="header" id="section1">
 					<div>
 						<p className="header-title">Identifique se a noticia é falsa.</p>
