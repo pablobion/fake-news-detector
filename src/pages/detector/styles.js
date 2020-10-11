@@ -2,6 +2,22 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const Home = styled.div`
+    /* Animations */
+
+    @keyframes shake {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                20% { transform: translate(-3px, 0px) rotate(1deg); }
+                30% { transform: translate(3px, 2px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(1deg); }
+                50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                60% { transform: translate(-3px, 1px) rotate(0deg); }
+                70% { transform: translate(3px, 1px) rotate(-1deg); }
+                80% { transform: translate(-1px, -1px) rotate(1deg); }
+                90% { transform: translate(1px, 2px) rotate(0deg); }
+                100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
     background-color: white;
 
 
@@ -51,6 +67,8 @@ export const Home = styled.div`
         flex: 1;
         height: 90vh;
 
+
+        /* TEXT MODE */
         .content-textarea{
             border-radius: 1vh;
             resize: none;
@@ -87,26 +105,6 @@ export const Home = styled.div`
             background-color: #4285F4; 
         }
 
-            button{
-                margin-bottom: 100px;
-                background:  #009b00;
-                border-radius: 1.2vh;
-                border: 0;
-                color: #FFF;
-                font-weight: bold;
-                transition: background-color 0.2s;
-                cursor: pointer;
-
-                &:hover {
-                    background: ${shade(0.2, '#009b00')}
-                } 
-
-                margin-top: 30px;
-                height: 50px;
-                font-size: 20px;
-                width: 150px;
-            }
-
         .textmode-title {
             display: flex;
             align-items: center;
@@ -126,6 +124,10 @@ export const Home = styled.div`
                 }
             }
         }
+
+
+        /* URL MODE */
+       
 
         .urlmode-title {
             display: flex;
@@ -148,6 +150,11 @@ export const Home = styled.div`
             
         }
         
+
+        #verify-news {
+            margin-bottom: 10px;
+        }
+
         .urlmode{
             display: flex;
             align-items: center;
@@ -158,21 +165,22 @@ export const Home = styled.div`
                 width: 60vw;
                 height: 60px;
             }      
-            border: 0.5px solid;       
+            border: 0.5px solid black;       
             border-radius: 1vh;
             padding: 10px;
             
             img {
                 padding: 10px;
                 animation: grow2 1s forwards;
+                
                 @keyframes grow2 {
                     from {
-                        height: 5%;
+                        height: 15%;
                     }
                     to {
-                        height: 90%;
+                        height: 40px;
                     }
-            }
+                }
             }
 
             input {
@@ -195,18 +203,123 @@ export const Home = styled.div`
                 }
             }
         }
+
+
+            .content-footer {  
+
+                button{
+                    background:  #009b00;
+                    border-radius: 1.2vh;
+                    border: 0;
+                    color: #FFF;
+                    font-weight: bold;
+                    transition: background-color 0.2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: ${shade(0.2, '#009b00')}
+                    } 
+
+                
+                    height: 50px;
+                    font-size: 20px;
+                    width: 150px;
+                }
+                #sendnews {
+                    margin-bottom: 60px;
+                }
+
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    margin-top: 10px;
+                    
+                    .paginations {
+                        width: 20px;
+                        height: 20px;
+                        border: none;
+                        border-radius: 30px;
+                        border: 1px solid gray;
+                        animation: fadeinpagination 2s forwards;
+                        @keyframes fadeinpagination{
+                             0% { opacity: 0; }
+                            100% { opacity: 1; } 
+                            }
+                            @-moz-keyframes fadeIn {
+                            0% { opacity: 0;}
+                            100% { opacity: 1; }
+                            }
+                            @-o-keyframes fadeIn {
+                            0% { opacity: 0; }
+                            100% { opacity: 1; }
+                            }
+                            @keyframes fadeIn {
+                            0% { opacity: 0; }
+                            100% { opacity: 1; }
+                            }
+                        }
+                    }
+                    #pagination1 {
+                        background-color: lightgray;
+                    }
+                    #pagination2 {
+                        background-color: transparent;
+                        margin-left: 10px;
+                    }
+
+                }
+                
+            }
+        }
     }
 
-    .result {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-    }
+`
 
+export const Result = styled.div`
+	background-color: ${(props) => props.color};
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 20px;
 
-    #section2 {
-        background-color: OldLace;
-    }
+	.div-title-result {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		.title-result {
+			font-size: 30px;
+		}
+		h1 + h1 {
+			margin-top: 30px;
+		}
+	}
 
+	.content-textarea {
+		border-radius: 1vh;
+		resize: none;
+		width: 80vw;
+
+		@media (min-width: 700px) {
+			width: 60vw;
+		}
+
+		height: 350px;
+		padding: 10px;
+		cursor: text;
+	}
+
+	textarea::-webkit-scrollbar {
+		width: 12px;
+		background-color: #f5f5f5;
+	}
+
+	textarea::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+		background-color: #4285f4;
+	}
 `
