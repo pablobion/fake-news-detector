@@ -25,28 +25,22 @@ function MenuComponent() {
 
 					<ul class="ul-mbl">
 						<Link to="/detector" style={{ textDecoration: 'none' }}>
-							<a href="#">
-								<div>
-									<img className="icon" src={FakeIcon} alt="" />
-									<span>Detector</span>
-								</div>
-							</a>
+							<div>
+								<img className="icon" src={FakeIcon} alt="" />
+								<span>Detector</span>
+							</div>
 						</Link>
 						<Link to="/groups" style={{ textDecoration: 'none' }}>
-							<a href="#">
-								<div>
-									<img className="icon" src={GroupIcon} alt="" />
-									<span>Grupos</span>
-								</div>
-							</a>
+							<div>
+								<img className="icon" src={GroupIcon} alt="" />
+								<span>Grupos</span>
+							</div>
 						</Link>
 						<Link to="/about" style={{ textDecoration: 'none' }}>
-							<a href="#">
-								<div>
-									<img className="icon" src={AboutIcon} alt="" />
-									<span>Sobre Nós</span>
-								</div>
-							</a>
+							<div>
+								<img className="icon" src={AboutIcon} alt="" />
+								<span>Sobre Nós</span>
+							</div>
 						</Link>
 					</ul>
 				</MenuMobile>
