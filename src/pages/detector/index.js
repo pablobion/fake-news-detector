@@ -14,9 +14,9 @@ function DetectorPage() {
 	const scrapUrl = async url => {
 		const authorization = localStorage.getItem('qwert')
 		const settings = {
-			method: 'POST',
-			body: JSON.stringify({url}),
-			headers: {
+			'method': 'POST',
+			'body': JSON.stringify({url}),
+			'headers': {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 				'Authorization': authorization
