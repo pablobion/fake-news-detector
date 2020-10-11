@@ -10,22 +10,27 @@ import UrlIcon2 from '../../assets/link2.svg'
 import TextIcon from '../../assets/text.svg'
 
 function DetectorPage() {
-	const scrapUrl = async (url) => {
+
+	const scrapUrl = async url => {
+		const authorization = localStorage.getItem('qwert')
 		const settings = {
 			method: 'POST',
-			body: JSON.stringify(url),
+			body: JSON.stringify({url}),
 			headers: {
-				Accept: 'application/json',
+				'Accept': 'application/json',
 				'Content-Type': 'application/json',
+				'Authorization': authorization
 			},
 		}
 		try {
 			const response = await fetch('https://tcspedroverani.herokuapp.com/news/scrap', settings)
 			const data = await response.json()
+			return data;
 			if (data) {
 				//aqui vai retornar uma string gigante com o conteudo coletado da noticia, tem que colocar o valor disso aqui, no text area
 			}
 		} catch (error) {
+			console.log(error);
 			alert('Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto')
 		}
 	}
@@ -37,9 +42,9 @@ function DetectorPage() {
 			method: 'POST',
 			body: JSON.stringify({ content, url }),
 			headers: {
-				Accept: 'application/json',
+				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				Authorization: authorization,
+				'Authorization': authorization,
 			},
 		}
 		try {
@@ -93,7 +98,7 @@ function DetectorPage() {
 		}, 450)
 	}
 
-	const checkNews = () => {
+	const checkNews = async () => {
 		//Função para habilitar textarea antes de enviar a noticia
 		if ((userInput.pagination = '2')) {
 			//Aqui envia a noticia depois de visualizar.
@@ -104,6 +109,7 @@ function DetectorPage() {
 			document.getElementById('pagination1').style.background = 'white'
 			document.getElementById('pagination2').style.background = 'lightgray'
 			setUserInput({ ['nameButton']: 'Enviar Noticia' }) //Troca o nome do botão
+			await scrapUrl(userInput.url);
 		} else {
 			shake('divurl')
 		}
@@ -129,7 +135,7 @@ function DetectorPage() {
 					<div>
 						<p className="header-title">Identifique se a noticia é falsa.</p>
 						{/* <a href="#section2">Click Me</a> */}
-						{userInput.mode === 'text' && <button onClick={changeMode}>Mudar para {userInput.mode}</button>}
+						{userInput.mode === 'text' && <button onClick={changeMode}>Mudar para url</button>}
 						{userInput.mode === 'url' && <button onClick={changeMode}>Mudar para texto</button>}
 					</div>
 				</div>

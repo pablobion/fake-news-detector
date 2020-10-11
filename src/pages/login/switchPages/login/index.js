@@ -37,6 +37,7 @@ function SwitchPages(props) {
 			const response = await fetch('https://tcspedroverani.herokuapp.com/user/login', settings);
 			const data = await response.json();
 			if (data.success) {
+                                window.localStorage.setItem("qwert", data.token);
 			        window.location.href = '/detector';
 			}
 
