@@ -37,19 +37,20 @@ function DetectorPage() {
 	const sendNews = async (content, url = '') => {
 		const authorization = localStorage.getItem('qwert')
 		if (!authorization) window.location.reload(true) //supondo que o usuario ta logado, deletou o localStorage,e tenta enviar uma noticia, é pra desloga-lo, o reload fará isso
+		
 		const settings = {
 			method: 'POST',
 			body: JSON.stringify({ content, url }),
 			headers: {
-				Accept: 'application/json',
+				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				Authorization: authorization,
+				'Authorization': authorization,
 			},
 		}
 		try {
 			const response = await fetch('https://tcspedroverani.herokuapp.com/news/create', settings)
 			const data = await response.json()
-			if (data.success === 'ok') {
+			if (data.success) {
 				console.log(data.veredict) //veredict diz se a noticia é true ou false;
 			}
 		} catch (error) {}
