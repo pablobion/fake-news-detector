@@ -341,7 +341,7 @@ export const Result = styled.div`
         border-radius: 1vh;
         resize: none;
         width: 80vw;
-        height: 350px;
+        height: 400px;
         padding: 10px;
         cursor: text;
 
