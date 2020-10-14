@@ -69,9 +69,11 @@ function DetectorPage() {
             content: "",
             mode: "url",
             url: "",
+
             //url mode
             pagination: "1",
             nameButton: "Checar Noticia",
+
             //verify news
             veredict: true,
         }
@@ -151,7 +153,6 @@ function DetectorPage() {
                 <div className="header">
                     <div>
                         <p className="header-title">Identifique se a noticia é falsa.</p>
-                        {/* <a href="#section2">Click Me</a> */}
                         {userInput.mode === "text" && <button onClick={changeMode}>Mudar para url</button>}
                         {userInput.mode === "url" && <button onClick={changeMode}>Mudar para texto</button>}
                     </div>
