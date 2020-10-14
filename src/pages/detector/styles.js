@@ -1,7 +1,8 @@
-import styled from 'styled-components'
-import { shade } from 'polished'
+import styled from "styled-components";
+import { shade } from "polished";
 
 export const Home = styled.div`
+
     height: 100vh;
     /* Animations component */
 
@@ -23,9 +24,11 @@ export const Home = styled.div`
     #animation-girlsearch {
         position: absolute;
         bottom: 0;
-        width: 270px;
+        max-width: 270px;
+        width: 23vw;
         @media (max-width: 700px){
-            width: 100px;
+            min-width: 100px;
+            width: 25vw;
         }
     }
 
@@ -62,9 +65,9 @@ export const Home = styled.div`
                 border: none;
                 width: 150px;
                 height: 30px;
-                border-radius: 10vh;
+                border-radius: 1vh;
                 &:hover {
-                    background: ${shade(0.1, '#00B0FF')}
+                    background: ${shade(0.1, "#00B0FF")}
                 } 
             }
         }
@@ -170,6 +173,7 @@ export const Home = styled.div`
 
         #verify-news {
             margin-bottom: 10px;
+            text-align: center;
         }
 
         .urlmode{
@@ -233,7 +237,7 @@ export const Home = styled.div`
                     cursor: pointer;
 
                     &:hover {
-                        background: ${shade(0.2, '#009b00')}
+                        background: ${shade(0.2, "#009b00")}
                     } 
 
                 
@@ -293,51 +297,67 @@ export const Home = styled.div`
         }
     }
 
-`
+`;
 
 export const Result = styled.div`
-	background-color: ${(props) => props.color};
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	padding: 20px;
+    background-color: ${(props) => props.color};
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #424242;
+    box-shadow: -5px -2px 10px 1px lightgrey;
 
-	.div-title-result {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		.title-result {
-			font-size: 30px;
-		}
-		h1 + h1 {
-			margin-top: 30px;
-		}
-	}
+    .btn-backtoup {
+        border: none;
+        background: transparent;
+        font-size: 1rem;
 
-	.content-textarea {
-		border-radius: 1vh;
-		resize: none;
-		width: 80vw;
-		height: 350px;
-		padding: 10px;
-		cursor: text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #arrowup {
+            width: 30px;
+            margin-right: 10px;
+        }
+    }
 
-		@media (min-width: 700px) {
-			width: 60vw;
-		}
-	}
+    .div-title-result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        .title-result {
+            font-size: 1.5rem;
+        }
+        h1 + h1 {
+            margin-top: 30px;
+        }
+    }
 
-	textarea::-webkit-scrollbar {
-		width: 12px;
-		background-color: #f5f5f5;
-	}
+    .content-textarea {
+        border-radius: 1vh;
+        resize: none;
+        width: 80vw;
+        height: 350px;
+        padding: 10px;
+        cursor: text;
 
-	textarea::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-		background-color: #4285f4;
-	}
-`
+        @media (min-width: 700px) {
+            width: 60vw;
+        }
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 12px;
+        background-color: #f5f5f5;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #4285f4;
+    }
+`;
