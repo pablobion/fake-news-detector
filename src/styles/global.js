@@ -6,12 +6,25 @@ export default createGlobalStyle`
           padding:0;
           outline: 0;
           box-sizing: border-box;
+
+          animation: Opacityfade 0.3s forwards;
+
+          @keyframes Opacityfade {
+          0% {
+               opacity: 0;
+          }
+          100% {
+               opacity: 1;
+          }
+          }
           
           
      }
      body {
           background-color: #FFFDFB; 
           /* overflow: hidden; */
+
+         
           
      }
      html {
