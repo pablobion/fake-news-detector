@@ -56,8 +56,8 @@ export const Container = styled.div`
                 background: ${shade(0.1, "#00B0FF")};
             }
             opacity: 0;
-            animation: Opacityfade 2s forwards;
-            animation-delay: 1s;
+            animation: Opacityfade 1s forwards;
+            animation-delay: 1.3s;
 
             @keyframes Opacityfade {
                 0% {
