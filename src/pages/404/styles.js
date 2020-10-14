@@ -20,7 +20,7 @@ export const Container = styled.div`
     .animation {
         width: 300px;
         @media (min-width: 700px) {
-            width: 400px;
+            width: 450px;
         }
     }
 
