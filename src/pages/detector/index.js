@@ -238,7 +238,9 @@ function DetectorPage() {
                     <a href="https://twitter.com/intent/tweet?text=Hello%20world">
                         <img src={TwitterImg} alt="" />
                     </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=google.com.br">
+                    <a
+                        href={`https://www.facebook.com/dialog/feed?app_id=1438439249728371&display=popup&caption={caption}&link={link-to-share}&description=sjdisjijsd&redirect_uri=http://localhost:3000/`}
+                    >
                         <img src={TwitterImg} alt="" />
                     </a>
                 </div>
