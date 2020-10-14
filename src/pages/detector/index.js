@@ -12,6 +12,7 @@ import UrlIcon from "../../assets/link.svg";
 import UrlIcon2 from "../../assets/link2.svg";
 import TextIcon from "../../assets/text.svg";
 import UpArrow from "../../assets/up-arrow.svg";
+import TwitterImg from "../../assets/twitter.svg";
 
 //animations
 import GirlSearch from "./animations/searchGirl/animation";
@@ -107,9 +108,11 @@ function DetectorPage() {
 
     const checkNews = async () => {
         //Função para habilitar textarea antes de enviar a noticia
-        if ((userInput.pagination = "2")) {
-            sendNews(userInput.content);
+        if (userInput.content) {
+            sendNews();
+            return;
         }
+
         if (userInput.url) {
             //verifica se tem url preenchida
             setUserInput({ ["pagination"]: "2" }); //Muda para pagina dois.
@@ -230,6 +233,15 @@ function DetectorPage() {
                 </div>
 
                 <textarea className="content-textarea"></textarea>
+                <div className="share">
+                    <h1>Compartilhar</h1>
+                    <a href="https://twitter.com/intent/tweet?text=Hello%20world">
+                        <img src={TwitterImg} alt="" />
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=google.com.br">
+                        <img src={TwitterImg} alt="" />
+                    </a>
+                </div>
             </Result>
         </>
     );

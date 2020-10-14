@@ -361,4 +361,18 @@ export const Result = styled.div`
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
         background-color: #4285f4;
     }
+
+    .share {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            margin-right: 20px;
+        }
+
+        a {
+            width: 50px;
+        }
+    }
 `;
