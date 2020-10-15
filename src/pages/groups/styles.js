@@ -91,6 +91,7 @@ export const Container = styled.div`
 
     #title-create-group {
         font-size: 30px;
+        margin-bottom: 30px;
     }
 
     #create-group {
@@ -104,6 +105,7 @@ export const Container = styled.div`
             align-items: center;
             flex-direction: column;
             margin: 0px 5px 0px 5px;
+            padding-right: 30px;
             #div-group-name {
                 display: flex;
                 align-items: center;
@@ -181,10 +183,11 @@ export const Container = styled.div`
         #div-list-emails {
             margin-left: 30px;
             width: 265px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             #div-list-emails-inside {
-                border: 1px solid lightgray;
-                border-style: none solid solid solid;
                 border-radius: 10px;
 
                 div {
@@ -213,21 +216,13 @@ export const Container = styled.div`
                 ul {
                     list-style-type: none;
                     font-size: 14px;
-                    margin-bottom: 5px;
-                    overflow: auto;
                     height: 225px;
 
                     li {
                         padding: 5px;
-                        border-bottom: 1px solid lightgray;
-                        border-top: 1px solid lightgray;
-                    }
-                    li:first-child {
-                        border-top: none;
-                        margin-top: 2px;
-                    }
-                    li:last-child {
-                        border-bottom: none;
+                        border: 1px solid lightgray;
+                        border-radius: 10px;
+                        margin-top: 5px;
                     }
                 }
             }
