@@ -13,6 +13,7 @@ import UrlIcon2 from "../../assets/link2.svg";
 import TextIcon from "../../assets/text.svg";
 import UpArrow from "../../assets/up-arrow.svg";
 import TwitterImg from "../../assets/twitter.svg";
+import FacebookImg from "../../assets/facebook.svg";
 
 //animations
 import GirlSearch from "./animations/searchGirl/animation";
@@ -139,6 +140,7 @@ function DetectorPage() {
             document.getElementById("pagination2").style.background = "white";
             setUserInput({ ["pagination"]: "1" }); //Muda para pagina um.
             setUserInput({ ["nameButton"]: "Checar Noticia" });
+            setUserInput({ ["content"]: "" });
         }
     };
 
@@ -233,17 +235,23 @@ function DetectorPage() {
                 </div>
 
                 <textarea className="content-textarea"></textarea>
-                <div className="share">
+                {/* <div className="share">
                     <h1>Compartilhar</h1>
                     <a href="https://twitter.com/intent/tweet?text=Hello%20world">
                         <img src={TwitterImg} alt="" />
                     </a>
+
                     <a
-                        href={`https://www.facebook.com/dialog/feed?app_id=1438439249728371&display=popup&caption={caption}&link={link-to-share}&description=sjdisjijsd&redirect_uri=http://localhost:3000/`}
+                        aria-label="Share on Facebook"
+                        title="Share on Facebook"
+                        href="https://www.facebook.com/sharer/sharer.php?u=example.org"
+                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                        target="_blank"
+                        title="Share on Facebook"
                     >
-                        <img src={TwitterImg} alt="" />
+                        <img src={FacebookImg} alt="Facebook" />
                     </a>
-                </div>
+                </div> */}
             </Result>
         </>
     );

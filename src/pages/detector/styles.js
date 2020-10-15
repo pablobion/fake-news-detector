@@ -373,6 +373,7 @@ export const Result = styled.div`
 
         a {
             width: 50px;
+            margin-left: 20px;
         }
     }
 `;

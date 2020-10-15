@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 import { Container } from "./styles";
 
@@ -58,21 +58,41 @@ const Groups = () => {
         //ao criar grupo, já irá convidar todo mundo que o cara adicioncou
         //tem que ver o quão custoso é deixar o grupo editável.
     };
+
+    const [userInput, setUserInput] = useReducer(
+        //States da pagina
+        (state, newState) => ({ ...state, ...newState }),
+        {
+            content: "",
+            mode: "create",
+        }
+    );
+
+    const handleChange = (evt) => {
+        const name = evt.target.name;
+        const newValue = evt.target.value;
+        setUserInput({ [name]: newValue });
+    };
+
     return (
         <>
             <Menu />
             <Container>
-                <h1 className="description">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h1>
+                {userInput.mode === "create" && (
+                    <>
+                        <h1 className="description">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h1>
 
-                <div className="divbutton">
-                    <button id="create-group-button">
-                        <FaPlus className="icon" />
-                    </button>
-                    <div id="groupimage">
-                        <img src={GroupImg} alt="" />
-                        <h1 id="text-bottom-button">Crie agora mesmo</h1>
-                    </div>
-                </div>
+                        <div className="divbutton">
+                            <button id="create-group-button">
+                                <FaPlus className="icon" />
+                            </button>
+                            <div id="groupimage">
+                                <img src={GroupImg} alt="" />
+                                <h1 id="text-bottom-button">Crie agora mesmo</h1>
+                            </div>
+                        </div>
+                    </>
+                )}
             </Container>
         </>
     );
