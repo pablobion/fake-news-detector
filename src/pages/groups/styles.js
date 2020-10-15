@@ -4,10 +4,25 @@ import { shade } from "polished";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
-    justify-content: center;
-    align-items: center;
+    margin-top: 50px;
+
+    justify-content: flex-start;
     text-align: center;
+
+    #back {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        margin-left: 20vw;
+        cursor: pointer;
+        p {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        img {
+            height: 50px;
+        }
+    }
 
     .description {
         padding: 20px;
@@ -17,6 +32,7 @@ export const Container = styled.div`
     #groupimage {
         position: relative;
         animation: myfirst 2s forwards;
+        z-index: -1;
 
         @keyframes myfirst {
             from {
@@ -73,25 +89,33 @@ export const Container = styled.div`
         }
     }
 
+    #title-create-group {
+        font-size: 30px;
+    }
+
     #create-group {
         color: #454545;
         width: 100vw;
-        #title-create-group {
-            font-size: 30px;
-        }
+        display: flex;
+        justify-content: center;
 
         #div-form-create-group {
             display: flex;
             align-items: center;
             flex-direction: column;
+            margin: 0px 5px 0px 5px;
             #div-group-name {
                 display: flex;
                 align-items: center;
                 border: 1px solid #00b0ff;
                 border-radius: 6px 6px 6px 6px;
                 margin-top: 20px;
+
                 p {
-                    font-size: 18px;
+                    @media (min-width: 700px) {
+                        font-size: 18px;
+                    }
+                    font-size: 14px;
                     background-color: #00b0ff;
                     padding: 10px;
                     border-radius: 5px 0px 0px 5px;
@@ -99,7 +123,10 @@ export const Container = styled.div`
                 }
                 input {
                     margin-left: 10px;
-                    width: 200px;
+                    width: 50vw;
+                    @media (min-width: 700px) {
+                        width: 200px;
+                    }
                     height: 30px;
                     border: none;
                     font-size: 18px;
@@ -113,7 +140,10 @@ export const Container = styled.div`
 
                 border-radius: 10px 10px 10px 10px;
                 p {
-                    font-size: 18px;
+                    font-size: 14px;
+                    @media (min-width: 700px) {
+                        font-size: 18px;
+                    }
                     border-radius: 8px 8px 0px 0px;
                     background-color: #00b0ff;
                     padding: 10px;
@@ -123,7 +153,11 @@ export const Container = styled.div`
                 textarea {
                     border: none;
                     resize: none;
-                    width: 355px;
+                    @media (min-width: 700px) {
+                        width: 355px;
+                    }
+                    width: 88vw;
+
                     height: 150px;
                     padding: 10px;
                     background: rgba(255, 255, 255, 0.1); /* deixa o fundo branco transparente */
@@ -142,54 +176,58 @@ export const Container = styled.div`
                     background-color: #4285f4;
                 }
             }
+        }
 
-            #div-list-emails {
-                margin-top: 30px;
-                #div-list-emails-inside {
-                    border: 1px solid lightgray;
-                    border-style: none solid solid solid;
-                    border-radius: 10px;
+        #div-list-emails {
+            margin-left: 30px;
+            width: 265px;
 
-                    div {
-                        display: flex;
-                        align-items: flex-start;
+            #div-list-emails-inside {
+                border: 1px solid lightgray;
+                border-style: none solid solid solid;
+                border-radius: 10px;
+
+                div {
+                    display: flex;
+                    align-items: flex-start;
+                }
+
+                input {
+                    font-size: 17.5px;
+                    padding: 10px;
+                    border: 1px solid #00b0ff;
+                    border-radius: 10px 0px 0px 10px;
+                }
+                button {
+                    font-size: 18px;
+                    padding: 10px;
+                    border: none;
+                    color: white;
+                    background-color: #00b0ff;
+                    border-radius: 0px 8px 8px 0px;
+                    &:hover {
+                        background: ${shade(0.1, "#00B0FF")};
                     }
+                }
 
-                    input {
-                        font-size: 17px;
-                        padding: 10px;
-                        border: 1px solid #00b0ff;
-                        border-radius: 10px 0px 0px 10px;
+                ul {
+                    list-style-type: none;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    overflow: auto;
+                    height: 225px;
+
+                    li {
+                        padding: 5px;
+                        border-bottom: 1px solid lightgray;
+                        border-top: 1px solid lightgray;
                     }
-                    button {
-                        font-size: 18px;
-                        padding: 10px;
-                        border: none;
-                        color: white;
-                        background-color: #00b0ff;
-                        border-radius: 0px 8px 8px 0px;
-                        &:hover {
-                            background: ${shade(0.1, "#00B0FF")};
-                        }
+                    li:first-child {
+                        border-top: none;
+                        margin-top: 2px;
                     }
-
-                    ul {
-                        list-style-type: none;
-                        font-size: 14px;
-                        margin-bottom: 5px;
-
-                        li {
-                            padding: 5px;
-                            border-bottom: 1px solid lightgray;
-                            border-top: 1px solid lightgray;
-                        }
-                        li:first-child {
-                            border-top: none;
-                            margin-top: 2px;
-                        }
-                        li:last-child {
-                            border-bottom: none;
-                        }
+                    li:last-child {
+                        border-bottom: none;
                     }
                 }
             }

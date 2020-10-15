@@ -7,6 +7,7 @@ import Menu from "../../components/menu";
 
 /* Icons */
 import GroupImg from "../../assets/grouppageart.svg";
+import LeftArrow from "../../assets/left-arrow.svg";
 
 import { FaPlus } from "react-icons/fa";
 
@@ -79,16 +80,21 @@ const Groups = () => {
         setUserInput({ [name]: newValue });
     };
 
+    const changeMode = (mode) => {
+        setUserInput({ ["mode"]: mode });
+    };
+
     return (
         <>
             <Menu />
+
             <Container>
                 {userInput.mode === "nogroup" && (
                     <>
                         <h1 className="description">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h1>
 
                         <div className="divbutton">
-                            <button id="create-group-button">
+                            <button id="create-group-button" onClick={() => changeMode("create")}>
                                 <FaPlus className="icon" />
                             </button>
                             <div id="groupimage">
@@ -100,8 +106,12 @@ const Groups = () => {
                 )}
                 {userInput.mode === "create" && (
                     <>
+                        <div id="back" onClick={() => changeMode("nogroup")}>
+                            <img src={LeftArrow} alt="" />
+                            <p>Voltar</p>
+                        </div>
+                        <h1 id="title-create-group">Crie seu grupo</h1>
                         <div id="create-group">
-                            <h1 id="title-create-group">Crie seu grupo</h1>
                             <div id="div-form-create-group">
                                 <div id="div-group-name">
                                     <p>Nome do grupo</p>
@@ -111,30 +121,30 @@ const Groups = () => {
                                     <p>Descrição do grupo</p>
                                     <textarea id="description-group" />
                                 </div>
-                                <div id="div-list-emails">
-                                    <h2>Adicione e-mails a lista do grupo</h2>
-                                    <div id="div-list-emails-inside">
-                                        <div>
-                                            <input id="input-email" />
-                                            <button id="button-add-email">
-                                                <FaPlus />
-                                            </button>
-                                        </div>
-
-                                        <ul>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                        </ul>
+                            </div>
+                            <div id="div-list-emails">
+                                <h2>Adicione e-mails a lista do grupo</h2>
+                                <div id="div-list-emails-inside">
+                                    <div>
+                                        <input type="email" id="input-email" />
+                                        <button id="button-add-email">
+                                            <FaPlus />
+                                        </button>
                                     </div>
+                                    <ul>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                        <li>pablo.bion@hotmail.com</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
