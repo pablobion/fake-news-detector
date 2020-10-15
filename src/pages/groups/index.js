@@ -56,6 +56,13 @@ const Groups = () => {
                 Authorization: authorization,
             },
         };
+            try {
+                const response = await fetch('https://tcspedroverani.herokuapp.com/group/create', settings);
+                const data = await response.json();
+            } catch (error) {
+                
+            }
+        
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
         //ao criar grupo, já irá convidar todo mundo que o cara adicioncou
         //tem que ver o quão custoso é deixar o grupo editável.
