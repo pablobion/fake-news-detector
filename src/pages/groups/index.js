@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 import { Container } from "./styles";
 
@@ -27,6 +27,7 @@ const Groups = () => {
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?=user${user}`, settings);
             const data = response.json();
+
             //Isso tem que ser executado assim que o usuário abrir a página de groups, se não vir nada é pq ele não ta em nenhum grupo.
             //Vai retornar dados do grupo, fazer um campo pro nome do grupo, descricao, participantes, e um botão pra sair do grupo.
             //Caso o usuário não tenha grupo, exibir um botão para ele criar um grupo.
@@ -59,6 +60,10 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
+    useEffect(() => {
+        getGroup();
+    }, []);
+
     const [userInput, setUserInput] = useReducer(
         //States da pagina
         (state, newState) => ({ ...state, ...newState }),
@@ -78,7 +83,7 @@ const Groups = () => {
         <>
             <Menu />
             <Container>
-                {userInput.mode === "create" && (
+                {userInput.mode === "nogroup" && (
                     <>
                         <h1 className="description">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h1>
 
@@ -89,6 +94,48 @@ const Groups = () => {
                             <div id="groupimage">
                                 <img src={GroupImg} alt="" />
                                 <h1 id="text-bottom-button">Crie agora mesmo</h1>
+                            </div>
+                        </div>
+                    </>
+                )}
+                {userInput.mode === "create" && (
+                    <>
+                        <div id="create-group">
+                            <h1 id="title-create-group">Crie seu grupo</h1>
+                            <div id="div-form-create-group">
+                                <div id="div-group-name">
+                                    <p>Nome do grupo</p>
+                                    <input></input>
+                                </div>
+                                <div id="div-description-group">
+                                    <p>Descrição do grupo</p>
+                                    <textarea id="description-group" />
+                                </div>
+                                <div id="div-list-emails">
+                                    <h2>Adicione e-mails a lista do grupo</h2>
+                                    <div id="div-list-emails-inside">
+                                        <div>
+                                            <input id="input-email" />
+                                            <button id="button-add-email">
+                                                <FaPlus />
+                                            </button>
+                                        </div>
+
+                                        <ul>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </>
