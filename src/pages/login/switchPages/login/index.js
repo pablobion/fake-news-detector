@@ -28,13 +28,14 @@ function SwitchPages(props) {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
-		}
+		};
 		try {
-			const response = await fetch('https://tcspedroverani.herokuapp.com/user/login', settings)
-			const data = await response.json()
-			if (data.success) {
-				window.localStorage.setItem('qwert', data.token)
-				window.location.href = '/detector'
+			const response = await fetch('https://tcspedroverani.herokuapp.com/user/login', settings);
+			const dataReturned = await response.json()
+			if (dataReturned.success) {
+				window.localStorage.setItem('qwert', dataReturned.token);
+				window.localStorage.setItem('user', data.userName);
+				window.location.href = '/detector';
 			}
 		} catch (error) {
 			alert('Erro ao fazer login')
