@@ -31,6 +31,7 @@ const Groups = () => {
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?user=${user}`, settings);
             const data = response.json();
+            return data;
 
             //Isso tem que ser executado assim que o usuário abrir a página de groups, se não vir nada é pq ele não ta em nenhum grupo.
             //Vai retornar dados do grupo, fazer um campo pro nome do grupo, descricao, participantes, e um botão pra sair do grupo.
@@ -62,7 +63,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
-            console.log(data);
+            return data;
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
@@ -70,7 +71,9 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        getGroup();
+    }, []);
 
     const [userInput, setUserInput] = useReducer(
         //States da pagina
