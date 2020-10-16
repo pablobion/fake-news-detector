@@ -29,7 +29,7 @@ const Groups = () => {
         };
 
         try {
-            const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?=user${user}`, settings);
+            const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?user=${user}`, settings);
             const data = response.json();
 
             //Isso tem que ser executado assim que o usuário abrir a página de groups, se não vir nada é pq ele não ta em nenhum grupo.
