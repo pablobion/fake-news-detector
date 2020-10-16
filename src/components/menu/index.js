@@ -14,37 +14,8 @@ function MenuComponent() {
 
     return (
         <>
-            {widthscreen < 500 && ( // Só renderiza se for tela de pc
-                <MenuMobile id="section1">
-                    <input id="check" type="checkbox" />
-                    <label for="check">
-                        <div class="menu-hamb">
-                            <span class="hamburguer"></span>
-                        </div>
-                    </label>
-
-                    <ul class="ul-mbl">
-                        <Link to="/detector" style={{ textDecoration: "none" }}>
-                            <div>
-                                <img className="icon" src={FakeIcon} alt="" />
-                                <span>Detector</span>
-                            </div>
-                        </Link>
-                        <Link to="/groups" style={{ textDecoration: "none" }}>
-                            <div>
-                                <img className="icon" src={GroupIcon} alt="" />
-                                <span>Grupos</span>
-                            </div>
-                        </Link>
-                        <Link to="/about" style={{ textDecoration: "none" }}>
-                            <div>
-                                <img className="icon" src={AboutIcon} alt="" />
-                                <span>Sobre Nós</span>
-                            </div>
-                        </Link>
-                    </ul>
-                </MenuMobile>
-            )}
+            {widthscreen < 500 && <MenuMobile id="section1"></MenuMobile> // Só renderiza se for tela de pc
+            }
             {widthscreen >= 500 && ( // Só renderiza se for tela de pc
                 <Menu>
                     <Link to="/detector" style={{ textDecoration: "none" }}>

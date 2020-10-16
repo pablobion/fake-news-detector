@@ -5,6 +5,9 @@ import { Container } from "./styles";
 /* Components */
 import Menu from "../../components/menu";
 
+/* Animations */
+import DoneAnimation from "./animations/index";
+
 /* Icons */
 import GroupImg from "../../assets/grouppageart.svg";
 import LeftArrow from "../../assets/left-arrow.svg";
@@ -59,6 +62,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
+            console.log(data);
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
@@ -66,16 +70,14 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
-    useEffect(() => {
-        getGroup();
-    }, []);
+    useEffect(() => {}, []);
 
     const [userInput, setUserInput] = useReducer(
         //States da pagina
         (state, newState) => ({ ...state, ...newState }),
         {
             content: "",
-            mode: "create",
+            mode: "nogroup",
         }
     );
 
@@ -86,6 +88,11 @@ const Groups = () => {
     };
 
     const changeMode = (mode) => {
+        if (mode === "done") {
+            setTimeout(function () {
+                setUserInput({ ["mode"]: "nogroup" });
+            }, 5000);
+        }
         setUserInput({ ["mode"]: mode });
     };
 
@@ -104,18 +111,18 @@ const Groups = () => {
                             </button>
                             <div id="groupimage">
                                 <img src={GroupImg} alt="" />
-                                <h1 id="text-bottom-button">Crie agora mesmo</h1>
+                                <h1 id="text-bottom-button">Crie ou configure agora mesmo</h1>
                             </div>
                         </div>
                     </>
                 )}
                 {userInput.mode === "create" && (
                     <>
-                        <div id="back" onClick={() => changeMode("nogroup")}>
+                        <div id="back" onClick={() => changeMode("done")}>
                             <img src={LeftArrow} alt="" />
-                            <p>Voltar</p>
+                            <p>Voltar e salvar</p>
                         </div>
-                        <h1 id="title-create-group">Crie seu grupo</h1>
+                        <h1 id="title-create-group">Configure seu grupo</h1>
                         <div id="create-group">
                             <div id="div-form-create-group">
                                 <div id="div-group-name">
@@ -151,6 +158,11 @@ const Groups = () => {
                                 </div>
                             </div>
                         </div>
+                    </>
+                )}
+                {userInput.mode === "done" && (
+                    <>
+                        <DoneAnimation />
                     </>
                 )}
             </Container>
