@@ -77,7 +77,7 @@ const Groups = () => {
         (state, newState) => ({ ...state, ...newState }),
         {
             content: "",
-            mode: "nogroup",
+            mode: "create",
         }
     );
 
@@ -118,11 +118,14 @@ const Groups = () => {
                 )}
                 {userInput.mode === "create" && (
                     <>
-                        <div id="back" onClick={() => changeMode("done")}>
+                        <div id="back" onClick={() => changeMode("nogroup")}>
                             <img src={LeftArrow} alt="" />
-                            <p>Voltar e salvar</p>
+                            <p>Voltar</p>
                         </div>
                         <h1 id="title-create-group">Configure seu grupo</h1>
+                        <div id="footer">
+                            <button onClick={() => changeMode("done")}>Salvar</button>
+                        </div>
                         <div id="create-group">
                             <div id="div-form-create-group">
                                 <div id="div-group-name">

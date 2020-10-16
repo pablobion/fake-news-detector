@@ -12,8 +12,15 @@ export const Container = styled.div`
     #back {
         display: flex;
         align-items: center;
+        @media (max-width: 700px) {
+            margin-left: 20px;
+        }
+        @media (min-width: 700px) {
+            margin-left: 20vw;
+        }
+
         height: 50px;
-        margin-left: 20vw;
+
         cursor: pointer;
         p {
             font-size: 18px;
@@ -94,18 +101,47 @@ export const Container = styled.div`
         margin-bottom: 30px;
     }
 
+    #footer {
+        @media (min-width: 700px) {
+            margin-bottom: 20px;
+        }
+        button {
+            background:  #009b00;
+            border-radius: 1.2vh;
+            border: 0;
+            color: #FFF;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            &:hover {
+                background: ${shade(0.2, "#009b00")}
+            } 
+                height: 50px;
+                font-size: 20px;
+            width: 150px;
+                }
+        }
+    }
+
     #create-group {
         color: #454545;
         width: 100vw;
         display: flex;
         justify-content: center;
+        @media (max-width: 700px) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         #div-form-create-group {
             display: flex;
             align-items: center;
             flex-direction: column;
             margin: 0px 5px 0px 5px;
-            padding-right: 30px;
+
+            @media (min-width: 700px) {
+                padding-right: 30px;
+            }
             #div-group-name {
                 display: flex;
                 align-items: center;
@@ -181,11 +217,22 @@ export const Container = styled.div`
         }
 
         #div-list-emails {
-            margin-left: 30px;
-            width: 265px;
+            
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            @media (min-width: 700px) {
+                margin-left: 30px;
+            }
+            @media (max-width: 700px) {
+                width: 88vw;
+            }
+                    
+
+            @media (max-width: 700px) {
+                margin-top: 25px;
+            }
 
             #div-list-emails-inside {
                 border-radius: 10px;
@@ -200,6 +247,10 @@ export const Container = styled.div`
                     padding: 10px;
                     border: 1px solid #00b0ff;
                     border-radius: 10px 0px 0px 10px;
+                    @media (max-width: 700px) {
+                        width: 60vw;
+                        max-width: 300px;
+                    }
                 }
                 button {
                     font-size: 18px;
@@ -222,7 +273,11 @@ export const Container = styled.div`
                         padding: 5px;
                         border: 1px solid lightgray;
                         border-radius: 10px;
-                        margin-top: 5px;
+                        margin-top: 10px;
+                    }
+
+                    li:last-child {
+                        margin-bottom: 30px;
                     }
                 }
             }
