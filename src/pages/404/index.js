@@ -8,13 +8,12 @@ import Animation from "./animations/animation";
 const Page404 = () => {
     return (
         <>
-            <Menu />
             <Container>
                 <h1>Desculpe mas essa pagina não existe :(</h1>
                 <div className="animation">
                     <Animation />
                 </div>
-                <button className="voltar">Voltar</button>
+                {/* <button className="voltar">Voltar</button> */}
             </Container>
         </>
     );
