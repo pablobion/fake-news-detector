@@ -74,11 +74,17 @@ const Groups = () => {
     useEffect(() => {
         (async () => {
             const data = await getGroup();
-            setUserInput({ ["groupName"]: data.group.groupName });
-            setUserInput({ ["groupDescription"]: data.group.groupDescription });
-            setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-            setUserInput({ ["createdBy"]: data.group.createdBy });
-            setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+
+            if (data.message === "Usuário não está em nenhum grupo") {
+                setUserInput({ ["mode"]: "nogroup" });
+            } else {
+                setUserInput({ ["mode"]: "created" });
+                setUserInput({ ["groupName"]: data.group.groupName });
+                setUserInput({ ["groupDescription"]: data.group.groupDescription });
+                setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+                setUserInput({ ["createdBy"]: data.group.createdBy });
+                setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+            }
         })();
     }, []);
 
@@ -87,7 +93,7 @@ const Groups = () => {
         (state, newState) => ({ ...state, ...newState }),
         {
             content: "",
-            mode: "created",
+            mode: "",
             groupName: "",
             groupDescription: "",
             createdAt: "",
@@ -188,6 +194,7 @@ const Groups = () => {
                 {userInput.mode === "created" && (
                     <>
                         <div id="container-created">
+                            <div id="border-color"></div>
                             <div id="card-created">
                                 <div id="left-side-created">
                                     <p id="group-name-created">{userInput.groupName}</p>

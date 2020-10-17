@@ -295,7 +295,13 @@ export const Container = styled.div`
         margin-top: 50px;
         color: #454545;
         font-size: 20px;
+        @media (max-width: 700px) {
+                flex-direction: column;
+        }
         
+        #border-color{
+            border: 1px solid;
+        }
        
        
         #card-created{
@@ -307,8 +313,13 @@ export const Container = styled.div`
             border-radius: 1vh;
             min-height: 200px;
 
+            width: 700px;
+
             @media (max-width: 700px) {
                 flex-direction: column;
+                width: 70vw;
+                max-width: 70vw;
+                min-width: 70vw;
             }
          
             #left-side-created{
@@ -329,7 +340,8 @@ export const Container = styled.div`
                 min-height: 300px;
             
                 #group-name-created {
-                    font-size: 50px;
+                    font-size: 40px;
+                    
                     color: #00b0ff;
                 }
 
@@ -352,8 +364,9 @@ export const Container = styled.div`
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                min-width: 280px;
+                flex: 1;
                 padding: 30px;
+
 
                 p::first-letter {
                     text-transform: uppercase;
