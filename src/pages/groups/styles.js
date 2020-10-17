@@ -292,31 +292,34 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 30px;
+        margin-top: 50px;
         color: #454545;
+        font-size: 20px;
+       
        
         #card-created{
 
             display: flex;
-        
+            padding: 20px;
 
             border: 1px solid lightgrey;
 
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
             border-radius: 1vh;
-            padding: 10px;
+            
             min-height: 200px;
          
             #left-side-created{
                 border-right: 2px dashed #EEEEEE;
-                padding: 10px;
+                padding: 40px 40px 0px 40px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                min-width: 180px;
+                min-width: 350px;
+                padding: 30px;
             
                 #group-name-created {
-                    font-size: 30px;
+                    font-size: 50px;
                     color: #00b0ff;
 
                     
@@ -338,8 +341,8 @@ export const Container = styled.div`
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                width: 200px;
-                padding: 10px;
+                min-width: 280px;
+                padding: 30px;
 
                 p::first-letter {
                     text-transform: uppercase;
@@ -353,6 +356,10 @@ export const Container = styled.div`
                     }
                     display: flex;
                     flex-direction: column;
+
+                    span {
+                        font-size: 14px;
+                    }
                 }
             }
         }

@@ -80,6 +80,7 @@ const Groups = () => {
             setUserInput({ ["createdBy"]: data.group.createdBy });
             setGroupParticipantsInvited(data.group.groupParticipantsInvited);
         };
+        seila();
     }, []);
 
     const [userInput, setUserInput] = useReducer(
