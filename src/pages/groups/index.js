@@ -72,15 +72,14 @@ const Groups = () => {
     };
 
     useEffect(() => {
-        const seila = async () => {
+        (async () => {
             const data = await getGroup();
             setUserInput({ ["groupName"]: data.group.groupName });
             setUserInput({ ["groupDescription"]: data.group.groupDescription });
             setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
             setUserInput({ ["createdBy"]: data.group.createdBy });
             setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-        };
-        seila();
+        })();
     }, []);
 
     const [userInput, setUserInput] = useReducer(

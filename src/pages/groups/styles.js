@@ -295,34 +295,42 @@ export const Container = styled.div`
         margin-top: 50px;
         color: #454545;
         font-size: 20px;
+        
        
        
         #card-created{
 
             display: flex;
-            padding: 20px;
 
             border: 1px solid lightgrey;
-
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
             border-radius: 1vh;
-            
             min-height: 200px;
+
+            @media (max-width: 700px) {
+                flex-direction: column;
+            }
          
             #left-side-created{
-                border-right: 2px dashed #EEEEEE;
+
+                @media (min-width: 700px) {
+                    border-right: 2px dashed #EEEEEE;
+                }
+                @media (max-width: 700px) {
+                    border-bottom: 2px dashed #EEEEEE;
+                }
+                
                 padding: 40px 40px 0px 40px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                min-width: 350px;
                 padding: 30px;
+                min-width: 350px;
+                min-height: 300px;
             
                 #group-name-created {
                     font-size: 50px;
                     color: #00b0ff;
-
-                    
                 }
 
                 #group-name-created::first-letter {
@@ -333,6 +341,9 @@ export const Container = styled.div`
                     display:flex;
                     flex-direction: column;
                     align-items: flex-start;
+                    p+p{
+                        margin-top: 10px;
+                    }
                 }
 
             }  
