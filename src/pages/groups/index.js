@@ -30,7 +30,7 @@ const Groups = () => {
 
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?user=${user}`, settings);
-            const data = response.json();
+            const data = await response.json();
             return data;
 
             //Isso tem que ser executado assim que o usuário abrir a página de groups, se não vir nada é pq ele não ta em nenhum grupo.
@@ -63,10 +63,9 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
+            return data;
 
-            data.then((response) => {
-                console.log(response);
-            });
+            
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
@@ -74,18 +73,14 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
-    useEffect(() => {
-        const data = getGroup();
-
-        data.then((response) => {
-            console.log(response);
-            setUserInput({ ["groupName"]: response.group.groupName });
-            setUserInput({ ["groupDescription"]: response.group.groupDescription });
-            setUserInput({ ["createdAt"]: response.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-            setUserInput({ ["createdBy"]: response.group.createdBy });
-            setGroupParticipantsInvited(response.group.groupParticipantsInvited);
-        });
-
+    useEffect(async () => {
+        const data = await getGroup();
+        
+        setUserInput({ ["groupName"]: data.group.groupName });
+        setUserInput({ ["groupDescription"]: data.group.groupDescription });
+        setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+        setUserInput({ ["createdBy"]: data.group.createdBy });
+        setGroupParticipantsInvited(data.group.groupParticipantsInvited);
         setUserInput({ ["groupName"]: "nogroup" });
     }, []);
 
