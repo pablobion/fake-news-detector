@@ -318,6 +318,8 @@ export const Container = styled.div`
                 #group-name-created {
                     font-size: 30px;
                     color: #00b0ff;
+
+                    
                 }
 
                 #group-name-created::first-letter {
