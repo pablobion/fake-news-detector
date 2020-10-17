@@ -64,8 +64,6 @@ const Groups = () => {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
             return data;
-
-            
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
@@ -73,15 +71,15 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
-    useEffect(async () => {
-        const data = await getGroup();
-        
-        setUserInput({ ["groupName"]: data.group.groupName });
-        setUserInput({ ["groupDescription"]: data.group.groupDescription });
-        setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-        setUserInput({ ["createdBy"]: data.group.createdBy });
-        setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-        setUserInput({ ["groupName"]: "nogroup" });
+    useEffect(() => {
+        const seila = async () => {
+            const data = await getGroup();
+            setUserInput({ ["groupName"]: data.group.groupName });
+            setUserInput({ ["groupDescription"]: data.group.groupDescription });
+            setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+            setUserInput({ ["createdBy"]: data.group.createdBy });
+            setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+        };
     }, []);
 
     const [userInput, setUserInput] = useReducer(
