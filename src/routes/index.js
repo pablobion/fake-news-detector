@@ -14,6 +14,7 @@ function routes() {
         <Switch>
             {authorization && (
                 <>
+                    <Route path="/" exact component={Login} /> {/* Desbugando hide refresh */}
                     <Route path="/login" exact component={Login} /> {/* Desbugando hide refresh */}
                     <Route path="/lostaccount" exact component={Login} /> {/* Desbugando hide refresh */}
                     <Route path="/createaccount" exact component={Login} /> {/* Desbugando hide refresh */}
