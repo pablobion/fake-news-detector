@@ -195,15 +195,32 @@ const Groups = () => {
                 {userInput.mode === "created" && (
                     <>
                         <div id="container-created">
-                            <div id="left-side-created">
-                                <p id="group-name-created">{userInput.groupName}</p>
-                                <p>{userInput.groupDescription}</p>
-                                <p>Criado: {userInput.createdAt}</p>
-                            </div>
-                            <div id="right-side-created">
-                                <p>Criador: {userInput.createdBy}</p>
-                                <h3>Participantes</h3>
-                                {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
+                            <div id="card-created">
+                                <div id="left-side-created">
+                                    <p id="group-name-created">{userInput.groupName}</p>
+                                    <div>
+                                        <p>Criado: {userInput.createdAt}</p>
+                                        <p>Por: {userInput.createdBy}</p>
+                                    </div>
+                                </div>
+                                <div id="right-side-created">
+                                    <p>{userInput.groupDescription}</p>
+                                    <div>
+                                        <h3>Participantes</h3>
+                                        {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                        <span>aihsas@hotmail.com</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </>

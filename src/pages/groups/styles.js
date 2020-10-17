@@ -292,11 +292,70 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid lightgray;
-        #left-side-created{
-            #group-name-created{
-                    font-size: 50px;
+        margin-top: 30px;
+        color: #454545;
+       
+        #card-created{
+
+            display: flex;
+        
+
+            border: 1px solid lightgrey;
+
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+            border-radius: 1vh;
+            padding: 10px;
+            min-height: 200px;
+         
+            #left-side-created{
+                border-right: 2px dashed #EEEEEE;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                min-width: 180px;
+            
+                #group-name-created {
+                    font-size: 30px;
+                    color: #00b0ff;
                 }
-        }   
+
+                #group-name-created::first-letter {
+                    text-transform: uppercase;
+                }
+
+                div {
+                    display:flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+            }  
+
+            #right-side-created{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 200px;
+                padding: 10px;
+
+                p::first-letter {
+                    text-transform: uppercase;
+                }
+
+                div {
+                    h3 {
+                        margin-bottom: 5px;
+                        margin-top: 30px;
+                        
+                    }
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+         
     }
+
+    
 `;
