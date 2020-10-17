@@ -21,7 +21,7 @@ function routes() {
                     <Route path="/detector" exact component={Detector} />
                     <Route path="/about" exact component={About} />
                     <Route path="/groups" exact component={Groups} />
-                    <Route path="*" component={Page404} />
+                    {/* <Route path="*" component={Page404} /> */}
                 </>
             )}
             {!authorization && (

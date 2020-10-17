@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 
 import { Container } from "./styles";
 
@@ -63,7 +63,10 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
-            return data;
+
+            data.then((response) => {
+                console.log(response);
+            });
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
@@ -72,7 +75,18 @@ const Groups = () => {
     };
 
     useEffect(() => {
-        getGroup();
+        const data = getGroup();
+
+        data.then((response) => {
+            console.log(response);
+            setUserInput({ ["groupName"]: response.group.groupName });
+            setUserInput({ ["groupDescription"]: response.group.groupDescription });
+            setUserInput({ ["createdAt"]: response.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+            setUserInput({ ["createdBy"]: response.group.createdBy });
+            setGroupParticipantsInvited(response.group.groupParticipantsInvited);
+        });
+
+        setUserInput({ ["groupName"]: "nogroup" });
     }, []);
 
     const [userInput, setUserInput] = useReducer(
@@ -80,9 +94,16 @@ const Groups = () => {
         (state, newState) => ({ ...state, ...newState }),
         {
             content: "",
-            mode: "create",
+            mode: "created",
+            groupName: "",
+            groupDescription: "",
+            createdAt: "",
+            createdBy: "",
+            groupParticipantsInvited: [],
         }
     );
+
+    const [groupParticipantsInvited, setGroupParticipantsInvited] = useState([]);
 
     const handleChange = (evt) => {
         const name = evt.target.name;
@@ -169,6 +190,22 @@ const Groups = () => {
                 {userInput.mode === "done" && (
                     <>
                         <DoneAnimation />
+                    </>
+                )}
+                {userInput.mode === "created" && (
+                    <>
+                        <div id="container-created">
+                            <div id="left-side-created">
+                                <p id="group-name-created">{userInput.groupName}</p>
+                                <p>{userInput.groupDescription}</p>
+                                <p>Criado: {userInput.createdAt}</p>
+                            </div>
+                            <div id="right-side-created">
+                                <p>Criador: {userInput.createdBy}</p>
+                                <h3>Participantes</h3>
+                                {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
+                            </div>
+                        </div>
                     </>
                 )}
             </Container>

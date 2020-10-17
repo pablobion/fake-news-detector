@@ -283,4 +283,20 @@ export const Container = styled.div`
             }
         }
     }
+
+
+
+
+
+    #container-created{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid lightgray;
+        #left-side-created{
+            #group-name-created{
+                    font-size: 50px;
+                }
+        }   
+    }
 `;

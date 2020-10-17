@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import { Container } from "./styles";
 
@@ -6,6 +7,7 @@ import Menu from "../../components/menu/";
 import Animation from "./animations/animation";
 
 const Page404 = () => {
+    const history = useHistory();
     return (
         <>
             <Container>
@@ -13,7 +15,7 @@ const Page404 = () => {
                 <div className="animation">
                     <Animation />
                 </div>
-                {/* <button className="voltar">Voltar</button> */}
+                <button className="voltar">Voltar</button>
             </Container>
         </>
     );
