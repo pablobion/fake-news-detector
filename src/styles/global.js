@@ -21,7 +21,7 @@ export default createGlobalStyle`
           
      }
      body {
-          background-color: #FFFDFB; 
+          background-color: rgb(248, 248, 240); 
           /* overflow: hidden; */
 
          
@@ -39,4 +39,6 @@ export default createGlobalStyle`
      button {
           cursor: pointer;
      }
+
+     
 `;

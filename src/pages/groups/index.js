@@ -1,5 +1,7 @@
 import React, { useReducer, useEffect, useState } from "react";
 
+import { useForm } from "react-hook-form";
+
 import { Container } from "./styles";
 
 /* Components */
@@ -15,6 +17,8 @@ import LeftArrow from "../../assets/left-arrow.svg";
 import { FaPlus } from "react-icons/fa";
 
 const Groups = () => {
+    const { register, handleSubmit } = useForm();
+
     const getGroup = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
@@ -150,39 +154,47 @@ const Groups = () => {
                             <button onClick={() => changeMode("done")}>Salvar</button>
                         </div>
                         <div id="create-group">
-                            <div id="div-form-create-group">
-                                <div id="div-group-name">
-                                    <p>Nome do grupo</p>
-                                    <input></input>
-                                </div>
-                                <div id="div-description-group">
-                                    <p>Descrição do grupo</p>
-                                    <textarea id="description-group" />
-                                </div>
-                            </div>
-                            <div id="div-list-emails">
-                                <h2>Adicione e-mails a lista do grupo</h2>
-                                <div id="div-list-emails-inside">
-                                    <div>
-                                        <input type="email" id="input-email" />
-                                        <button id="button-add-email">
-                                            <FaPlus />
-                                        </button>
+                            <form onSubmit={handleSubmit(createGroup)}>
+                                <div id="div-form-create-group">
+                                    <div id="div-group-name">
+                                        <p>Nome do grupo</p>
+                                        <input name="groupName" value={userInput.groupName} onChange={handleChange} ref={register({ required: true })}></input>
                                     </div>
-                                    <ul>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                        <li>pablo.bion@hotmail.com</li>
-                                    </ul>
+                                    <div id="div-description-group">
+                                        <p>Descrição do grupo</p>
+                                        <textarea
+                                            id="description-group"
+                                            name="groupDescription"
+                                            value={userInput.groupDescription}
+                                            onChange={handleChange}
+                                            ref={register({ required: true })}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
+                                <div id="div-list-emails">
+                                    <h2>Adicione e-mails a lista do grupo</h2>
+                                    <div id="div-list-emails-inside">
+                                        <div>
+                                            <input type="email" id="input-email" />
+                                            <button id="button-add-email">
+                                                <FaPlus />
+                                            </button>
+                                        </div>
+                                        <ul>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                            <li>pablo.bion@hotmail.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </>
                 )}

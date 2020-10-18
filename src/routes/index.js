@@ -6,6 +6,7 @@ import Detector from "../pages/detector";
 import About from "../pages/about/";
 import Groups from "../pages/groups/";
 import Page404 from "../pages/404/";
+import Profile from "../pages/Profile/";
 
 const authorization = localStorage.getItem("qwert");
 
@@ -21,6 +22,7 @@ function routes() {
                     <Route path="/detector" exact component={Detector} />
                     <Route path="/about" exact component={About} />
                     <Route path="/groups" exact component={Groups} />
+                    <Route path="/profile" exact component={Profile} />
                     {/* <Route path="*" component={Page404} /> */}
                 </>
             )}

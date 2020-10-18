@@ -132,6 +132,7 @@ export const Container = styled.div`
             flex-direction: column;
             align-items: center;
         }
+        
 
         #div-form-create-group {
             display: flex;

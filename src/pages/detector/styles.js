@@ -96,8 +96,9 @@ export const Home = styled.div`
             padding: 10px;
             margin-bottom: 5px;
             z-index: 1; /* deixa em cima da animação */
-            background: rgba(255, 255, 255, 0.1); /* deixa o fundo branco transparente */
+            background: rgba(255, 255, 255, 0.7); /* deixa o fundo branco transparente */
             backdrop-filter: blur(1px);
+            border: 1px solid lightgray;
             cursor: text;
 
             @media (min-width: 700px){
@@ -162,6 +163,7 @@ export const Home = styled.div`
             img {
                 animation-name: example;
                 animation-duration: 0.5s;
+                
 
                 @keyframes example {
                     from {transform: rotate(180deg)}
@@ -183,11 +185,12 @@ export const Home = styled.div`
             width: 80vw;
             height: 40px;
             font-size: 20px;
+            background-color: white;
             @media (min-width: 700px){
                 width: 60vw;
                 height: 60px;
             }      
-            border: 0.5px solid black;       
+            border: 0.5px solid lightgray;       
             border-radius: 1vh;
             padding: 10px;
             
@@ -345,6 +348,7 @@ export const Result = styled.div`
         height: 400px;
         padding: 10px;
         cursor: text;
+        border: 1px solid lightgray;
 
         @media (min-width: 700px) {
             width: 60vw;
