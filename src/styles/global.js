@@ -16,16 +16,11 @@ export default createGlobalStyle`
           100% {
                opacity: 1;
           }
-          }
-          
-          
+          } 
      }
      body {
-          background-color: rgb(248, 248, 240); 
-          /* overflow: hidden; */
-
-         
           
+          /* overflow: hidden; */     
      }
      html {
           scroll-behavior: smooth;
@@ -36,9 +31,14 @@ export default createGlobalStyle`
      #root {
           margin: 0 auto;
      }
+     
      button {
           cursor: pointer;
      }
+
+     
+
+    
 
      
 `;

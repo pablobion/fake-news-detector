@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Menu from "../../components/menu/index";
 import { useHistory } from "react-router-dom";
 
@@ -9,6 +9,17 @@ import { Container } from "./styles";
 
 const Profile = () => {
     const history = useHistory();
+
+    const [mode, setMode] = useState(false);
+
+    const changemode = () => {
+        if (mode === false) {
+            setMode(true);
+        }
+        if (mode === true) {
+            setMode(false);
+        }
+    };
 
     return (
         <>
@@ -24,9 +35,24 @@ const Profile = () => {
                                 }}
                             />
                         </button>
-
-                        <RiLockPasswordLine />
+                        <RiLockPasswordLine id="change-password" onClick={changemode} />
                     </div>
+                    {mode && (
+                        <>
+                            <div id="div-change-password">
+                                <h2>Troque sua senha</h2>
+                                <p>Senha atual</p>
+                                <input />
+                                <p>Nova Senha</p>
+                                <input />
+                                <p>Repita sua senha</p>
+                                <input />
+                                <div>
+                                    <button>Alterar</button>
+                                </div>
+                            </div>
+                        </>
+                    )}
                     <div id="person">
                         <img id="image-profile" src="https://avatars.dicebear.com/api/initials/Pedro.verani@hotmail.com.svg" alt="" />
                         <p>Pedro.verani@hotmail.com</p>
