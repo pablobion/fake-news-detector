@@ -39,6 +39,9 @@ export const Container = styled.div`
             #blank-space-changepass {
                 margin-right: 50px;
             }
+            p {
+                margin-right: 50px;
+            }
         }
         #title-change-password {
             border-top: 1px dashed lightgray;
@@ -85,7 +88,7 @@ export const Container = styled.div`
                         opacity: 0;
                     }
                     to {
-                        height: 20%;
+                        height: 15%;
                         opacity: 1;
                     }
                 }
@@ -98,7 +101,7 @@ export const Container = styled.div`
                         height: 30%;
                     }
                     to {
-                        height: 40%;
+                        height: 30%;
                     }
                 }
             }
