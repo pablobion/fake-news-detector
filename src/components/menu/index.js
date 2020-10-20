@@ -14,6 +14,11 @@ import Profile from "../../assets/profile.svg";
 function MenuComponent() {
     const [widthscreen, setWidthscreen] = useState(window.screen.width);
 
+    const logout = () => {
+        localStorage.removeItem("qwert");
+        document.location.reload(true);
+    };
+
     return (
         <>
             {
@@ -52,13 +57,13 @@ function MenuComponent() {
                             </div>
                         </button>
                     </Link>
-                    <Link to="" style={{ textDecoration: "none", position: "absolute", left: "80vw", marginLeft: 80 }}>
+                    <a onClick={logout} style={{ textDecoration: "none", position: "absolute", left: "80vw", marginLeft: 80 }}>
                         <button>
                             <div className="cell">
                                 <img className="icon" src={Logout} alt="" />
                             </div>
                         </button>
-                    </Link>
+                    </a>
                 </Menu>
             )}
         </>
