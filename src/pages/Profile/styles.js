@@ -11,6 +11,9 @@ export const Container = styled.div`
     #profile-container {
         width: 70vw;
         width: 100%;
+        @media (min-width: 700px) {
+            width: 70vw;
+        }
         #nav {
             display: flex;
             align-items: center;
