@@ -210,11 +210,9 @@ export const Home = styled.div`
 
             input {
                 flex: 1;
-                line-height: 2rem;
                 width: 10px;
                 border: none;
                 @media (min-width: 700px){
-                    line-height: 3.5rem;
                     width: 10px;
                 }      
             }

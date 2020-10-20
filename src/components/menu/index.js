@@ -9,6 +9,7 @@ import FakeIcon from "../../assets/fakenewsicon.svg";
 import GroupIcon from "../../assets/group.svg";
 import AboutIcon from "../../assets/about.svg";
 import Logout from "../../assets/logout.svg";
+import Profile from "../../assets/profile.svg";
 
 function MenuComponent() {
     const [widthscreen, setWidthscreen] = useState(window.screen.width);
@@ -16,9 +17,9 @@ function MenuComponent() {
     return (
         <>
             {
-                widthscreen < 500 && <MenuMobile id="section1"></MenuMobile> // Só renderiza se for tela de pc
+                widthscreen < 900 && <MenuMobile id="section1"></MenuMobile> // Só renderiza se for tela de pc
             }
-            {widthscreen >= 500 && ( // Só renderiza se for tela de pc
+            {widthscreen >= 900 && ( // Só renderiza se for tela de pc
                 <Menu>
                     <Link to="/detector" style={{ textDecoration: "none" }}>
                         <button>
@@ -44,11 +45,17 @@ function MenuComponent() {
                             </div>
                         </button>
                     </Link>
-                    <Link to="/about" style={{ textDecoration: "none" }}>
+                    <Link to="/profile" style={{ textDecoration: "none", position: "absolute", left: "80vw" }}>
+                        <button>
+                            <div className="cell">
+                                <img className="icon" src={Profile} alt="" />
+                            </div>
+                        </button>
+                    </Link>
+                    <Link to="" style={{ textDecoration: "none", position: "absolute", left: "80vw", marginLeft: 80 }}>
                         <button>
                             <div className="cell">
                                 <img className="icon" src={Logout} alt="" />
-                                <p>Sobre Nós</p>
                             </div>
                         </button>
                     </Link>
