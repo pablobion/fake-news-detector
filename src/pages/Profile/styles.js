@@ -37,7 +37,7 @@ export const Container = styled.div`
             }
 
             #blank-space-changepass {
-                width: 38px;
+                margin-right: 50px;
             }
         }
         #title-change-password {
@@ -277,7 +277,7 @@ export const ViewNews = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 75px;
 
     h1 {
         font-size: 28px;

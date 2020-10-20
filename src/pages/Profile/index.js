@@ -30,7 +30,7 @@ const Profile = () => {
                 <div id="profile-container">
                     {mode === "profile" && (
                         <div id="nav">
-                            <button id="voltar">
+                            <button id="voltar" style={{ marginLeft: 5 }}>
                                 <BiLeftArrowAlt
                                     id="left-arrow"
                                     onClick={() => {
@@ -91,6 +91,24 @@ const Profile = () => {
                             <div id="content">
                                 <h2>Historico</h2>
 
+                                <button id="news" onClick={handleChangeMode}>
+                                    <div id="news-image">
+                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
+                                    </div>
+                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
+                                </button>
+                                <button id="news" onClick={handleChangeMode}>
+                                    <div id="news-image">
+                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
+                                    </div>
+                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
+                                </button>
+                                <button id="news" onClick={handleChangeMode}>
+                                    <div id="news-image">
+                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
+                                    </div>
+                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
+                                </button>
                                 <button id="news" onClick={handleChangeMode}>
                                     <div id="news-image">
                                         <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
