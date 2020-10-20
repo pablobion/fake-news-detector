@@ -20,6 +20,7 @@ const Profile = () => {
     };
 
     const handleChangeMode = () => {
+        setShowChangePass(false);
         mode === "profile" ? setMode("viewNews") : setMode("profile");
     };
 
