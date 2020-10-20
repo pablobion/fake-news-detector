@@ -47,7 +47,7 @@ const Profile = () => {
                             <button id="voltar">
                                 <BiLeftArrowAlt id="left-arrow" onClick={handleChangeMode} />
                             </button>
-                            <p>Perfil</p>
+                            <p>Historico da noticia</p>
                             <div id="blank-space-changepass" />
                         </div>
                     )}

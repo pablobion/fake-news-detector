@@ -133,7 +133,10 @@ export const Container = styled.div`
             align-items: center;
         }
         
-
+        form {
+            @media (min-width: 700px) {
+                display :flex;
+            }
         #div-form-create-group {
             display: flex;
             align-items: center;
@@ -215,6 +218,7 @@ export const Container = styled.div`
                     background-color: #4285f4;
                 }
             }
+        }
         }
 
         #div-list-emails {
