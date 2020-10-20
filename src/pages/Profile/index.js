@@ -35,18 +35,26 @@ const Profile = () => {
                                 }}
                             />
                         </button>
+                        <p>Perfil</p>
                         <RiLockPasswordLine id="change-password" onClick={changemode} />
                     </div>
                     {mode && (
                         <>
                             <div id="div-change-password">
-                                <h2>Troque sua senha</h2>
-                                <p>Senha atual</p>
-                                <input />
-                                <p>Nova Senha</p>
-                                <input />
-                                <p>Repita sua senha</p>
-                                <input />
+                                <h2 id="title-change-password">Troque sua senha</h2>
+                                <div>
+                                    <p>Senha atual</p>
+                                    <input />
+                                </div>
+                                <div>
+                                    <p>Nova Senha</p>
+                                    <input />
+                                </div>
+                                <div>
+                                    <p>Repita sua senha</p>
+                                    <input />
+                                </div>
+
                                 <div>
                                     <button>Alterar</button>
                                 </div>
@@ -67,7 +75,7 @@ const Profile = () => {
                             <div id="news-image">
                                 <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
                             </div>
-                            <p>ss</p>
+                            <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
                         </div>
                         <div id="news">
                             <div id="news-image">
