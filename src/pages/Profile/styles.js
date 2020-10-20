@@ -4,7 +4,7 @@ import { shade } from "polished";
 export const Container = styled.div`
     color: #343434;
     display: flex;
-    margin-top: 80px;
+    margin-top: 30px;
     @media (min-width: 700px) {
         justify-content: center;
     }
@@ -12,18 +12,19 @@ export const Container = styled.div`
     #profile-container {
         width: 70vw;
         width: 100%;
+        @media (min-width: 700px) {
+            justify-content: center;
+            width: 80vw;
+            align-items: center;
+        }
         #nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 40px;
-            @media (min-width: 700px) {
-                padding: 0px 50px 0px 50px;
-            }
-
-            padding-right: 10px;
+            font-size: 36px;
 
             #left-arrow {
+                color: #454545;
                 font-size: 60px;
             }
             button {
@@ -31,21 +32,42 @@ export const Container = styled.div`
                 border: none;
             }
             #change-password {
+                color: #454545;
                 cursor: pointer;
+            }
+
+            #blank-space-changepass {
+                width: 38px;
+            }
+        }
+        #title-change-password {
+            border-top: 1px dashed lightgray;
+            display: flex;
+            justify-content: center;
+
+            h2 {
+                margin-top: 10px;
+                font-size: 20px;
+                margin-right: 10px;
+
+                @media (max-width: 700px) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            animation: invi1 1s forwards;
+            @keyframes invi1 {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
             }
         }
 
         #div-change-password {
             display: flex;
-
-            h2 {
-                font-size: 20px;
-                margin-right: 10px;
-                margin-top: 15px;
-                @media (max-width: 700px) {
-                    margin-bottom: 15px;
-                }
-            }
 
             @media (max-width: 1000px) {
                 flex-direction: column;
@@ -54,7 +76,6 @@ export const Container = styled.div`
             align-items: center;
             padding: 10px 0px 10px 0px;
             border-bottom: 1px dashed lightgray;
-            border-top: 1px dashed lightgray;
 
             @media (min-width: 700px) {
                 animation: grow1 1s forwards;
@@ -64,7 +85,7 @@ export const Container = styled.div`
                         opacity: 0;
                     }
                     to {
-                        height: 15%;
+                        height: 20%;
                         opacity: 1;
                     }
                 }
@@ -152,7 +173,7 @@ export const Container = styled.div`
             img {
                 width: 50px;
                 @media (min-width: 700px) {
-                    width: 100px;
+                    width: 90px;
                 }
 
                 border-radius: 50%;
@@ -162,8 +183,8 @@ export const Container = styled.div`
                 font-size: 5vw;
                 margin-left: 10px;
                 @media (min-width: 700px) {
-                    font-size: 30px;
-                    margin-left: 40px;
+                    font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+                    margin-left: 20px;
                 }
             }
         }
@@ -208,6 +229,7 @@ export const Container = styled.div`
                 margin-bottom: 10px;
                 display: flex;
                 align-items: center;
+
                 background-color: white;
                 width: 80vw;
 
@@ -224,7 +246,7 @@ export const Container = styled.div`
 
                 #news-image {
                     padding: 10px;
-                    border: 1px solid gray;
+                    border: 2px solid lightgray;
                     width: 50px;
                     height: 50px;
                     border-radius: 50%;
@@ -246,6 +268,52 @@ export const Container = styled.div`
                     text-overflow: ellipsis;
                 }
             }
+        }
+    }
+`;
+
+export const ViewNews = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+
+    h1 {
+        font-size: 28px;
+    }
+    #acess-time {
+        #acess-time-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            font-size: 14px;
+        }
+    }
+
+    #news-content {
+        margin-top: 40px;
+        display: flex;
+        width: 50vw;
+        @media (max-width: 700px) {
+            width: 75vw;
+        }
+        line-height: 1.5;
+        font-size: 16px;
+        text-align: justify;
+        text-align-last: justify;
+
+        #quote-left {
+            margin-right: 20px;
+        }
+
+        #quote-right {
+            margin-left: 20px;
         }
     }
 `;
