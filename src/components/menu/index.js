@@ -10,6 +10,7 @@ import GroupIcon from "../../assets/group.svg";
 import AboutIcon from "../../assets/about.svg";
 import Logout from "../../assets/logout.svg";
 import Profile from "../../assets/profile.svg";
+import Suggestions from "../../assets/suggestions.svg";
 
 function MenuComponent() {
     const [widthscreen, setWidthscreen] = useState(window.screen.width);
@@ -42,6 +43,14 @@ function MenuComponent() {
                             </div>
                         </button>
                     </Link>
+                    <Link to="/suggestions" style={{ textDecoration: "none" }}>
+                        <button>
+                            <div className="cell">
+                                <img className="icon" src={Suggestions} alt="" />
+                                <p>Sugestão</p>
+                            </div>
+                        </button>
+                    </Link>
                     <Link to="/about" style={{ textDecoration: "none" }}>
                         <button>
                             <div className="cell">
@@ -50,6 +59,7 @@ function MenuComponent() {
                             </div>
                         </button>
                     </Link>
+
                     <Link to="/profile" style={{ textDecoration: "none", position: "absolute", left: "80vw" }}>
                         <button>
                             <div className="cell">

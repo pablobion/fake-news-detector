@@ -7,6 +7,7 @@ import About from "../pages/about/";
 import Groups from "../pages/groups/";
 import Page404 from "../pages/404/";
 import Profile from "../pages/Profile/";
+import Suggestions from "../pages/Suggestions/";
 
 const authorization = localStorage.getItem("qwert");
 
@@ -23,6 +24,7 @@ function routes() {
                     <Route path="/about" exact component={About} />
                     <Route path="/groups" exact component={Groups} />
                     <Route path="/profile" exact component={Profile} />
+                    <Route path="/suggestions" exact component={Suggestions} />
                     {/* <Route path="*" component={Page404} /> */}
                 </>
             )}

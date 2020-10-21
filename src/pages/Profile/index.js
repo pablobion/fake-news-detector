@@ -129,7 +129,7 @@ const Profile = () => {
                                 </div>
 
                                 <div id="news-content">
-                                    <p>
+                                    <p id="text">
                                         <ImQuotesLeft id="quote-left" />O Jornal Nacional teve acesso a gravações e mensagens dos investigados no inquérito da
                                         Polícia Federal sobre fraudes na compra de respiradores no Amazonas. Em abril, o sistema de saúde do Amazonas entrou em
                                         colapso por causa da pandemia da Covid. Foi nesse cenário que, segundo a Polícia Federal, integrantes da cúpula do
