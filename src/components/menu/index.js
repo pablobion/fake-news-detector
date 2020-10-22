@@ -22,60 +22,83 @@ function MenuComponent() {
 
     return (
         <>
-            {
-                widthscreen < 900 && <MenuMobile id="section1"></MenuMobile> // Só renderiza se for tela de pc
+            {/* {
+                widthscreen < 900 && <MenuMobile id="section1">
+                    
+                </MenuMobile> 
             }
-            {widthscreen >= 900 && ( // Só renderiza se for tela de pc
-                <Menu>
-                    <Link to="/detector" style={{ textDecoration: "none" }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={FakeIcon} alt="" />
-                                <p>Detector</p>
-                            </div>
-                        </button>
-                    </Link>
-                    <Link to="/groups" style={{ textDecoration: "none" }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={GroupIcon} alt="" />
-                                <p>Grupos</p>
-                            </div>
-                        </button>
-                    </Link>
-                    <Link to="/suggestions" style={{ textDecoration: "none" }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={Suggestions} alt="" />
-                                <p>Sugestão</p>
-                            </div>
-                        </button>
-                    </Link>
-                    <Link to="/about" style={{ textDecoration: "none" }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={AboutIcon} alt="" />
-                                <p>Sobre Nós</p>
-                            </div>
-                        </button>
-                    </Link>
-
-                    <Link to="/profile" style={{ textDecoration: "none", position: "absolute", left: "80vw" }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={Profile} alt="" />
-                            </div>
-                        </button>
-                    </Link>
-                    <a onClick={logout} style={{ textDecoration: "none", position: "absolute", left: "80vw", marginLeft: 80 }}>
-                        <button>
-                            <div className="cell">
-                                <img className="icon" src={Logout} alt="" />
-                            </div>
-                        </button>
-                    </a>
-                </Menu>
-            )}
+            {widthscreen >= 900 && (  */}
+            <Menu>
+                <Link to="/detector" style={{ textDecoration: "none" }}>
+                    <button>
+                        <div className="cell">
+                            <img className="icon" src={FakeIcon} alt="" />
+                            <p>Detector</p>
+                        </div>
+                    </button>
+                </Link>
+                <Link to="/groups" style={{ textDecoration: "none" }}>
+                    <button>
+                        <div className="cell">
+                            <img className="icon" src={GroupIcon} alt="" />
+                            <p>Grupos</p>
+                        </div>
+                    </button>
+                </Link>
+                <Link to="/suggestions" style={{ textDecoration: "none" }}>
+                    <button>
+                        <div className="cell">
+                            <img className="icon" src={Suggestions} alt="" />
+                            <p>Sugestão</p>
+                        </div>
+                    </button>
+                </Link>
+                <Link to="/about" style={{ textDecoration: "none" }}>
+                    <button>
+                        <div className="cell">
+                            <img className="icon" src={AboutIcon} alt="" />
+                            <p>Sobre Nós</p>
+                        </div>
+                    </button>
+                </Link>
+                {widthscreen < 900 && (
+                    <>
+                        <Link to="/profile" style={{ textDecoration: "none" }}>
+                            <button>
+                                <div className="cell">
+                                    <img className="icon" src={Profile} alt="" />
+                                </div>
+                            </button>
+                        </Link>
+                        <a onClick={logout} style={{ textDecoration: "none" }}>
+                            <button>
+                                <div className="cell">
+                                    <img className="icon" src={Logout} alt="" />
+                                </div>
+                            </button>
+                        </a>
+                    </>
+                )}
+                {widthscreen >= 900 && (
+                    <>
+                        <Link to="/profile" style={{ textDecoration: "none", position: "absolute", left: "80vw" }}>
+                            <button>
+                                <div className="cell">
+                                    <img className="icon" src={Profile} alt="" />
+                                </div>
+                            </button>
+                        </Link>
+                        <a onClick={logout} style={{ textDecoration: "none", position: "absolute", left: "80vw", marginLeft: 80 }}>
+                            <button>
+                                <div className="cell">
+                                    <img className="icon" src={Logout} alt="" />
+                                </div>
+                            </button>
+                        </a>
+                    </>
+                )}
+            </Menu>
+            {/* )} */}
         </>
     );
 }
