@@ -25,7 +25,7 @@ function routes() {
                     <Route path="/groups" exact component={Groups} />
                     <Route path="/profile" exact component={Profile} />
                     <Route path="/suggestions" exact component={Suggestions} />
-                    <Route path="*" component={Page404} />
+                    {/* <Route component={Page404} /> */}
                 </>
             )}
             {!authorization && (
