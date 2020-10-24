@@ -31,6 +31,9 @@ function SwitchPages(props) {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/user/login", settings);
             const dataReturned = await response.json();
+            if (dataReturned.error === "A senha está incorreta" || dataReturned.error === "Usuário não encontrado") {
+                alert("E-mail ou senha está incorreta");
+            }
             if (dataReturned.success) {
                 window.localStorage.setItem("qwert", dataReturned.token);
                 window.localStorage.setItem("user", data.userName);
