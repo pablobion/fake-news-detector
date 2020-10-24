@@ -122,7 +122,6 @@ export const Container = styled.div`
                 }
         }
     }
-
     #create-group {
         color: #454545;
         width: 100vw;
