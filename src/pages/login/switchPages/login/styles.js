@@ -34,7 +34,7 @@ export const LoginArea = styled.div`
             }
         }
         button {
-            position: absolute;
+            position: -moz-absolute;
             bottom: 0;
             margin-bottom: 20px;
 
