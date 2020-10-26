@@ -64,9 +64,8 @@ export const Container = styled.div`
             select {
                 height: 40px;
                 font-size: 16px;
-                padding: 10px;
-                border-radius: 1vh;
-                overflow:hidden; /* Esconde o conteúdo que passar do tamanho especificado */
+              
+
 
                 @media (min-width: 700px){
                     margin-right: 20px;
@@ -76,7 +75,7 @@ export const Container = styled.div`
                     margin-bottom: 50px;
                     width: 80vw;
                 }
-                border-color: lightgray;
+                
                 
             }
             
