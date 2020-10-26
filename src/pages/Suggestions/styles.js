@@ -64,9 +64,6 @@ export const Container = styled.div`
             select {
                 height: 40px;
                 font-size: 16px;
-              
-
-
                 @media (min-width: 700px){
                     margin-right: 20px;
                     width: 20vw;
@@ -74,9 +71,7 @@ export const Container = styled.div`
                 @media (max-width: 700px){
                     margin-bottom: 50px;
                     width: 80vw;
-                }
-                
-                
+                }    
             }
             
 
