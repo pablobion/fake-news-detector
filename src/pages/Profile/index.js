@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Menu from "../../components/menu/index";
 import { useHistory } from "react-router-dom";
 
@@ -23,6 +23,36 @@ const Profile = () => {
         setShowChangePass(false);
         mode === "profile" ? setMode("viewNews") : setMode("profile");
     };
+
+    const getProfileData = async () => {
+        const user = localStorage.getItem('user');
+        const authorization = localStorage.getItem('qwert');
+        const settings = {
+            method: "GET", 
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Authorization": authorization
+            },
+        };
+        try {
+            const response = await fetch(`https://tcspedroverani.herokuapp.com/user/history?user=${user}`, settings);
+            const data = await response.json();
+            return data; 
+        } catch (error) {
+            
+        }
+       
+    }
+
+    useEffect(() => {
+        (async () => {
+            const data = await getProfileData();
+            //aqui tem os dados do profile do cara, função não existe ainda no backend
+          
+            
+        })();
+    }, []);
 
     return (
         <>
