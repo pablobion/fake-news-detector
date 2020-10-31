@@ -210,7 +210,23 @@ const Groups = () => {
                             <div id="cover">
                                 <img src={groupcreatedlogo} alt="" />
                             </div>
-                            <div id="content"></div>
+                            <div id="content">
+                                <div id="top">
+                                    <h1 id="title">{userInput.groupName}</h1>
+                                    <div id="description">
+                                        <small id="description">{userInput.groupDescription}</small>
+                                    </div>
+                                </div>
+                                <div id="mid">
+                                    <h3>Participantes</h3>
+                                    {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
+                                </div>
+
+                                <div id="bottom">
+                                    <small>Criado em: {userInput.createdAt}</small>
+                                    <small>Criado por: {userInput.createdBy}</small>
+                                </div>
+                            </div>
                         </Created>
                     </>
                 )}

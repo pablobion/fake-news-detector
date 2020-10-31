@@ -318,36 +318,125 @@ export const Container = styled.div`
 export const Created = styled.div`
     display: flex;
     align-items: center;
-    border: 1px solid;
-    height: 70vh;
-    width: 100vw;
-    padding: 0px 30px 0px 30px;
+    justify-content: center;
 
-    @media (max-width: 700px) {
+    width: 100vw;
+
+    @media (min-width: 1100px) {
+        height: 80vh;
+        padding: 10px 80px 0px 80px;
+    }
+
+    @media (max-width: 1100px) {
         flex-direction: column;
+        padding: 0px 5px 20px 5px;
     }
 
     #cover {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid;
         height: 100%;
-        width: 50%;
-        background-color: red;
+        background-color: #70b0ff;
+
+        @media (max-width: 1100px) {
+            height: 200px;
+            width: 94.83vw;
+            border-radius: 30px 30px 0px 0px;
+        }
+
+        @media (min-width: 1100px) and (max-width: 1420px) {
+            width: 40%;
+            border-radius: 30px 0px 0px 30px;
+        }
+
+        @media (min-width: 1420px) {
+            width: 30%;
+            border-radius: 30px 0px 0px 30px;
+        }
 
         img {
-            height: 30vw;
-            min-height: 250px;
-            max-height: 350px;
             padding: 10px;
+            @media (max-width: 1100px) {
+                height: 200px;
+            }
+            @media (min-width: 1100px) {
+                height: 30vw;
+                min-height: 250px;
+                max-height: 300px;
+            }
         }
     }
 
     #content {
-        border: 1px solid;
-        background-color: blue;
-        width: 100%;
+        border: 1px 1px 1px 0px solid lightgray;
+        box-shadow: 2px 1px 20px lightgray;
+        background-color: Snow;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media (max-width: 1100px) {
+            border-radius: 0px 0px 30px 30px;
+            width: 95vw;
+        }
+        @media (min-width: 1100px) {
+            border-radius: 0px 30px 30px 0px;
+            width: 50vw;
+        }
+
+        #top {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            #title {
+                width: 100%;
+                font-size: 45px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                color: #454545;
+                word-wrap: break-word;
+            }
+            #title::first-letter {
+                text-transform: uppercase;
+            }
+            #description {
+                font-size: 14px;
+                width: 300px;
+                word-wrap: break-word;
+
+                small {
+                    color: #454545;
+                }
+                @media (max-width: 1100px) {
+                    margin-top: 20px;
+                }
+            }
+            #description::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        #mid {
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            color: #454545;
+            @media (max-width: 1100px) {
+                margin-top: 20px;
+            }
+        }
+        #bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            font-size: 16px;
+            @media (max-width: 1100px) {
+                flex-direction: column;
+            }
+        }
     }
 `;
