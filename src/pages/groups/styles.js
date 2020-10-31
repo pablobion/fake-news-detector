@@ -308,91 +308,46 @@ export const Container = styled.div`
         }
        
        
-        #card-created{
-
-            display: flex;
-
-            border: 1px solid lightgrey;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
-            border-radius: 1vh;
-            min-height: 200px;
-
-            width: 700px;
-
-            @media (max-width: 700px) {
-                flex-direction: column;
-                width: 70vw;
-                max-width: 70vw;
-                min-width: 70vw;
-            }
-         
-            #left-side-created{
-
-                @media (min-width: 700px) {
-                    border-right: 2px dashed #EEEEEE;
-                }
-                @media (max-width: 700px) {
-                    border-bottom: 2px dashed #EEEEEE;
-                }
-                
-                padding: 40px 40px 0px 40px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                padding: 30px;
-                min-width: 350px;
-                min-height: 300px;
-            
-                #group-name-created {
-                    font-size: 40px;
-                    
-                    color: #00b0ff;
-                }
-
-                #group-name-created::first-letter {
-                    text-transform: uppercase;
-                }
-
-                div {
-                    display:flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    p+p{
-                        margin-top: 10px;
-                    }
-                }
-
-            }  
-
-            #right-side-created{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                flex: 1;
-                padding: 30px;
-
-
-                p::first-letter {
-                    text-transform: uppercase;
-                }
-
-                div {
-                    h3 {
-                        margin-bottom: 5px;
-                        margin-top: 30px;
-                        
-                    }
-                    display: flex;
-                    flex-direction: column;
-
-                    span {
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
+    
          
     }
 
     
+`;
+
+export const Created = styled.div`
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    height: 70vh;
+    width: 100vw;
+    padding: 0px 30px 0px 30px;
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
+
+    #cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        height: 100%;
+        width: 50%;
+        background-color: red;
+
+        img {
+            height: 30vw;
+            min-height: 250px;
+            max-height: 350px;
+            padding: 10px;
+        }
+    }
+
+    #content {
+        border: 1px solid;
+        background-color: blue;
+        width: 100%;
+        height: 100%;
+    }
 `;

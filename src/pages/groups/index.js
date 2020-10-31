@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 
-import { Container } from "./styles";
+import { Container, Created } from "./styles";
 
 /* Components */
 import Menu from "../../components/menu";
@@ -13,6 +13,7 @@ import DoneAnimation from "./animations/index";
 /* Icons */
 import GroupImg from "../../assets/grouppageart.svg";
 import LeftArrow from "../../assets/left-arrow.svg";
+import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 
 import { FaPlus } from "react-icons/fa";
 
@@ -205,36 +206,12 @@ const Groups = () => {
                 )}
                 {userInput.mode === "created" && (
                     <>
-                        <div id="container-created">
-                            <div id="border-color"></div>
-                            <div id="card-created">
-                                <div id="left-side-created">
-                                    <p id="group-name-created">{userInput.groupName}</p>
-                                    <div>
-                                        <p>Criado: {userInput.createdAt}</p>
-                                        <p>Por: {userInput.createdBy}</p>
-                                    </div>
-                                </div>
-                                <div id="right-side-created">
-                                    <p>{userInput.groupDescription}</p>
-                                    <div>
-                                        <h3>Participantes</h3>
-                                        {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                        <span>aihsas@hotmail.com</span>
-                                    </div>
-                                </div>
+                        <Created>
+                            <div id="cover">
+                                <img src={groupcreatedlogo} alt="" />
                             </div>
-                        </div>
+                            <div id="content"></div>
+                        </Created>
                     </>
                 )}
             </Container>
