@@ -351,7 +351,7 @@ export const Created = styled.div`
         }
 
         @media (min-width: 1420px) {
-            width: 30%;
+            width: 33%;
             border-radius: 30px 0px 0px 30px;
         }
 
