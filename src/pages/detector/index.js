@@ -44,10 +44,11 @@ function DetectorPage() {
 
     const sendNews = async (content, url = "") => {
         const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem('user');
         if (!authorization) window.location.reload(true); //supondo que o usuario ta logado, deletou o localStorage,e tenta enviar uma noticia, é pra desloga-lo, o reload fará isso
         const settings = {
             method: "POST",
-            body: JSON.stringify({ content, url }),
+            body: JSON.stringify({ content, url, verifiedBy: user }),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -110,7 +111,7 @@ function DetectorPage() {
     const checkNews = async () => {
         //Função para habilitar textarea antes de enviar a noticia
         if (userInput.content) {
-            sendNews();
+            sendNews(userInput.content); 
             return;
         }
 
