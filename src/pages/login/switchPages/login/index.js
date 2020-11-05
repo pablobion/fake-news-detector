@@ -47,15 +47,16 @@ function SwitchPages(props) {
     useEffect(() => {
         (async () => {
             try {
-            // const response = await fetch('https://tcspedroverani.herokuapp.com/report/extract');
-            // const data = await response.json();
+             const response = await fetch('https://tcspedroverani.herokuapp.com/report/extract');
+             const data = await response.json();
+             console.log(data);
 
             } catch (error) {
                 
             }
             //isso é a função pra pegar os dados que vão ser exibidos quando o usuário NÃO estiver logado
             //Já enviamos X notícias, e já enviamos mais de X emails avisando colegas.
-            //função não existe ainda no backend
+            
             //não sei se vai exatamente nesse arquivo, porque no criação de conta e recuperação de senha também vai exibir,
             //n sei se teria que fazer 1 useEffect em cada arquivo.
            

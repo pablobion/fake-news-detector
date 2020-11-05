@@ -45,7 +45,7 @@ const Profile = () => {
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
-            //aqui tem os dados do profile do cara, função não existe ainda no backend
+            //funcao ta ok, retorna array com as noticias dentro de news
             console.log(data);
         })();
     }, []);
