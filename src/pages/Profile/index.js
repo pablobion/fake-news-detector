@@ -42,6 +42,33 @@ const Profile = () => {
         } catch (error) {}
     };
 
+    const changePassword = async (oldPassword, newPassword, newsPassAgain) => {
+        const user = localStorage.getItem("user");
+        if(newPassword !== newsPassAgain) {
+            //As senhas não conferem
+        }
+        const authorization = localStorage.getItem("qwert");
+        const settings = {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+               
+            },
+            body: JSON.stringify({oldPassword, newPassword, email: user})
+        };
+        try {
+            const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
+            const data = await response.json();
+            if(data.success) {
+                //a senha foi trocada com sucesso
+            } else {
+                // houve um erro, printa o erro em data.error
+            }
+        } catch (error) {}
+    }
+
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
@@ -95,7 +122,7 @@ const Profile = () => {
                                     <input />
                                 </div>
                                 <div>
-                                    <p>Repita sua senha</p>
+                                    <p>Repita a nova senha</p>
                                     <input />
                                 </div>
 
