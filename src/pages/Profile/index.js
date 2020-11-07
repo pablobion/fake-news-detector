@@ -69,6 +69,33 @@ const Profile = () => {
         } catch (error) {}
     }
 
+    const cleanUserHistory = async () => {
+        const authorization = localStorage.getItem('qwert');
+        const user = localStorage.getItem('user');
+
+        const settings = {
+            method: 'DELETE',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+               
+            },
+            body: JSON.stringify({ user })
+        };
+
+        try {
+            const response = await fetch('https://tcspedroverani.com.herokuapp.com/user/clean', settings);
+            const data = await response.json();
+            if(data.success) {
+                console.log('Histórico limpo com sucesso');
+                window.location.reload(true);
+            }
+        } catch (error) {
+            
+        }
+    }
+
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
