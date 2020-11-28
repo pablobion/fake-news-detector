@@ -19,7 +19,7 @@ export default createGlobalStyle`
           } 
      }
      body {
-          overflow: hidden;
+          (/*overflow: hidden;*/}
      }
      html {
           scroll-behavior: smooth;

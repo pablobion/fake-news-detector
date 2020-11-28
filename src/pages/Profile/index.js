@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Menu from "../../components/menu/index";
 import { useHistory } from "react-router-dom";
 
-import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLeftArrowAlt } from "react-icons/bi";
-import { AiOutlineFieldTime } from "react-icons/ai";
+import { AiOutlineFieldTime, AiOutlineSetting } from "react-icons/ai";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { MdClose } from "react-icons/md";
 
 import { Container, ViewNews } from "./styles";
 
@@ -44,7 +44,7 @@ const Profile = () => {
 
     const changePassword = async (oldPassword, newPassword, newsPassAgain) => {
         const user = localStorage.getItem("user");
-        if(newPassword !== newsPassAgain) {
+        if (newPassword !== newsPassAgain) {
             //As senhas não conferem
         }
         const authorization = localStorage.getItem("qwert");
@@ -54,47 +54,43 @@ const Profile = () => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 Authorization: authorization,
-               
             },
-            body: JSON.stringify({oldPassword, newPassword, email: user})
+            body: JSON.stringify({ oldPassword, newPassword, email: user }),
         };
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
             const data = await response.json();
-            if(data.success) {
+            if (data.success) {
                 //a senha foi trocada com sucesso
             } else {
                 // houve um erro, printa o erro em data.error
             }
         } catch (error) {}
-    }
+    };
 
     const cleanUserHistory = async () => {
-        const authorization = localStorage.getItem('qwert');
-        const user = localStorage.getItem('user');
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
 
         const settings = {
-            method: 'DELETE',
+            method: "DELETE",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 Authorization: authorization,
-               
             },
-            body: JSON.stringify({ user })
+            body: JSON.stringify({ user }),
         };
 
         try {
-            const response = await fetch('https://tcspedroverani.com.herokuapp.com/user/clean', settings);
+            const response = await fetch("https://tcspedroverani.com.herokuapp.com/user/clean", settings);
             const data = await response.json();
-            if(data.success) {
-                console.log('Histórico limpo com sucesso');
+            if (data.success) {
+                console.log("Histórico limpo com sucesso");
                 window.location.reload(true);
             }
-        } catch (error) {
-            
-        }
-    }
+        } catch (error) {}
+    };
 
     useEffect(() => {
         (async () => {
@@ -104,6 +100,10 @@ const Profile = () => {
         })();
     }, []);
 
+    function overlay() {
+        let el = document.getElementById("overlay");
+        el.style.visibility = el.style.visibility == "visible" ? "hidden" : "visible";
+    }
     return (
         <>
             <Menu />
@@ -120,7 +120,7 @@ const Profile = () => {
                                 />
                             </button>
                             <p>Perfil</p>
-                            <RiLockPasswordLine id="change-password" onClick={handleShowChangePass} />
+                            <AiOutlineSetting id="change-password" onClick={handleShowChangePass} />
                         </div>
                     )}
                     {mode === "viewNews" && (
@@ -155,6 +155,25 @@ const Profile = () => {
 
                                 <div>
                                     <button>Alterar</button>
+                                </div>
+                            </div>
+                            <div id="div-delete-account">
+                                <div id="button">
+                                    <button onClick={() => overlay()}>Deletar conta</button>
+                                </div>
+
+                                <div id="overlay">
+                                    <div id="close-overlay">
+                                        <button onClick={() => overlay()}>
+                                            <MdClose />
+                                        </button>
+                                    </div>
+                                    <div id="confirm-delete">
+                                        <h3>Você realmente deseja deletar sua conta?</h3>
+                                        <button>
+                                            <h4>Sim, desejo deletar minha conta</h4>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </>

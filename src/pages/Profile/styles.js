@@ -162,6 +162,95 @@ export const Container = styled.div`
             }
         }
 
+        #div-delete-account {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media (max-width: 700px) {
+                flex-direction: column;
+            }
+
+            #button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    background: rgb(255, 61, 61, 0.5);
+                    border-radius: 1.2vh;
+                    border: 0;
+                    color: #fff;
+                    font-weight: bold;
+                    transition: background-color 0.2s;
+                    &:hover {
+                        background: ${shade(0.2, "#ff3d3d")};
+                    }
+                    @media (max-width: 700px) {
+                        margin-top: 10px;
+                    }
+
+                    height: 30px;
+                    font-size: 14px;
+                    width: 130px;
+                    @media (min-width: 700px) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            #overlay {
+                font-size: 14px;
+                padding: 10px;
+                visibility: hidden;
+                position: relative;
+                text-align: center;
+                text-justify: auto;
+                background: rgb(255, 61, 61, 0.5);
+                border-radius: 10px;
+                color: white;
+                @media (min-width: 700px) {
+                    display: flex;
+                }
+                @media (max-width: 700px) {
+                    margin-top: 10px;
+                }
+
+                #close-overlay {
+                    display: flex;
+                    justify-content: flex-start;
+                    button {
+                        font-size: 20px;
+                        background: transparent;
+                        border: none;
+                        color: white;
+                    }
+                }
+
+                #confirm-delete {
+                    margin-left: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @media (max-width: 700px) {
+                        flex-direction: column;
+                    }
+                    button {
+                        margin-left: 20px;
+                        background: rgb(255, 61, 61, 0.8);
+                        border: none;
+                        padding: 5px;
+                        font-size: 12px;
+                        border-radius: 5px;
+                        color: white;
+
+                        @media (max-width: 700px) {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
         #person {
             display: flex;
             align-items: center;
