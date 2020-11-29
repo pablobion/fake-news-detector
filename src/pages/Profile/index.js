@@ -157,15 +157,18 @@ const Profile = () => {
                                     <button>Alterar</button>
                                 </div>
                             </div>
-                            <div id="div-delete-account">
-                                <div id="button">
+                            <div id="div-footer-settings">
+                                <div id="button-clean-historic">
+                                    <button>LImpar Historico</button>
+                                </div>
+                                <div id="button-delete-account">
                                     <button onClick={() => overlay()}>Deletar conta</button>
                                 </div>
 
                                 <div id="overlay">
                                     <div id="close-overlay">
                                         <button onClick={() => overlay()}>
-                                            <MdClose />
+                                            <MdClose style={{ cursor: "pointer" }} />
                                         </button>
                                     </div>
                                     <div id="confirm-delete">

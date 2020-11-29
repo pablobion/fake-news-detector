@@ -77,9 +77,9 @@ export const Container = styled.div`
             }
             justify-content: center;
             align-items: center;
-            padding: 10px 0px 10px 0px;
 
             @media (min-width: 700px) {
+                padding: 10px 0px 10px 0px;
                 animation: grow1 1s forwards;
                 @keyframes grow1 {
                     from {
@@ -153,6 +153,7 @@ export const Container = styled.div`
                     height: 50px;
                     font-size: 18px;
                     width: 130px;
+                    cursor: pointer;
                     @media (min-width: 700px) {
                         margin-top: 10px;
                         margin-right: 10px;
@@ -161,18 +162,51 @@ export const Container = styled.div`
             }
         }
 
-        #div-delete-account {
+        #div-footer-settings {
             display: flex;
             border-bottom: 1px dashed lightgray;
             width: 100%;
-            justify-content: center;
-            @media (min-width: 700px) {
-            }
+
             @media (max-width: 700px) {
                 flex-direction: column;
             }
+            @media (min-width: 700px) {
+                padding-bottom: 15px;
+            }
+            #button-clean-historic {
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-            #button {
+                @media (min-width: 700px) {
+                    margin-left: 125px;
+                }
+
+                button {
+                    background: SkyBlue;
+                    border-radius: 1.2vh;
+                    border: 0;
+                    color: #fff;
+                    font-weight: bold;
+                    transition: background-color 0.2s;
+                    cursor: pointer;
+                    &:hover {
+                        background: ${shade(0.2, "SkyBlue")};
+                    }
+                    @media (max-width: 700px) {
+                        margin-top: 10px;
+                    }
+
+                    height: 30px;
+                    font-size: 14px;
+                    width: 130px;
+                    @media (min-width: 700px) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            #button-delete-account {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -184,6 +218,7 @@ export const Container = styled.div`
                     color: #fff;
                     font-weight: bold;
                     transition: background-color 0.2s;
+                    cursor: pointer;
                     &:hover {
                         background: ${shade(0.2, "#ff3d3d")};
                     }
@@ -210,11 +245,12 @@ export const Container = styled.div`
                 background: rgb(255, 61, 61, 0.5);
                 border-radius: 10px;
                 color: white;
+
                 @media (min-width: 700px) {
                     display: flex;
                 }
                 @media (max-width: 700px) {
-                    margin-top: 10px;
+                    margin: 20px;
                 }
 
                 #close-overlay {
@@ -229,12 +265,15 @@ export const Container = styled.div`
                 }
 
                 #confirm-delete {
-                    margin-left: 20px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     @media (max-width: 700px) {
                         flex-direction: column;
+                        padding-bottom: 10px;
+                    }
+                    @media (min-width: 700px) {
+                        margin-left: 20px;
                     }
                     button {
                         margin-left: 20px;
@@ -244,6 +283,7 @@ export const Container = styled.div`
                         font-size: 12px;
                         border-radius: 5px;
                         color: white;
+                        cursor: pointer;
 
                         @media (max-width: 700px) {
                             margin-top: 10px;
