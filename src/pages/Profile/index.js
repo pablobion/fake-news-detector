@@ -164,7 +164,7 @@ const Profile = () => {
                             </div>
                             <div id="div-footer-settings">
                                 <div id="button-clean-historic">
-                                    <button>Limpar Histórico</button>
+                                    <button onClick={() => cleanUserHistory()}>Limpar Histórico</button>
                                 </div>
                                 <div id="button-delete-account">
                                     <button onClick={() => overlay()}>Deletar conta</button>

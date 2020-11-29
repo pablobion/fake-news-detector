@@ -19,6 +19,7 @@ export const Menu = styled.div`
     button {
         border: none;
         background-color: transparent;
+        cursor: pointer;
 
         .cell {
             width: 35px;
