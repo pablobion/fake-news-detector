@@ -69,7 +69,7 @@ export const Container = styled.div`
             }
         }
 
-        #div-change-password {
+        #div-change-settings {
             display: flex;
 
             @media (max-width: 1000px) {
@@ -78,7 +78,6 @@ export const Container = styled.div`
             justify-content: center;
             align-items: center;
             padding: 10px 0px 10px 0px;
-            border-bottom: 1px dashed lightgray;
 
             @media (min-width: 700px) {
                 animation: grow1 1s forwards;
@@ -164,8 +163,11 @@ export const Container = styled.div`
 
         #div-delete-account {
             display: flex;
+            border-bottom: 1px dashed lightgray;
+            width: 100%;
             justify-content: center;
-            align-items: center;
+            @media (min-width: 700px) {
+            }
             @media (max-width: 700px) {
                 flex-direction: column;
             }

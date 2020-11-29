@@ -12,15 +12,15 @@ import { Container, ViewNews } from "./styles";
 const Profile = () => {
     const history = useHistory();
 
-    const [showChangePass, setShowChangePass] = useState(false);
+    const [showSettings, setshowSettings] = useState(false);
     const [mode, setMode] = useState("profile");
 
-    const handleShowChangePass = () => {
-        showChangePass === true ? setShowChangePass(false) : setShowChangePass(true);
+    const handleshowSettings = () => {
+        showSettings === true ? setshowSettings(false) : setshowSettings(true);
     };
 
     const handleChangeMode = () => {
-        setShowChangePass(false);
+        setshowSettings(false);
         mode === "profile" ? setMode("viewNews") : setMode("profile");
     };
 
@@ -120,7 +120,7 @@ const Profile = () => {
                                 />
                             </button>
                             <p>Perfil</p>
-                            <AiOutlineSetting id="change-password" onClick={handleShowChangePass} />
+                            <AiOutlineSetting id="change-password" onClick={handleshowSettings} />
                         </div>
                     )}
                     {mode === "viewNews" && (
@@ -133,13 +133,13 @@ const Profile = () => {
                         </div>
                     )}
 
-                    {showChangePass && (
+                    {showSettings && (
                         <>
                             <div id="title-change-password">
                                 <h2>Troque sua senha</h2>
                             </div>
 
-                            <div id="div-change-password">
+                            <div id="div-change-settings">
                                 <div>
                                     <p>Senha atual</p>
                                     <input />

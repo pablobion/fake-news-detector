@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Login from "../pages/login";
 import Detector from "../pages/detector";
@@ -12,6 +13,19 @@ import Suggestions from "../pages/Suggestions/";
 const authorization = localStorage.getItem("qwert");
 
 function routes() {
+    function HeaderView() {
+        //verifica se é no detector para nao deixar baixar a pagina
+        const location = useLocation();
+        return `${location.pathname}`;
+    }
+    console.log(HeaderView());
+
+    if (HeaderView() === "/detector") {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "visible";
+    }
+
     return (
         <Switch>
             {authorization && (
