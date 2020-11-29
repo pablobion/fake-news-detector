@@ -15,6 +15,9 @@ const Profile = () => {
     const [showSettings, setshowSettings] = useState(false);
     const [mode, setMode] = useState("profile");
 
+    const [email, setEmail] = useState("");
+    const [historicNews, setHistoricNews] = useState([]);
+
     const handleshowSettings = () => {
         showSettings === true ? setshowSettings(false) : setshowSettings(true);
     };
@@ -95,9 +98,11 @@ const Profile = () => {
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
-            //funcao ta ok, retorna array com as noticias dentro de news
             console.log(data);
+            setHistoricNews(data.news);
         })();
+
+        setEmail(localStorage.getItem("user"));
     }, []);
 
     function overlay() {
@@ -159,7 +164,7 @@ const Profile = () => {
                             </div>
                             <div id="div-footer-settings">
                                 <div id="button-clean-historic">
-                                    <button>LImpar Historico</button>
+                                    <button>Limpar Histórico</button>
                                 </div>
                                 <div id="button-delete-account">
                                     <button onClick={() => overlay()}>Deletar conta</button>
@@ -184,8 +189,8 @@ const Profile = () => {
                     {mode === "profile" && (
                         <>
                             <div id="person">
-                                <img id="image-profile" src="https://avatars.dicebear.com/api/initials/Pedro.verani@hotmail.com.svg" alt="" />
-                                <p>Pedro.verani@hotmail.com</p>
+                                <img id="image-profile" src={`https://avatars.dicebear.com/api/initials/${email}.svg`} alt="" />
+                                <p>{email}</p>
                             </div>
                             <div id="infos">
                                 <p>8</p>
@@ -200,24 +205,19 @@ const Profile = () => {
                                     </div>
                                     <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
                                 </button>
-                                <button id="news" onClick={handleChangeMode}>
-                                    <div id="news-image">
-                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
-                                    </div>
-                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
-                                </button>
-                                <button id="news" onClick={handleChangeMode}>
-                                    <div id="news-image">
-                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
-                                    </div>
-                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
-                                </button>
-                                <button id="news" onClick={handleChangeMode}>
-                                    <div id="news-image">
-                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
-                                    </div>
-                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
-                                </button>
+
+                                {/* {historicNews ? (
+                                    historicNews.map((elem) => (
+                                        <div>
+                                            <span>ss</span>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <></>
+                                )} */}
+                                {historicNews.map((elem) => (
+                                    <h1>as</h1>
+                                ))}
                             </div>
                         </>
                     )}

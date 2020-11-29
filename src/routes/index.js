@@ -18,7 +18,6 @@ function routes() {
         const location = useLocation();
         return `${location.pathname}`;
     }
-    console.log(HeaderView());
 
     if (HeaderView() === "/detector") {
         document.body.style.overflow = "hidden";
