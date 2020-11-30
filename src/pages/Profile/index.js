@@ -63,13 +63,15 @@ const Profile = () => {
         } catch (error) {}
     };
 
-    const changePassword = async (e, oldPassword, newPassword, newPasswordAgain) => {
-        e.preventDefault();
+    const changePassword = async (data) => {
         const user = localStorage.getItem("user");
-        if (newPassword !== newPasswordAgain) {
-            //As senhas não conferem
-            alert.show("As senhas não conferem");
-        }
+
+        const oldPassword = data.oldPassword;
+        const newPassword = data.newPassword;
+        const newPasswordAgain = data.newPasswordAgain;
+
+        if (newPassword !== newPasswordAgain) alert.show("As senhas não conferem");
+
         const authorization = localStorage.getItem("qwert");
         const settings = {
             method: "POST",
@@ -83,13 +85,14 @@ const Profile = () => {
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
             const data = await response.json();
-            if (data.success) {
-                alert("senha trocada com sucesso");
+            console.log(data);
+            if (data.success === true) {
+                alert.show(data.message);
+            } else if (data.success === false) {
+                alert.show(data.error);
             } else {
-                //
-                alert("houve um erro, printa o erro em data.error");
+                alert.show("Problemas no servidor, tente novamente mais tarde.");
             }
-            console.log("senha alterada");
         } catch (error) {}
     };
 
@@ -167,10 +170,7 @@ const Profile = () => {
                                 <h2>Troque sua senha</h2>
                             </div>
 
-                            <form
-                                id="div-change-settings"
-                                onSubmit={(e) => handleSubmit(changePassword(e, userInput.oldPassword, userInput.newPassword, userInput.newPasswordAgain))}
-                            >
+                            <form id="div-change-settings" onSubmit={handleSubmit(changePassword)}>
                                 <div>
                                     <p>Senha atual</p>
                                     <input name="oldPassword" value={userInput.oldPassword} onChange={handleChange} ref={register({ required: true })} />
@@ -190,7 +190,7 @@ const Profile = () => {
                                 </div>
 
                                 <div>
-                                    <button>Alterar</button>
+                                    <button type="submit">Alterar</button>
                                 </div>
                             </form>
                             <div id="div-footer-settings">
