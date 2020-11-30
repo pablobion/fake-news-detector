@@ -2,7 +2,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import Menu from "../../components/menu/index";
 import { useHistory } from "react-router-dom";
 
-import { useAlert } from "react-alert";
+import { useAlert, types } from "react-alert";
 import { useForm } from "react-hook-form";
 
 import { BiLeftArrowAlt } from "react-icons/bi";
@@ -82,14 +82,15 @@ const Profile = () => {
             },
             body: JSON.stringify({ oldPassword, newPassword, email: user }),
         };
+
         try {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
             const data = await response.json();
             console.log(data);
             if (data.success === true) {
-                alert.show(data.message);
+                alert.show(data.message, { type: types.SUCCESS });
             } else if (data.success === false) {
-                alert.show(data.error);
+                alert.show(data.error, { type: types.ERROR });
             } else {
                 alert.show("Problemas no servidor, tente novamente mais tarde.");
             }
@@ -99,7 +100,7 @@ const Profile = () => {
     const cleanUserHistory = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
-
+        alert.show("Histórico limpo.", { type: types.SUCCESS });
         const settings = {
             method: "DELETE",
             headers: {
