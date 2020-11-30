@@ -53,7 +53,7 @@ export const Container = styled.div`
                 font-size: 20px;
                 margin-right: 10px;
 
-                @media (max-width: 700px) {
+                @media (max-width: 1200px) {
                     margin-bottom: 15px;
                 }
             }
@@ -72,13 +72,13 @@ export const Container = styled.div`
         #div-change-settings {
             display: flex;
 
-            @media (max-width: 1000px) {
+            @media (max-width: 1200px) {
                 flex-direction: column;
             }
             justify-content: center;
             align-items: center;
 
-            @media (min-width: 700px) {
+            @media (min-width: 1200px) {
                 padding: 10px 0px 10px 0px;
                 animation: grow1 1s forwards;
                 @keyframes grow1 {
@@ -93,7 +93,7 @@ export const Container = styled.div`
                 }
             }
 
-            @media (max-width: 1000px) {
+            @media (max-width: 700px) {
                 animation: grow2 1s forwards;
                 @keyframes grow2 {
                     from {
@@ -122,7 +122,7 @@ export const Container = styled.div`
 
                 input {
                     width: 60vw;
-                    @media (min-width: 700px) {
+                    @media (min-width: 1000px) {
                         width: 230px;
                     }
 
@@ -168,10 +168,10 @@ export const Container = styled.div`
             width: 100%;
             justify-content: center;
 
-            @media (max-width: 700px) {
+            @media (max-width: 1200px) {
                 flex-direction: column;
             }
-            @media (min-width: 700px) {
+            @media (min-width: 1200px) {
                 padding-bottom: 15px;
             }
             #button-clean-historic {
@@ -190,7 +190,7 @@ export const Container = styled.div`
                     &:hover {
                         background: ${shade(0.2, "SkyBlue")};
                     }
-                    @media (max-width: 700px) {
+                    @media (max-width: 1200px) {
                         margin-top: 10px;
                     }
 
@@ -219,7 +219,7 @@ export const Container = styled.div`
                     &:hover {
                         background: ${shade(0.2, "#ff3d3d")};
                     }
-                    @media (max-width: 700px) {
+                    @media (max-width: 1200px) {
                         margin-top: 10px;
                     }
 
