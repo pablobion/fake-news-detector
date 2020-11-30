@@ -166,6 +166,7 @@ export const Container = styled.div`
             display: flex;
             border-bottom: 1px dashed lightgray;
             width: 100%;
+            justify-content: center;
 
             @media (max-width: 700px) {
                 flex-direction: column;
@@ -177,10 +178,6 @@ export const Container = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                @media (min-width: 700px) {
-                    margin-left: 125px;
-                }
 
                 button {
                     background: SkyBlue;
@@ -248,6 +245,9 @@ export const Container = styled.div`
 
                 @media (min-width: 700px) {
                     display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 615px;
                 }
                 @media (max-width: 700px) {
                     margin: 20px;

@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import Menu from "../../components/menu/index";
 import { useHistory } from "react-router-dom";
+
+import { useAlert } from "react-alert";
+import { useForm } from "react-hook-form";
 
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { AiOutlineFieldTime, AiOutlineSetting } from "react-icons/ai";
@@ -10,6 +13,7 @@ import { MdClose } from "react-icons/md";
 import { Container, ViewNews } from "./styles";
 
 const Profile = () => {
+    const alert = useAlert();
     const history = useHistory();
 
     const [showSettings, setshowSettings] = useState(false);
@@ -17,6 +21,20 @@ const Profile = () => {
 
     const [email, setEmail] = useState("");
     const [historicNews, setHistoricNews] = useState([]);
+
+    const { register, handleSubmit } = useForm();
+
+    const handleChange = (evt) => {
+        const name = evt.target.name;
+        const newValue = evt.target.value;
+        setUserInput({ [name]: newValue });
+    };
+
+    const [userInput, setUserInput] = useReducer((state, newState) => ({ ...state, ...newState }), {
+        oldPassword: "",
+        newPassword: "",
+        newPasswordAgain: "",
+    });
 
     const handleshowSettings = () => {
         showSettings === true ? setshowSettings(false) : setshowSettings(true);
@@ -45,10 +63,12 @@ const Profile = () => {
         } catch (error) {}
     };
 
-    const changePassword = async (oldPassword, newPassword, newsPassAgain) => {
+    const changePassword = async (e, oldPassword, newPassword, newPasswordAgain) => {
+        e.preventDefault();
         const user = localStorage.getItem("user");
-        if (newPassword !== newsPassAgain) {
+        if (newPassword !== newPasswordAgain) {
             //As senhas não conferem
+            alert.show("As senhas não conferem");
         }
         const authorization = localStorage.getItem("qwert");
         const settings = {
@@ -64,10 +84,12 @@ const Profile = () => {
             const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
             const data = await response.json();
             if (data.success) {
-                //a senha foi trocada com sucesso
+                alert("senha trocada com sucesso");
             } else {
-                // houve um erro, printa o erro em data.error
+                //
+                alert("houve um erro, printa o erro em data.error");
             }
+            console.log("senha alterada");
         } catch (error) {}
     };
 
@@ -90,6 +112,7 @@ const Profile = () => {
             const data = await response.json();
             if (data.success) {
                 console.log("Histórico limpo com sucesso");
+                alert.show("Histórico limpo com sucesso");
                 window.location.reload(true);
             }
         } catch (error) {}
@@ -144,24 +167,32 @@ const Profile = () => {
                                 <h2>Troque sua senha</h2>
                             </div>
 
-                            <div id="div-change-settings">
+                            <form
+                                id="div-change-settings"
+                                onSubmit={(e) => handleSubmit(changePassword(e, userInput.oldPassword, userInput.newPassword, userInput.newPasswordAgain))}
+                            >
                                 <div>
                                     <p>Senha atual</p>
-                                    <input />
+                                    <input name="oldPassword" value={userInput.oldPassword} onChange={handleChange} ref={register({ required: true })} />
                                 </div>
                                 <div>
                                     <p>Nova Senha</p>
-                                    <input />
+                                    <input name="newPassword" value={userInput.newPassword} onChange={handleChange} ref={register({ required: true })} />
                                 </div>
                                 <div>
                                     <p>Repita a nova senha</p>
-                                    <input />
+                                    <input
+                                        name="newPasswordAgain"
+                                        value={userInput.newPasswordAgain}
+                                        onChange={handleChange}
+                                        ref={register({ required: true })}
+                                    />
                                 </div>
 
                                 <div>
                                     <button>Alterar</button>
                                 </div>
-                            </div>
+                            </form>
                             <div id="div-footer-settings">
                                 <div id="button-clean-historic">
                                     <button onClick={() => cleanUserHistory()}>Limpar Histórico</button>

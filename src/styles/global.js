@@ -17,6 +17,10 @@ export default createGlobalStyle`
                opacity: 1;
           }
           } 
+
+          button {
+          cursor: pointer;
+     }
      }
      body {
           (/*overflow: hidden;*/}
