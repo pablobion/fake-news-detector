@@ -106,7 +106,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch("https://tcspedroverani.com.herokuapp.com/user/clean", settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/user/clean ", settings);
             const data = await response.json();
             if (data.success) {
                 console.log("Histórico limpo com sucesso");
