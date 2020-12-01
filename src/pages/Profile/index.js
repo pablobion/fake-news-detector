@@ -125,7 +125,7 @@ const Profile = () => {
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
-            console.log(data);
+            console.log(data.news);
             setHistoricNews(data.news);
         })();
 
@@ -225,30 +225,19 @@ const Profile = () => {
                                 <p>{email}</p>
                             </div>
                             <div id="infos">
-                                <p>8</p>
+                                <p>{historicNews.length}</p>
                                 <small>Noticias Detectadas</small>
                             </div>
                             <div id="content">
                                 <h2>Historico</h2>
 
-                                <button id="news" onClick={handleChangeMode}>
-                                    <div id="news-image">
-                                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=https://g1.globo.com/" alt="" />
-                                    </div>
-                                    <p>qwerrtyuiopasdfghjklzxcvbnmmmmqwertyuiopasdfghjkl</p>
-                                </button>
-
-                                {/* {historicNews ? (
-                                    historicNews.map((elem) => (
-                                        <div>
-                                            <span>ss</span>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <></>
-                                )} */}
                                 {historicNews.map((elem) => (
-                                    <h1>as</h1>
+                                    <button id="news" onClick={handleChangeMode}>
+                                        <div id="news-image">
+                                            <img src={`https://s2.googleusercontent.com/s2/favicons?domain=${elem.url}`} alt="" />
+                                        </div>
+                                        <p>{elem.url}</p>
+                                    </button>
                                 ))}
                             </div>
                         </>
