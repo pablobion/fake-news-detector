@@ -116,6 +116,30 @@ const Profile = () => {
         } catch (error) {}
     };
 
+    const deleteAccount = async () => {
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
+       
+        const settings = {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+            },
+            body: JSON.stringify({ user }),
+        };
+
+        try {
+            const response = await fetch("https://tcspedroverani.herokuapp.com/user/deleteAccount ", settings);
+            const data = await response.json();
+            if (data.success) {
+                window.location.reload(true);
+            }
+        } catch (error) {}
+
+    }
+
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
