@@ -131,7 +131,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/user/deleteAccount ", settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/user/deleteAccount", settings);
             const data = await response.json();
             if (data.success) {
                 window.location.reload(true);
