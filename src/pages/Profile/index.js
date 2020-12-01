@@ -39,18 +39,6 @@ const Profile = () => {
         showSettings === true ? setshowSettings(false) : setshowSettings(true);
     };
 
-    const handleChangeMode = (id) => {
-        setshowSettings(false);
-
-        // if (mode === "profile") {
-        //     setMode("viewNews");
-        //     currentNewsid = id;
-        // } else {
-        //     setMode("profile");
-        //     currentNewsid = "";
-        // }
-    };
-
     const getProfileData = async () => {
         const user = localStorage.getItem("user");
         const authorization = localStorage.getItem("qwert");
