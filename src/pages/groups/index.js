@@ -45,6 +45,51 @@ const Groups = () => {
         } catch (error) {}
     };
 
+    const deleteGroup = async () => {
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
+        const groupId = localStorage.getItem('groupId');
+
+        const settings = {
+            method: "DELETE",
+            body: JSON.stringify({groupId, user}),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+            },
+        };
+        try {
+            const response = await fetch('https://tcspedroverani.herokuapp.com/group/delete', settings);
+            const data = await response.json();
+        } catch (error) {
+            
+        }   
+
+    }
+
+    const leaveGroup = async () => {
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
+        const groupId = localStorage.getItem('groupId');
+
+        const settings = {
+            method: "POST",
+            body: JSON.stringify({groupId, user}),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+            },
+        };
+
+        try {
+            const response = await fetch('https://tcspedroverani.herokuapp.com/group/leaveGroup', settings);
+            const data = await response.json();
+        } catch (error) {
+            
+        }   
+    }
     const createGroup = async (groupData) => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
@@ -89,6 +134,7 @@ const Groups = () => {
                 setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
                 setUserInput({ ["createdBy"]: data.group.createdBy });
                 setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+                localStorage.setItem('groupId', data.group.groupId)
             }
         })();
     }, []);
