@@ -243,6 +243,7 @@ const Profile = () => {
                                     state: { content: elem.content, date: elem.createdAt, isFakeNews: elem.isFakeNews },
                                 }}
                                 key={elem._id}
+                                style={{ textDecoration: "none" }}
                             >
                                 <button id="news">
                                     <div id="news-image">
