@@ -235,7 +235,7 @@ const Profile = () => {
                     </div>
                     <div id="content">
                         <h2>Historico</h2>
-
+                        {historicNews == "" && <p>Você ainda não detectou noticias.</p>}
                         {historicNews.map((elem) => (
                             <Link
                                 to={{
