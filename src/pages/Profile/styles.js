@@ -381,8 +381,8 @@ export const Container = styled.div`
                 #news-image {
                     padding: 10px;
                     border: 2px solid lightgray;
-                    width: 50px;
-                    height: 50px;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;

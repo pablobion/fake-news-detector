@@ -64,13 +64,13 @@ export const Container = styled.div`
             select {
                 height: 40px;
                 font-size: 16px;
-    -webkit-padding-end: 20px;
-    -moz-padding-end: 20px;
-    -webkit-padding-start: 20px;
-    -moz-padding-start: 20px;
-    background-color: SkyBlue; /* Fallback color if gradients are not supported */
-    color: white;
-    border: none;
+                -webkit-padding-end: 20px;
+                -moz-padding-end: 20px;
+                -webkit-padding-start: 20px;
+                -moz-padding-start: 20px;
+                background-color: SkyBlue; /* Fallback color if gradients are not supported */
+                color: white;
+                border: none;
                 
                 @media (min-width: 700px){
                     margin-right: 20px;

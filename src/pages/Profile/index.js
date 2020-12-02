@@ -119,7 +119,7 @@ const Profile = () => {
     const deleteAccount = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
-       
+
         const settings = {
             method: "DELETE",
             headers: {
@@ -137,8 +137,7 @@ const Profile = () => {
                 window.location.reload(true);
             }
         } catch (error) {}
-
-    }
+    };
 
     useEffect(() => {
         (async () => {
@@ -247,9 +246,13 @@ const Profile = () => {
                             >
                                 <button id="news">
                                     <div id="news-image">
-                                        <img src={`https://s2.googleusercontent.com/s2/favicons?domain=${elem.url}`} alt="" />
+                                        {elem.url ? (
+                                            <img src={`https://s2.googleusercontent.com/s2/favicons?domain=${elem.url}`} alt="" />
+                                        ) : (
+                                            <img src={`https://cdn2.iconfinder.com/data/icons/picol-vector/32/news-512.png`} alt="" />
+                                        )}
                                     </div>
-                                    <p>{elem.url}</p>
+                                    {elem.url ? <p>{elem.url}aa</p> : <p>{elem.content}</p>}
                                 </button>
                             </Link>
                         ))}

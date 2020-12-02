@@ -183,15 +183,6 @@ const Groups = () => {
                                         </div>
                                         <ul>
                                             <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
-                                            <li>pablo.bion@hotmail.com</li>
                                         </ul>
                                     </div>
                                 </div>
