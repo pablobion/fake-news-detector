@@ -1,8 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { Home, Result } from "./styles";
 
 //componentes
 import Menu from "../../components/menu/index";
+import { useAlert, types } from "react-alert";
 
 //Scripts
 import { changecolor } from "./scripts/changeColorResult";
@@ -38,7 +39,7 @@ function DetectorPage() {
             return data;
         } catch (error) {
             console.log(error);
-            alert("Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto");
+            alert.show("Houve um erro ao pesquisar essa url, por gentileza tente outra url ou use texto", { type: types.ERROR });
         }
     };
 
@@ -58,8 +59,15 @@ function DetectorPage() {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/news/create", settings);
             const data = await response.json();
-            if (data.success === "ok") {
-                console.log(data.veredict); //veredict diz se a noticia é true ou false;
+
+            if (data.success === true) {
+                setUserInput({ ["veredict"]: data.veredict });
+                window.scrollBy({
+                    top: 1000,
+                    behavior: "smooth",
+                });
+            } else {
+                alert.show("Ocorreu um erro ao enviar sua noticia, tente novamente mais tarde!", { type: types.ERROR });
             }
         } catch (error) {}
     };
@@ -145,6 +153,14 @@ function DetectorPage() {
         }
     };
 
+    useEffect(() => {
+        //Para subir a pagina caso atualize depois de dar um sendnews
+        window.scrollBy({
+            top: -1000,
+            behavior: "smooth",
+        });
+    }, []);
+
     return (
         <>
             <Menu />
@@ -227,7 +243,15 @@ function DetectorPage() {
                 </div>
             </Home>
             <Result id="section2" color={changecolor(userInput.veredict)}>
-                <button className="btn-backtoup" onClick={() => (document.documentElement.scrollTop = 0)}>
+                <button
+                    className="btn-backtoup"
+                    onClick={() => {
+                        window.scrollBy({
+                            top: -1000,
+                            behavior: "smooth",
+                        });
+                    }}
+                >
                     <img id="arrowup" src={UpArrow} alt="up-arrow" />
                     Voltar
                 </button>
@@ -235,7 +259,7 @@ function DetectorPage() {
                     <h1 className="title-result">A noticia que você pesquisou é {userInput.veredict == true ? "verdadeira!" : "falsa!"}</h1>
                 </div>
 
-                <textarea className="content-textarea"></textarea>
+                <textarea className="content-textarea" value={userInput.content} readOnly />
                 {/* <div className="share">
                     <h1>Compartilhar</h1>
                     <a href="https://twitter.com/intent/tweet?text=Hello%20world">
