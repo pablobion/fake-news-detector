@@ -16,11 +16,13 @@ import GroupImg from "../../assets/grouppageart.svg";
 import LeftArrow from "../../assets/left-arrow.svg";
 import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaCrown } from "react-icons/fa";
 
 const Groups = () => {
     const alert = useAlert();
     const { register, handleSubmit } = useForm();
+
+    const [members, setMembers] = useState([]);
 
     const getGroup = async () => {
         const authorization = localStorage.getItem("qwert");
@@ -88,13 +90,6 @@ const Groups = () => {
         } catch (error) {}
     };
     const createGroup = async () => {
-        let lis = document.getElementById("list").getElementsByTagName("li");
-        let members = [];
-
-        for (let i = 0; i < lis.length; i++) {
-            members.push(lis[i].innerText);
-        }
-
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
 
@@ -137,7 +132,7 @@ const Groups = () => {
     };
 
     const addEmailList = (email) => {
-        if (document.querySelectorAll("#list li").length >= 10) {
+        if (members.length >= 9) {
             alert.show("você só pode cadastrar 10 pessoas");
             return false;
         }
@@ -146,6 +141,11 @@ const Groups = () => {
             alert.show("Você só pode adicionar e-mails");
             return false;
         }
+        if (members.find((elem) => elem === email)) {
+            alert.show("Já existe este email na lista.");
+            return false;
+        }
+        setMembers([...members, email]);
 
         let ul = document.getElementById("list");
         let li = document.createElement("li");
@@ -171,6 +171,9 @@ const Groups = () => {
                 localStorage.setItem("groupId", data.group.groupId);
             }
         })();
+
+        const user = localStorage.getItem("user");
+        setUserInput({ ["user"]: user });
     }, []);
 
     const [userInput, setUserInput] = useReducer(
@@ -185,6 +188,7 @@ const Groups = () => {
             createdBy: "",
             groupParticipantsInvited: [],
             inputEmailMembers: "",
+            user: "",
         }
     );
 
@@ -277,7 +281,12 @@ const Groups = () => {
                                                 <FaPlus />
                                             </button>
                                         </div>
-                                        <ul id="list"></ul>
+                                        <ul id="list">
+                                            <li>
+                                                <FaCrown id="crown" />
+                                                {userInput.user}
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </form>

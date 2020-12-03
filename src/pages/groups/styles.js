@@ -283,11 +283,19 @@ export const Container = styled.div`
                         border: 1px solid lightgray;
                         border-radius: 10px;
                         margin-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    #crown{
+                        margin-right: 5px;
                     }
 
                     li:last-child {
                         margin-bottom: 30px;
                     }
+
+                    
                 }
             }
         }
