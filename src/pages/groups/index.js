@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
+import { useAlert, types } from "react-alert";
 
 import { Container, Created } from "./styles";
 
@@ -18,6 +19,7 @@ import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 import { FaPlus } from "react-icons/fa";
 
 const Groups = () => {
+    const alert = useAlert();
     const { register, handleSubmit } = useForm();
 
     const getGroup = async () => {
@@ -48,11 +50,11 @@ const Groups = () => {
     const deleteGroup = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
-        const groupId = localStorage.getItem('groupId');
+        const groupId = localStorage.getItem("groupId");
 
         const settings = {
             method: "DELETE",
-            body: JSON.stringify({groupId, user}),
+            body: JSON.stringify({ groupId, user }),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -60,22 +62,19 @@ const Groups = () => {
             },
         };
         try {
-            const response = await fetch('https://tcspedroverani.herokuapp.com/group/delete', settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/group/delete", settings);
             const data = await response.json();
-        } catch (error) {
-            
-        }   
-
-    }
+        } catch (error) {}
+    };
 
     const leaveGroup = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
-        const groupId = localStorage.getItem('groupId');
+        const groupId = localStorage.getItem("groupId");
 
         const settings = {
             method: "POST",
-            body: JSON.stringify({groupId, user}),
+            body: JSON.stringify({ groupId, user }),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -84,13 +83,19 @@ const Groups = () => {
         };
 
         try {
-            const response = await fetch('https://tcspedroverani.herokuapp.com/group/leaveGroup', settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/group/leaveGroup", settings);
             const data = await response.json();
-        } catch (error) {
-            
-        }   
-    }
+        } catch (error) {}
+    };
     const createGroup = async (groupData) => {
+        let lis = document.getElementById("list").getElementsByTagName("li");
+        let members = [];
+
+        for (let i = 0; i < lis.length; i++) {
+            members.push(lis[i].innerText);
+        }
+        console.log(members);
+
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
         //pra criar grupo preciso dos dados
@@ -121,6 +126,25 @@ const Groups = () => {
         //tem que ver o quão custoso é deixar o grupo editável.
     };
 
+    const addEmailList = (email) => {
+        if (document.querySelectorAll("#list li").length >= 10) {
+            alert.show("você só pode cadastrar 10 pessoas");
+            return false;
+        }
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (re.test(String(email).toLowerCase()) === false) {
+            alert.show("Você só pode adicionar e-mails");
+            return false;
+        }
+
+        let ul = document.getElementById("list");
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(email));
+        ul.appendChild(li);
+
+        //setUserInput({ ["inputEmailMembers"]: "" });
+    };
+
     useEffect(() => {
         (async () => {
             const data = await getGroup();
@@ -134,7 +158,7 @@ const Groups = () => {
                 setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
                 setUserInput({ ["createdBy"]: data.group.createdBy });
                 setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-                localStorage.setItem('groupId', data.group.groupId)
+                localStorage.setItem("groupId", data.group.groupId);
             }
         })();
     }, []);
@@ -150,6 +174,7 @@ const Groups = () => {
             createdAt: "",
             createdBy: "",
             groupParticipantsInvited: [],
+            inputEmailMembers: "",
         }
     );
 
@@ -197,9 +222,7 @@ const Groups = () => {
                             <p>Voltar</p>
                         </div>
                         <h1 id="title-create-group">Configure seu grupo</h1>
-                        <div id="footer">
-                            <button onClick={() => changeMode("done")}>Salvar</button>
-                        </div>
+
                         <div id="create-group">
                             <form onSubmit={handleSubmit(createGroup)}>
                                 <div id="div-form-create-group">
@@ -217,19 +240,33 @@ const Groups = () => {
                                             ref={register({ required: true })}
                                         />
                                     </div>
+                                    <div id="footer">
+                                        <button
+                                            onClick={() => {
+                                                changeMode("done");
+                                                createGroup();
+                                            }}
+                                        >
+                                            Salvar
+                                        </button>
+                                    </div>
                                 </div>
                                 <div id="div-list-emails">
                                     <h2>Adicione e-mails a lista do grupo</h2>
                                     <div id="div-list-emails-inside">
                                         <div>
-                                            <input type="email" id="input-email" />
-                                            <button id="button-add-email">
+                                            <input
+                                                name="inputEmailMembers"
+                                                type="email"
+                                                id="input-email"
+                                                value={userInput.inputEmailMembers}
+                                                onChange={handleChange}
+                                            />
+                                            <button id="button-add-email" onClick={() => addEmailList(userInput.inputEmailMembers)}>
                                                 <FaPlus />
                                             </button>
                                         </div>
-                                        <ul>
-                                            <li>pablo.bion@hotmail.com</li>
-                                        </ul>
+                                        <ul id="list"></ul>
                                     </div>
                                 </div>
                             </form>

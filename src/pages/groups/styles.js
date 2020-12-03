@@ -103,7 +103,10 @@ export const Container = styled.div`
 
     #footer {
         @media (min-width: 700px) {
-            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 700px) {
+            order:-1;
         }
         button {
             background:  #009b00;
