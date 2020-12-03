@@ -273,7 +273,7 @@ const Groups = () => {
                                                 value={userInput.inputEmailMembers}
                                                 onChange={handleChange}
                                             />
-                                            <button id="button-add-email" onClick={() => addEmailList(userInput.inputEmailMembers)}>
+                                            <button type="button" id="button-add-email" onClick={() => addEmailList(userInput.inputEmailMembers)}>
                                                 <FaPlus />
                                             </button>
                                         </div>
