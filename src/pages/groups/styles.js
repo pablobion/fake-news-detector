@@ -254,6 +254,7 @@ export const Container = styled.div`
                     padding: 10px;
                     border: 1px solid #00b0ff;
                     border-radius: 10px 0px 0px 10px;
+                    margin-top: 20px;
                     @media (max-width: 700px) {
                         width: 60vw;
                         max-width: 300px;
@@ -266,6 +267,7 @@ export const Container = styled.div`
                     color: white;
                     background-color: #00b0ff;
                     border-radius: 0px 8px 8px 0px;
+                    margin-top: 20px;
                     &:hover {
                         background: ${shade(0.1, "#00B0FF")};
                     }

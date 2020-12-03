@@ -87,17 +87,26 @@ const Groups = () => {
             const data = await response.json();
         } catch (error) {}
     };
-    const createGroup = async (groupData) => {
+    const createGroup = async () => {
         let lis = document.getElementById("list").getElementsByTagName("li");
         let members = [];
 
         for (let i = 0; i < lis.length; i++) {
             members.push(lis[i].innerText);
         }
-        console.log(members);
 
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
+
+        const groupData = {
+            groupDescription: userInput.groupDescription,
+            groupName: userInput.groupName,
+            groupParticipantsInvited: members,
+            createdBy: user,
+        };
+
+        console.log(groupData);
+
         //pra criar grupo preciso dos dados
         //groupDescription = descricao do grupo ; groupName = nome do grupo;
         // groupParticipantsInvited = os emails separados por virgula que o cara quer convidar
@@ -118,6 +127,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
+
             return data;
         } catch (error) {}
 
@@ -242,6 +252,7 @@ const Groups = () => {
                                     </div>
                                     <div id="footer">
                                         <button
+                                            type="submit"
                                             onClick={() => {
                                                 changeMode("done");
                                                 createGroup();
