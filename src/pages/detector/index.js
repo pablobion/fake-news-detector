@@ -34,7 +34,7 @@ function DetectorPage() {
             },
         };
         try {
-            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/news/scrap", settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/news/scrap", settings);
             const data = await response.json();
             return data;
         } catch (error) {
@@ -57,7 +57,7 @@ function DetectorPage() {
             },
         };
         try {
-            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/news/create", settings);
+            const response = await fetch("https://tcspedroverani.herokuapp.com/news/create", settings);
             const data = await response.json();
 
             if (data.success === true) {

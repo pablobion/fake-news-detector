@@ -21,7 +21,7 @@ function SwitchPages() {
     };
 
     const submit = async (data) => {
-        const response = await axios.post("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/recover", data);
+        const response = await axios.post("https://tcspedroverani.herokuapp.com/user/recover", data);
         if (response.data.success === "ok") alert("Uma nova senha foi enviada para o e-mail informado");
         setPlay(false);
     };

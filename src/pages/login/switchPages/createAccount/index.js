@@ -30,7 +30,7 @@ function SwitchPages() {
         console.log(data);
 
         try {
-            const response = await axios.post("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/create", data);
+            const response = await axios.post("https://tcspedroverani.herokuapp.com/user/create", data);
             if (response.data.auth) {
                 localStorage.setItem("qwert", response.data.token);
                 window.location.href = "/detector";
