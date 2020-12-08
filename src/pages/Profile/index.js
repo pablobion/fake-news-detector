@@ -51,7 +51,7 @@ const Profile = () => {
             },
         };
         try {
-            const response = await fetch(`https://tcspedroverani.herokuapp.com/user/history?user=${user}`, settings);
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/history?user=${user}`, settings);
             const data = await response.json();
             return data;
         } catch (error) {}
@@ -78,7 +78,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch(`https://tcspedroverani.herokuapp.com/user/changePassword`, settings);
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/changePassword`, settings);
             const data = await response.json();
             console.log(data);
             if (data.success === true) {
@@ -106,7 +106,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/user/clean ", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/clean ", settings);
             const data = await response.json();
             if (data.success) {
                 console.log("Histórico limpo com sucesso");
@@ -131,7 +131,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/user/deleteAccount", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/deleteAccount", settings);
             const data = await response.json();
             if (data.success) {
                 window.location.reload(true);

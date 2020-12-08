@@ -4,29 +4,29 @@ import { Container } from "./styles";
 
 const Suggestions = () => {
     const sendSuggestion = async () => {
-        const user = localStorage.getItem('user');
-        const authorization = localStorage.getItem('qwert');
+        const user = localStorage.getItem("user");
+        const authorization = localStorage.getItem("qwert");
 
         const settings = {
-            method: 'POST',
+            method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 Authorization: authorization,
             },
-        }
+        };
 
         try {
-            const response = await fetch('https://tcspedroverani.herokuapp.com/suggestion/suggest', settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/suggestion/suggest", settings);
             const data = await response.json();
-            if(data.success) {
+            if (data.success) {
                 //aqui printar o data.message
             }
         } catch (error) {
             //houve um erro ao realizar a sugestão, tente novamente mais tarde
         }
-    }
-    
+    };
+
     return (
         <>
             <Menu />

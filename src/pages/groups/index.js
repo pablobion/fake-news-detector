@@ -44,7 +44,7 @@ const Groups = () => {
         };
 
         try {
-            const response = await fetch(`https://tcspedroverani.herokuapp.com/group/view?user=${user}`, settings);
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/group/view?user=${user}`, settings);
             const data = await response.json();
             return data;
 
@@ -70,7 +70,7 @@ const Groups = () => {
             },
         };
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/group/delete", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/group/delete", settings);
             const data = await response.json();
         } catch (error) {}
     };
@@ -91,7 +91,7 @@ const Groups = () => {
         };
 
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/group/leaveGroup", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/group/leaveGroup", settings);
             const data = await response.json();
         } catch (error) {}
     };
@@ -127,7 +127,7 @@ const Groups = () => {
             },
         };
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
             window.location.reload(true);
         } catch (error) {}

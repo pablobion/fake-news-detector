@@ -33,7 +33,7 @@ function SwitchPages(props) {
             },
         };
         try {
-            const response = await fetch("https://tcspedroverani.herokuapp.com/user/login", settings);
+            const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/user/login", settings);
             const dataReturned = await response.json();
             if (dataReturned.error === "A senha está incorreta" || dataReturned.error === "Usuário não encontrado") {
                 alert.show("E-mail ou senha está incorreta");
@@ -51,7 +51,7 @@ function SwitchPages(props) {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch("https://tcspedroverani.herokuapp.com/report/extract");
+                const response = await fetch("https://cors-anywhere.herokuapp.com/tcspedroverani.herokuapp.com/report/extract");
                 const data = await response.json();
                 console.log(data);
             } catch (error) {}
@@ -59,7 +59,7 @@ function SwitchPages(props) {
             //Já enviamos X notícias, e já enviamos mais de X emails avisando colegas.
 
             //não sei se vai exatamente nesse arquivo, porque no criação de conta e recuperação de senha também vai exibir,
-            //n sei se teria que fazer 1 useEffect em cada arquivo.
+            //n sei se teria que fazer 1 useEffect em cada arquivo..
         })();
     }, []);
 
