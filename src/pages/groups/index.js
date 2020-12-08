@@ -184,7 +184,7 @@ const Groups = () => {
             const data = await getGroup();
 
             if (data.message === "Usuário não está em nenhum grupo") {
-                setUserInput({ ["mode"]: "created" });
+                setUserInput({ ["mode"]: "nogroup" });
             } else {
                 setUserInput({ ["mode"]: "created" });
                 setUserInput({ ["groupName"]: data.group.groupName });
