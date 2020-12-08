@@ -398,6 +398,21 @@ export const Created = styled.div`
             width: 50vw;
         }
 
+        #nav {
+            display: flex;
+
+            align-items: center;
+            padding-top: 20px;
+            padding-right: 30px;
+            flex-direction: row-reverse;
+
+            button {
+                background: transparent;
+                border: none;
+                display: flex;
+            }
+        }
+
         #top {
             display: flex;
             flex-direction: column;

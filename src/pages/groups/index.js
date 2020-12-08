@@ -16,7 +16,8 @@ import GroupImg from "../../assets/grouppageart.svg";
 import LeftArrow from "../../assets/left-arrow.svg";
 import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 
-import { FaPlus, FaCrown } from "react-icons/fa";
+import { FaPlus, FaCrown, FaRegTrashAlt } from "react-icons/fa";
+import { ImExit } from "react-icons/im";
 
 const Groups = () => {
     const alert = useAlert();
@@ -183,7 +184,7 @@ const Groups = () => {
             const data = await getGroup();
 
             if (data.message === "Usuário não está em nenhum grupo") {
-                setUserInput({ ["mode"]: "nogroup" });
+                setUserInput({ ["mode"]: "created" });
             } else {
                 setUserInput({ ["mode"]: "created" });
                 setUserInput({ ["groupName"]: data.group.groupName });
@@ -318,6 +319,17 @@ const Groups = () => {
                                 <img src={groupcreatedlogo} alt="" />
                             </div>
                             <div id="content">
+                                <div id="nav">
+                                    {userInput.user === userInput.createdBy ? (
+                                        <button>
+                                            <FaRegTrashAlt size="25" color="red" />
+                                        </button>
+                                    ) : (
+                                        <button>
+                                            <ImExit size="25" color="red" />
+                                        </button>
+                                    )}
+                                </div>
                                 <div id="top">
                                     <h1 id="title">{userInput.groupName}</h1>
                                     <div id="description">
