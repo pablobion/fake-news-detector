@@ -321,12 +321,12 @@ const Groups = () => {
                             <div id="content">
                                 <div id="nav">
                                     {userInput.user === userInput.createdBy ? (
-                                        <button>
+                                        <button onClick={() => deleteGroup()}>
                                             <FaRegTrashAlt size="25" color="red" />
                                         </button>
                                     ) : (
                                         <button>
-                                            <ImExit size="25" color="red" />
+                                            <ImExit onClick={() => leaveGroup()} size="25" color="red" />
                                         </button>
                                     )}
                                 </div>
