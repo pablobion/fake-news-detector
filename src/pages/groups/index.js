@@ -94,6 +94,7 @@ const Groups = () => {
             const data = await response.json();
         } catch (error) {}
     };
+
     const createGroup = async () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
@@ -127,8 +128,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/create", settings);
             const data = await response.json();
-
-            return data;
+            window.location.reload(true);
         } catch (error) {}
 
         //continuar metodo dps, lidar com a criacao, exibir os dados do grupo criado
