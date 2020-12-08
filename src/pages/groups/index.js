@@ -197,7 +197,7 @@ const Groups = () => {
         })();
 
         document.addEventListener("keydown", (event) => {
-            //Evita de mandar o formulario quando apertar enter e adiciona e-mail na lista mds
+            //Evita de mandar o formulario quando apertar enter e adiciona e-mail na lista mds.
             if (event.keyCode == 13) {
                 if (!document.getElementById("button-add-email")) return;
                 addEmailList(userInput.inputEmailMembers);
