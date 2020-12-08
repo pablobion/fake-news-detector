@@ -3,7 +3,7 @@ import React, { useReducer, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAlert, types } from "react-alert";
 
-import { Container, Created } from "./styles";
+import { Container, Created, Invited } from "./styles";
 
 /* Components */
 import Menu from "../../components/menu";
@@ -11,6 +11,7 @@ import Menu from "../../components/menu";
 /* Animations */
 import DoneAnimation from "./animations/done/index";
 import NoGroup from "./animations/nogroup/index";
+import InvitedLottie from "./animations/invited/index";
 
 /* Icons */
 import GroupImg from "../../assets/grouppageart.svg";
@@ -317,6 +318,18 @@ const Groups = () => {
                         <DoneAnimation />
                     </>
                 )}
+                {userInput.mode === "invited" && (
+                    <Invited>
+                        <h1>Você foi convidado para um grupo.</h1>
+                        <h2>Clubinho do pablo</h2>
+                        <InvitedLottie />
+                        <h3>Convidado por:</h3>
+                        <div id="buttons">
+                            <button id="notaccetp">Recusar</button>
+                            <button id="accetp">Aceitar</button>
+                        </div>
+                    </Invited>
+                )}
                 {userInput.mode === "created" && (
                     <>
                         <Created>
@@ -343,8 +356,9 @@ const Groups = () => {
                                 </div>
                                 <div id="mid">
                                     <h3 id="mid-title">Participantes</h3>
+                                    <span>{userInput.createdBy}</span>
                                     {groupParticipantsInvited.map((elem) => (
-                                        <span>{elem}</span>
+                                        <span key={elem}>{elem}</span>
                                     ))}
                                 </div>
 

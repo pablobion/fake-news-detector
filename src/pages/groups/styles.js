@@ -494,3 +494,68 @@ export const Created = styled.div`
         }
     }
 `;
+
+export const Invited = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #454545;
+    margin-top: 20px;
+
+    h2 {
+        margin-top: 10px;
+        color: gray;
+    }
+
+    h3 {
+        margin-bottom: 40px;
+    }
+    #buttons {
+        width: 100%;
+        display: flex;
+        @media (max-width: 700px) {
+            flex-direction: column;
+        }
+        @media (min-width: 700px) {
+            align-items: center;
+            justify-content: center;
+        }
+
+        #notaccetp {
+            font-size: 38px;
+            padding: 10px;
+            border: none;
+            color: white;
+            background-color: tomato;
+            border-radius: 8px;
+            margin-top: 20px;
+            &:hover {
+                background: ${shade(0.1, "tomato")};
+            }
+            @media (max-width: 700px) {
+                margin: 20px 20px 0px 20px;
+            }
+        }
+
+        #accetp {
+            font-size: 38px;
+            padding: 10px 30px 10px 30px;
+
+            border: none;
+            color: white;
+            background-color: #00b0ff;
+            border-radius: 8px;
+            margin-top: 20px;
+            @media (min-width: 700px) {
+                margin-left: 30px;
+            }
+            &:hover {
+                background: ${shade(0.1, "#00B0FF")};
+            }
+            @media (max-width: 700px) {
+                margin: 20px 20px 0px 20px;
+            }
+        }
+    }
+`;
