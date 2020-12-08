@@ -455,6 +455,10 @@ export const Created = styled.div`
             @media (max-width: 1100px) {
                 margin-top: 20px;
             }
+
+            #mid-title {
+                margin-bottom: 20px;
+            }
         }
         #bottom {
             display: flex;

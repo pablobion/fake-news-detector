@@ -337,8 +337,10 @@ const Groups = () => {
                                     </div>
                                 </div>
                                 <div id="mid">
-                                    <h3>Participantes</h3>
-                                    {groupParticipantsInvited && <span>{groupParticipantsInvited}</span>}
+                                    <h3 id="mid-title">Participantes</h3>
+                                    {groupParticipantsInvited.map((elem) => (
+                                        <span>{elem}</span>
+                                    ))}
                                 </div>
 
                                 <div id="bottom">
