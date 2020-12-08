@@ -195,7 +195,7 @@ const Groups = () => {
                 setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
                 setUserInput({ ["createdBy"]: data.group.createdBy });
                 setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-                localStorage.setItem("groupId", data.group.groupId);
+                localStorage.setItem("groupId", data.group._id);
             }
         })();
 
