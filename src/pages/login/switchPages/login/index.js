@@ -19,6 +19,8 @@ function SwitchPages(props) {
     const [userInput, setUserInput] = useReducer((state, newState) => ({ ...state, ...newState }), {
         userName: "",
         userPassword: "",
+        news: 0,
+        emails: 0,
     });
 
     const loginPage = async (data) => {

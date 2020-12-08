@@ -28,6 +28,11 @@ const Groups = () => {
         const authorization = localStorage.getItem("qwert");
         const user = localStorage.getItem("user");
 
+        document.addEventListener("keydown", (event) => {
+            //nao enviar formulario quando apertar enter
+            if (event.keyCode == 13) event.preventDefault();
+        });
+
         const settings = {
             method: "GET",
             headers: {
@@ -155,27 +160,6 @@ const Groups = () => {
         //setUserInput({ ["inputEmailMembers"]: "" });
     };
 
-    useEffect(() => {
-        (async () => {
-            const data = await getGroup();
-
-            if (data.message === "Usuário não está em nenhum grupo") {
-                setUserInput({ ["mode"]: "nogroup" });
-            } else {
-                setUserInput({ ["mode"]: "created" });
-                setUserInput({ ["groupName"]: data.group.groupName });
-                setUserInput({ ["groupDescription"]: data.group.groupDescription });
-                setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-                setUserInput({ ["createdBy"]: data.group.createdBy });
-                setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-                localStorage.setItem("groupId", data.group.groupId);
-            }
-        })();
-
-        const user = localStorage.getItem("user");
-        setUserInput({ ["user"]: user });
-    }, []);
-
     const [userInput, setUserInput] = useReducer(
         //States da pagina
         (state, newState) => ({ ...state, ...newState }),
@@ -193,6 +177,35 @@ const Groups = () => {
     );
 
     const [groupParticipantsInvited, setGroupParticipantsInvited] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const data = await getGroup();
+
+            if (data.message === "Usuário não está em nenhum grupo") {
+                setUserInput({ ["mode"]: "nogroup" });
+            } else {
+                setUserInput({ ["mode"]: "created" });
+                setUserInput({ ["groupName"]: data.group.groupName });
+                setUserInput({ ["groupDescription"]: data.group.groupDescription });
+                setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+                setUserInput({ ["createdBy"]: data.group.createdBy });
+                setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+                localStorage.setItem("groupId", data.group.groupId);
+            }
+        })();
+
+        document.addEventListener("keydown", (event) => {
+            //Evita de mandar o formulario quando apertar enter e adiciona e-mail na lista
+            if (event.keyCode == 13) {
+                if (!document.getElementById("button-add-email")) return;
+                addEmailList(userInput.inputEmailMembers);
+            }
+        });
+
+        const user = localStorage.getItem("user");
+        setUserInput({ ["user"]: user });
+    }, []);
 
     const handleChange = (evt) => {
         const name = evt.target.name;
@@ -238,7 +251,7 @@ const Groups = () => {
                         <h1 id="title-create-group">Configure seu grupo</h1>
 
                         <div id="create-group">
-                            <form onSubmit={handleSubmit(createGroup)}>
+                            <form onSubmit={() => handleSubmit(createGroup())}>
                                 <div id="div-form-create-group">
                                     <div id="div-group-name">
                                         <p>Nome do grupo</p>
@@ -257,7 +270,7 @@ const Groups = () => {
                                     <div id="footer">
                                         <button
                                             type="submit"
-                                            onClick={() => {
+                                            onClick={(event) => {
                                                 changeMode("done");
                                                 createGroup();
                                             }}
