@@ -240,7 +240,7 @@ const Groups = () => {
                                 <FaPlus className="icon" />
                             </button>
                             <div id="groupimage">
-                                {/* <img src={GroupImg} alt="" /> */}
+                                {/* <img src={GroupImg} alt="a" /> */}
                                 <NoGroup />
 
                                 <h1 id="text-bottom-button">Crie ou configure agora mesmo</h1>
