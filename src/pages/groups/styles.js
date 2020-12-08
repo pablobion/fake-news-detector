@@ -9,6 +9,14 @@ export const Container = styled.div`
     justify-content: flex-start;
     text-align: center;
 
+    #title-page{
+        font-size: 24px;
+        @media (max-width: 700px) {
+        font-size: 20px;
+        }
+        color: #454545
+    }
+
     #back {
         display: flex;
         align-items: center;
@@ -41,6 +49,19 @@ export const Container = styled.div`
         animation: myfirst 2s forwards;
         z-index: -1;
 
+        #splash {
+            @media (min-width: 700px) {
+            position: absolute;
+            top: -5px; left: -47px;
+            z-index: -1;
+            }
+            position: absolute;
+            top:40px; left: 37px;
+            z-index: -1;
+
+        
+        }
+
         @keyframes myfirst {
             from {
                 top: 0px;
@@ -59,6 +80,7 @@ export const Container = styled.div`
         #text-bottom-button {
             color: #454545;
             font-size: 30px;
+            margin-top: 10px;
         }
     }
 

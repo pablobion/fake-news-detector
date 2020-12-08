@@ -9,10 +9,12 @@ import { Container, Created } from "./styles";
 import Menu from "../../components/menu";
 
 /* Animations */
-import DoneAnimation from "./animations/index";
+import DoneAnimation from "./animations/done/index";
+import NoGroup from "./animations/nogroup/index";
 
 /* Icons */
 import GroupImg from "../../assets/grouppageart.svg";
+import Splash from "../../assets/splash.svg";
 import LeftArrow from "../../assets/left-arrow.svg";
 import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 
@@ -230,15 +232,18 @@ const Groups = () => {
             <Container>
                 {userInput.mode === "nogroup" && (
                     <>
-                        <h1 className="description">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h1>
+                        <h2 id="title-page">Crie um grupo reuna seus amigos e familiares e mantenha todos informados sobre as fake news</h2>
 
                         <div className="divbutton">
                             <button id="create-group-button" onClick={() => changeMode("create")}>
                                 <FaPlus className="icon" />
                             </button>
                             <div id="groupimage">
-                                <img src={GroupImg} alt="" />
+                                {/* <img src={GroupImg} alt="" /> */}
+                                <NoGroup />
+
                                 <h1 id="text-bottom-button">Crie ou configure agora mesmo</h1>
+                                <img id="splash" src={Splash} alt="" />
                             </div>
                         </div>
                     </>
