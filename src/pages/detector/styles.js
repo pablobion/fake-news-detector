@@ -48,7 +48,7 @@ export const Home = styled.div`
             .header-title {
                 font-size: 18px;
                 margin-right: 10px;
-                margin-top: 10px;
+               
                 
                 @media (max-width: 550px){
                     margin-bottom: 5px;
