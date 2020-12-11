@@ -96,7 +96,7 @@ export const Home = styled.div`
             padding: 10px;
             margin-bottom: 5px;
             z-index: 1; /* deixa em cima da animação */
-            background: rgba(255, 255, 255, 0.7); /* deixa o fundo branco transparente */
+            background: rgba(255, 255, 255, 0.7); /* deixa o fundo branco transparente. */
             backdrop-filter: blur(1px);
             border: 1px solid lightgray;
             cursor: text;
