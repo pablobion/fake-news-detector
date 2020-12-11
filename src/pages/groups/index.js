@@ -21,6 +21,8 @@ import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 
 import { FaPlus, FaCrown, FaRegTrashAlt } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
+import { BiTimeFive } from "react-icons/bi";
+import { MdDone } from "react-icons/md";
 
 const Groups = () => {
     const alert = useAlert();
@@ -177,6 +179,7 @@ const Groups = () => {
             groupParticipantsInvited: [],
             inputEmailMembers: "",
             user: "",
+            groupParticipantsPending: [],
         }
     );
 
@@ -188,6 +191,8 @@ const Groups = () => {
 
             if (data.message === "Usuário não está em nenhum grupo") {
                 setUserInput({ ["mode"]: "nogroup" });
+            } else if (data.isMember === false && data.success === true) {
+                setUserInput({ ["mode"]: "invited" });
             } else {
                 setUserInput({ ["mode"]: "created" });
                 setUserInput({ ["groupName"]: data.group.groupName });
@@ -195,6 +200,7 @@ const Groups = () => {
                 setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
                 setUserInput({ ["createdBy"]: data.group.createdBy });
                 setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+                setUserInput({ ["groupParticipantsPending"]: data.group.groupParticipantsPending });
                 localStorage.setItem("groupId", data.group._id);
             }
         })();
@@ -356,10 +362,27 @@ const Groups = () => {
                                 </div>
                                 <div id="mid">
                                     <h3 id="mid-title">Participantes</h3>
-                                    <span>{userInput.createdBy}</span>
-                                    {groupParticipantsInvited.map((elem) => (
-                                        <span key={elem}>{elem}</span>
-                                    ))}
+                                    <span style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <FaCrown color="DarkGoldenRod" id="crown" style={{ marginRight: 12, fontSize: 18 }} />
+                                        {userInput.createdBy}
+                                    </span>
+                                    {groupParticipantsInvited.map((elem) => {
+                                        console.log(userInput.groupParticipantsPending);
+                                        if (userInput.groupParticipantsPending && userInput.groupParticipantsPending.includes(elem) === true) {
+                                            return (
+                                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                    <BiTimeFive color="gray" style={{ fontSize: 30, paddingRight: 10 }} />
+                                                    <span key={elem}>{elem}</span>
+                                                </div>
+                                            );
+                                        }
+                                        return (
+                                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                <MdDone color="green" style={{ fontSize: 30, paddingRight: 10 }} />
+                                                <span key={elem}>{elem}</span>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
 
                                 <div id="bottom">
