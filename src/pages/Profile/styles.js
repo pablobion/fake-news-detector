@@ -326,11 +326,21 @@ export const Container = styled.div`
         #infos {
             width: 200px;
             display: flex;
-            width: 100%;
 
             margin-left: 40px;
             @media (min-width: 700px) {
                 margin-left: 150px;
+                width: 100%;
+                div + div {
+                    margin-left: 50px;
+                }
+            }
+
+            @media (max-width: 700px) {
+                flex-direction: column;
+                div + div {
+                    margin-top: 30px;
+                }
             }
             margin-top: 30px;
 
@@ -339,9 +349,6 @@ export const Container = styled.div`
             }
             small {
                 font-size: 18px;
-            }
-            div + div {
-                margin-left: 50px;
             }
         }
 
