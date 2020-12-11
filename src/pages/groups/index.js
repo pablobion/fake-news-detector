@@ -77,8 +77,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/delete", settings);
             const data = await response.json();
-            setUserInput({ ["mode"]: "nogroup" });
-            alert.show("O grupo foi deletado.");
+            document.location.reload(true);
         } catch (error) {}
     };
     const acceptGroup = async () => {
@@ -99,8 +98,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/accept", settings);
             const data = await response.json();
-            setUserInput({ ["mode"]: "created" });
-            alert.show("O convite foi aceito");
+            document.location.reload(true);
         } catch (error) {}
     };
 
@@ -122,8 +120,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/reject", settings);
             const data = await response.json();
-            alert.show("O convite foi rejeitado");
-            setUserInput({ ["mode"]: "nogroup" });
+            document.location.reload(true);
         } catch (error) {}
     };
 
@@ -145,6 +142,7 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/leaveGroup", settings);
             const data = await response.json();
+            document.location.reload(true);
         } catch (error) {}
     };
 
