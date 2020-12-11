@@ -326,7 +326,7 @@ export const Container = styled.div`
         #infos {
             width: 200px;
             display: flex;
-            flex-direction: column;
+            width: 100%;
 
             margin-left: 40px;
             @media (min-width: 700px) {
@@ -339,6 +339,9 @@ export const Container = styled.div`
             }
             small {
                 font-size: 18px;
+            }
+            div + div {
+                margin-left: 50px;
             }
         }
 

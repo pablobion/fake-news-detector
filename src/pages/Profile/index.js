@@ -33,6 +33,7 @@ const Profile = () => {
         oldPassword: "",
         newPassword: "",
         newPasswordAgain: "",
+        isFakeNews: [],
     });
 
     const handleshowSettings = () => {
@@ -142,8 +143,11 @@ const Profile = () => {
     useEffect(() => {
         (async () => {
             const data = await getProfileData();
-            console.log(data.news);
+
             setHistoricNews(data.news);
+
+            let fakes = data.news.filter((elem) => elem.isFakeNews === true);
+            setUserInput({ ["isFakeNews"]: fakes });
         })();
 
         setEmail(localStorage.getItem("user"));
@@ -230,8 +234,14 @@ const Profile = () => {
                         <p>{email}</p>
                     </div>
                     <div id="infos">
-                        <p>{historicNews.length}</p>
-                        <small>Noticias Detectadas</small>
+                        <div>
+                            <p>{historicNews.length}</p>
+                            <small>Noticias Pesquisadas</small>
+                        </div>
+                        <div>
+                            <p>{userInput.isFakeNews.length}</p>
+                            <small>Noticias Falsas</small>
+                        </div>
                     </div>
                     <div id="content">
                         <h2>Historico</h2>
