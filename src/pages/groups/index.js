@@ -22,7 +22,7 @@ import groupcreatedlogo from "../../assets/groupcreatedlogo.png";
 import { FaPlus, FaCrown, FaRegTrashAlt } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
 import { BiTimeFive } from "react-icons/bi";
-import { MdDone } from "react-icons/md";
+import { MdDone, MdClose } from "react-icons/md";
 
 const Groups = () => {
     const alert = useAlert();
@@ -77,6 +77,53 @@ const Groups = () => {
         try {
             const response = await fetch("https://tcspedroverani.herokuapp.com/group/delete", settings);
             const data = await response.json();
+            setUserInput({ ["mode"]: "nogroup" });
+            alert.show("O grupo foi deletado.");
+        } catch (error) {}
+    };
+    const acceptGroup = async () => {
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
+        const groupId = localStorage.getItem("groupId");
+
+        const settings = {
+            method: "POST",
+            body: JSON.stringify({ groupId, user }),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+            },
+        };
+
+        try {
+            const response = await fetch("https://tcspedroverani.herokuapp.com/group/accept", settings);
+            const data = await response.json();
+            setUserInput({ ["mode"]: "created" });
+            alert.show("O convite foi aceito");
+        } catch (error) {}
+    };
+
+    const rejectGroup = async () => {
+        const authorization = localStorage.getItem("qwert");
+        const user = localStorage.getItem("user");
+        const groupId = localStorage.getItem("groupId");
+
+        const settings = {
+            method: "POST",
+            body: JSON.stringify({ groupId, user }),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: authorization,
+            },
+        };
+
+        try {
+            const response = await fetch("https://tcspedroverani.herokuapp.com/group/reject", settings);
+            const data = await response.json();
+            alert.show("O convite foi rejeitado");
+            setUserInput({ ["mode"]: "nogroup" });
         } catch (error) {}
     };
 
@@ -180,6 +227,8 @@ const Groups = () => {
             inputEmailMembers: "",
             user: "",
             groupParticipantsPending: [],
+            groupParticipantsAccepted: [],
+            groupParticipantsRejected: [],
         }
     );
 
@@ -189,20 +238,25 @@ const Groups = () => {
         (async () => {
             const data = await getGroup();
 
-            setUserInput({ ["groupName"]: data.group.groupName });
-            setUserInput({ ["groupDescription"]: data.group.groupDescription });
-            setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-            setUserInput({ ["createdBy"]: data.group.createdBy });
-            setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-            setUserInput({ ["groupParticipantsPending"]: data.group.groupParticipantsPending });
-            localStorage.setItem("groupId", data.group._id);
-
             if (data.message === "Usuário não está em nenhum grupo") {
                 setUserInput({ ["mode"]: "nogroup" });
+                return;
             } else if (data.isMember === false && data.success === true) {
                 setUserInput({ ["mode"]: "invited" });
             } else {
                 setUserInput({ ["mode"]: "created" });
+            }
+
+            if (data) {
+                setUserInput({ ["groupName"]: data.group.groupName });
+                setUserInput({ ["groupDescription"]: data.group.groupDescription });
+                setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+                setUserInput({ ["createdBy"]: data.group.createdBy });
+                setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+                setUserInput({ ["groupParticipantsPending"]: data.group.groupParticipantsPending });
+                setUserInput({ ["groupParticipantsRejected"]: data.group.groupParticipantsRejected });
+                setUserInput({ ["groupParticipantsAccepted"]: data.group.groupParticipantsAccepted });
+                localStorage.setItem("groupId", data.group._id);
             }
         })();
 
@@ -332,8 +386,12 @@ const Groups = () => {
                         <InvitedLottie />
                         <h3>Convidado por: {userInput.createdBy}</h3>
                         <div id="buttons">
-                            <button id="notaccetp">Recusar</button>
-                            <button id="accetp">Aceitar</button>
+                            <button id="notaccetp" onClick={rejectGroup}>
+                                Recusar
+                            </button>
+                            <button id="accetp" onClick={acceptGroup}>
+                                Aceitar
+                            </button>
                         </div>
                     </Invited>
                 )}
@@ -368,7 +426,7 @@ const Groups = () => {
                                         {userInput.createdBy}
                                     </span>
                                     {groupParticipantsInvited.map((elem) => {
-                                        if (userInput.groupParticipantsPending && userInput.groupParticipantsPending.includes(elem) === true) {
+                                        if (userInput.groupParticipantsPending.includes(elem) === true) {
                                             return (
                                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                                     <BiTimeFive color="gray" style={{ fontSize: 30, paddingRight: 10 }} />
@@ -376,12 +434,22 @@ const Groups = () => {
                                                 </div>
                                             );
                                         }
-                                        return (
-                                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                <MdDone color="green" style={{ fontSize: 30, paddingRight: 10 }} />
-                                                <span key={elem}>{elem}</span>
-                                            </div>
-                                        );
+                                        if (userInput.groupParticipantsAccepted.includes(elem) === true) {
+                                            return (
+                                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                    <MdDone color="green" style={{ fontSize: 30, paddingRight: 10 }} />
+                                                    <span key={elem}>{elem}</span>
+                                                </div>
+                                            );
+                                        }
+                                        if (userInput.groupParticipantsRejected.includes(elem) === true) {
+                                            return (
+                                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                    <MdClose color="tomato" style={{ fontSize: 30, paddingRight: 10 }} />
+                                                    <span key={elem}>{elem}</span>
+                                                </div>
+                                            );
+                                        }
                                     })}
                                 </div>
 
