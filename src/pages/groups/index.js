@@ -189,19 +189,20 @@ const Groups = () => {
         (async () => {
             const data = await getGroup();
 
+            setUserInput({ ["groupName"]: data.group.groupName });
+            setUserInput({ ["groupDescription"]: data.group.groupDescription });
+            setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
+            setUserInput({ ["createdBy"]: data.group.createdBy });
+            setGroupParticipantsInvited(data.group.groupParticipantsInvited);
+            setUserInput({ ["groupParticipantsPending"]: data.group.groupParticipantsPending });
+            localStorage.setItem("groupId", data.group._id);
+
             if (data.message === "Usuário não está em nenhum grupo") {
                 setUserInput({ ["mode"]: "nogroup" });
             } else if (data.isMember === false && data.success === true) {
                 setUserInput({ ["mode"]: "invited" });
             } else {
                 setUserInput({ ["mode"]: "created" });
-                setUserInput({ ["groupName"]: data.group.groupName });
-                setUserInput({ ["groupDescription"]: data.group.groupDescription });
-                setUserInput({ ["createdAt"]: data.group.createdAt.match(/\d{4}-\d{2}-\d{2}/) });
-                setUserInput({ ["createdBy"]: data.group.createdBy });
-                setGroupParticipantsInvited(data.group.groupParticipantsInvited);
-                setUserInput({ ["groupParticipantsPending"]: data.group.groupParticipantsPending });
-                localStorage.setItem("groupId", data.group._id);
             }
         })();
 
@@ -327,9 +328,9 @@ const Groups = () => {
                 {userInput.mode === "invited" && (
                     <Invited>
                         <h1>Você foi convidado para um grupo.</h1>
-                        <h2>Clubinho do pablo</h2>
+                        <h2>{userInput.groupName}</h2>
                         <InvitedLottie />
-                        <h3>Convidado por:</h3>
+                        <h3>Convidado por: {userInput.createdBy}</h3>
                         <div id="buttons">
                             <button id="notaccetp">Recusar</button>
                             <button id="accetp">Aceitar</button>
@@ -367,7 +368,6 @@ const Groups = () => {
                                         {userInput.createdBy}
                                     </span>
                                     {groupParticipantsInvited.map((elem) => {
-                                        console.log(userInput.groupParticipantsPending);
                                         if (userInput.groupParticipantsPending && userInput.groupParticipantsPending.includes(elem) === true) {
                                             return (
                                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
