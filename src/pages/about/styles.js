@@ -17,7 +17,7 @@ export const Container = styled.div`
     }
 
     h2 {
-        margin-top: 30px;
+        margin-top: 50px;
         margin-bottom: 10px;
         text-align: center;
     }
