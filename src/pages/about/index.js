@@ -9,7 +9,7 @@ const About = () => {
         <>
             <Menu />
             <Container>
-                <h1>Sobre o projeto.</h1>
+                <h1>Sobre o projeto</h1>
                 <p>Esta plataforma visa identificar automaticamente uma fake news analisando apenas seu corpo textual</p>
                 <h2>Como funciona?</h2>
                 <p>
