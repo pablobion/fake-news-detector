@@ -58,11 +58,11 @@ function SwitchPages() {
                 </div>
                 <div>
                     <span>Senha</span>
-                    <input name="password" value={userInput.password} onChange={handleChange} ref={register({ required: true })} />
+                    <input name="password" type="password" value={userInput.password} onChange={handleChange} ref={register({ required: true })} />
                 </div>
                 <div>
                     <span>Repita sua senha</span>
-                    <input name="passAgain" value={userInput.passwordAgain} onChange={handleChange} ref={register({ required: true })} />
+                    <input name="passAgain" type="password" value={userInput.passwordAgain} onChange={handleChange} ref={register({ required: true })} />
                 </div>
                 <button type="submit">Criar</button>
             </form>
