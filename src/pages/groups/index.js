@@ -192,6 +192,11 @@ const Groups = () => {
             alert.show("você só pode cadastrar 10 pessoas");
             return false;
         }
+
+        if (!userInput.inputEmailMembers) {
+            alert.show("você precisa inserir um e-mail");
+            return false;
+        }
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (re.test(String(email).toLowerCase()) === false) {
             alert.show("Você só pode adicionar e-mails");
@@ -262,7 +267,8 @@ const Groups = () => {
             //Evita de mandar o formulario quando apertar enter e adiciona e-mail na lista mds.
             if (event.keyCode == 13) {
                 if (!document.getElementById("button-add-email")) return;
-                addEmailList(userInput.inputEmailMembers);
+                // addEmailList(userInput.inputEmailMembers);
+                document.getElementById("button-add-email").click();
             }
         });
 
