@@ -184,16 +184,29 @@ const Profile = () => {
                             <form id="div-change-settings" onSubmit={handleSubmit(changePassword)}>
                                 <div>
                                     <p>Senha atual</p>
-                                    <input name="oldPassword" value={userInput.oldPassword} onChange={handleChange} ref={register({ required: true })} />
+                                    <input
+                                        name="oldPassword"
+                                        type="password"
+                                        value={userInput.oldPassword}
+                                        onChange={handleChange}
+                                        ref={register({ required: true })}
+                                    />
                                 </div>
                                 <div>
                                     <p>Nova Senha</p>
-                                    <input name="newPassword" value={userInput.newPassword} onChange={handleChange} ref={register({ required: true })} />
+                                    <input
+                                        name="newPassword"
+                                        type="password"
+                                        value={userInput.newPassword}
+                                        onChange={handleChange}
+                                        ref={register({ required: true })}
+                                    />
                                 </div>
                                 <div>
                                     <p>Repita a nova senha</p>
                                     <input
                                         name="newPasswordAgain"
+                                        type="password"
                                         value={userInput.newPasswordAgain}
                                         onChange={handleChange}
                                         ref={register({ required: true })}
