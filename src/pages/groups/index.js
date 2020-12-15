@@ -213,7 +213,7 @@ const Groups = () => {
         li.appendChild(document.createTextNode(email));
         ul.appendChild(li);
 
-        //setUserInput({ ["inputEmailMembers"]: "" });
+        setUserInput({ ["inputEmailMembers"]: "" });
     };
 
     const [userInput, setUserInput] = useReducer(
