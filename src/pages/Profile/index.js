@@ -135,7 +135,8 @@ const Profile = () => {
             const response = await fetch("https://tcspedroverani.herokuapp.com/user/deleteAccount", settings);
             const data = await response.json();
             if (data.success) {
-                window.location.reload(true);
+                localStorage.removeItem("qwert");
+                document.location.reload(true);
             }
         } catch (error) {}
     };
@@ -233,7 +234,7 @@ const Profile = () => {
                                     </div>
                                     <div id="confirm-delete">
                                         <h3>Você realmente deseja deletar sua conta?</h3>
-                                        <button>
+                                        <button onClick={() => deleteAccount()}>
                                             <h4>Sim, desejo deletar minha conta</h4>
                                         </button>
                                     </div>
