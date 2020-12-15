@@ -131,9 +131,10 @@ function DetectorPage() {
             setUserInput({ ["nameButton"]: "Enviar Noticia" }); //Troca o nome do botão
             const contentScraped = await scrapUrl(userInput.url);
             setUserInput({ ["content"]: contentScraped.content });
-        } else {
-            shake("divurl");
+            return false;
         }
+
+        shake("divurl");
     };
 
     const changePagination = () => {
@@ -220,11 +221,9 @@ function DetectorPage() {
                     )}
                     <div className="content-footer">
                         {userInput.mode === "text" && (
-                            <a href="#section2">
-                                <button type="submit" id="sendnews">
-                                    Enviar Noticia
-                                </button>
-                            </a>
+                            <button type="submit" onClick={checkNews} id="sendnews">
+                                Enviar Noticia
+                            </button>
                         )}
 
                         {userInput.mode === "url" && (
