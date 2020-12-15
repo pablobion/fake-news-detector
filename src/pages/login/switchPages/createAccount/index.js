@@ -33,6 +33,7 @@ function SwitchPages() {
             const response = await axios.post("https://tcspedroverani.herokuapp.com/user/create", data);
             if (response.data.auth) {
                 localStorage.setItem("qwert", response.data.token);
+                localStorage.setItem('user', response.data.user);
                 window.location.href = "/detector";
             }
         } catch (error) {}
