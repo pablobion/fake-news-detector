@@ -22,6 +22,8 @@ import FindText from "./animations/findText/index";
 import LoadingNews from "./animations/loadingNews";
 
 function DetectorPage() {
+    const alert = useAlert();
+
     const scrapUrl = async (url) => {
         const authorization = localStorage.getItem("qwert");
         const settings = {
@@ -131,6 +133,11 @@ function DetectorPage() {
             setUserInput({ ["nameButton"]: "Enviar Noticia" }); //Troca o nome do botão
             const contentScraped = await scrapUrl(userInput.url);
             setUserInput({ ["content"]: contentScraped.content });
+
+            if (contentScraped.message === "Houve um erro ao coletar a notícia") {
+                alert.show("Houve um erro ao coletar a notícia, tente novamente", { type: types.ERROR });
+                setUserInput({ ["pagination"]: "1" }); //Muda para pagina dois.
+            }
             return false;
         }
 

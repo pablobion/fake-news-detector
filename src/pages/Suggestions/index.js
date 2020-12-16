@@ -50,9 +50,6 @@ const Suggestions = () => {
                 <textarea value={content} onChange={handleChange} />
                 <div>
                     <select id="input-select">
-                        <option value="" disabled selected hidden>
-                            Selecione o tipo de noticia
-                        </option>
                         <option value="true">Verdadeira</option>
                         <option value="false">Falsa</option>
                     </select>
