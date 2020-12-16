@@ -147,7 +147,7 @@ const Profile = () => {
 
             setHistoricNews(data.news);
 
-            let fakes = data.news.filter((elem) => elem.isFakeNews === false);
+            let fakes = data.news.filter((elem) => elem.isFakeNews === true);
             setUserInput({ ["isFakeNews"]: fakes });
         })();
 

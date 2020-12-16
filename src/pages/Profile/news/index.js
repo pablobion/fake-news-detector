@@ -31,7 +31,7 @@ const News = (props) => {
                     <p></p>
                 </Nav>
                 <Container>
-                    {props.isFakeNews === false ? <h1>Essa é uma noticia falsa.</h1> : <h1>Essa é uma noticia verdadeira.</h1>}
+                    {props.isFakeNews === true ? <h1>Essa é uma noticia falsa.</h1> : <h1>Essa é uma noticia verdadeira.</h1>}
                     <div id="acess-time">
                         <BiTimeFive id="acess-time-icon" />
                         <span>

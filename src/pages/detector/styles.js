@@ -112,7 +112,7 @@ export const Home = styled.div`
                     height: 10%;
                 }
                 to {
-                    height: 75%;
+                    height: 85%;
                 }
             }
         }
