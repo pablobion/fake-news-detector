@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Omdb</h1>
 
-## Available Scripts
 
-In the project directory, you can run:
+<h3 align="center" justify="center">📽&nbsp;&nbsp;&nbsp;Encontre seus melhores e preferidos filmes .</h3>
 
-### `npm start`
+<h6 align="center">Demo: http://omdb-pablo.netlify.app/</h6>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <a href="https://www.linkedin.com/in/pablobion/">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Pablo%20Bion-%23FF9000">
+  </a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <a href="https://github.com/pablobion/omdb/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pablobion/omdb?color=%23FF9000">
+  </a>
+</p>
 
-### `npm test`
+<p align="center">
+  <a href="#-Sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Como-começar">Como começar</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<img src="src/assets/preview.png" alt="preview">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📽 Sobre o projeto
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Projeto WEB de consulta de filmes, através da API pública http://imdbapi.org/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O projeto conta com informações relevantes sobre o filme pesquisado, desde nome, produtora, sinopse, duração, prêmios e notas dadas para o filme.
+O mesmo conta com responsividade para dispositivos moveis, e conceitos de skeleton loading para diminuir a percepção de carregamento da api.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Tecnologias
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Tecnologias que usei para desenvolver esse projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [ReactJS](https://reactjs.org/)
+- [React Router DOM](https://reacttraining.com/react-router/)
+- [Styled Components](https://styled-components.com/)
+- [Axios](https://github.com/axios/axios)
+- [Polished](https://github.com/styled-components/polished)
+- [Loading Skeleton](https://www.npmjs.com/package/react-loading-skeleton)
+- [React icons](https://react-icons.github.io/react-icons/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💻 Como começar 
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Clonando repositório e executando**
 
-### Analyzing the Bundle Size
+```bash
+$ git clone https://github.com/pablobion/omdb && cd omdb
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**Instalando as dependências**
 
-### Making a Progressive Web App
+```bash
+$ yarn
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+**Iniciando**
 
-### Advanced Configuration
+```bash
+$ yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Feito por &nbsp; by Pablo Bion 👋 &nbsp;[Veja meu linkedin](www.linkedin.com/in/pablobion)
