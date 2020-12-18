@@ -1,4 +1,4 @@
-<h1 align="center">Omdb</h1>
+<h1 align="center">Omdb.</h1>
 
 
 <h3 align="center" justify="center">📽&nbsp;&nbsp;&nbsp;Encontre seus melhores e preferidos filmes .</h3>
