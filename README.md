@@ -16,7 +16,7 @@
 </p>
 
 
-<img src="src/assets/preview.png" alt="preview">
+<img  src="preview/preview-all.png" alt="preview">
 
 ## 📽 Sobre o projeto
 
