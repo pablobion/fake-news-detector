@@ -18,7 +18,9 @@
 
 ## 📽 Sobre o projeto
 
-Projeto WEB responsivel para detecção de noticias falsas na internet.
+Este foi um projeto em parceiria com meu amigo Pedro, para faculdade.
+
+Projeto WEB responsivo para detecção de noticias falsas na internet.
 
 Consiste em coletar uma noticia, seja por meio de url ou texto e verificar se é veridica. Feito em React-js utilizando algumas bibliotecas disponiveis.
 
@@ -77,4 +79,6 @@ $ yarn start
 
 ---
 
-Feito por &nbsp; by Pablo Bion 👋 &nbsp;[Veja meu linkedin](www.linkedin.com/in/pablobion)
+Feito por Pedro Verani e Pablo Bion 
+
+ &nbsp;[Veja meu linkedin](www.linkedin.com/in/pablobion)
