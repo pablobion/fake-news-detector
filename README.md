@@ -85,4 +85,4 @@ $ yarn start
 
 Feito por Pedro Verani e Pablo Bion 
 
- &nbsp;[Veja meu linkedin](www.linkedin.com/in/pablobion)
+ &nbsp;[Veja meu linkedin](https://www.linkedin.com/in/pablobion/)
