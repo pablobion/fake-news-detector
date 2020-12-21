@@ -1,7 +1,7 @@
-<h1 align="center">Omdb.</h1>
+<h1 align="center">Detector de fake news 📰</h1>
 
 
-<h3 align="center" justify="center">📽&nbsp;&nbsp;&nbsp;Encontre seus melhores e preferidos filmes .</h3>
+<h3 align="center" justify="center">🔎&nbsp;&nbsp;&nbsp;Identifique noticias falsas.</h3>
 
 <h6 align="center">Demo: http://omdb-pablo.netlify.app/</h6>
 
@@ -13,12 +13,6 @@
   <a href="https://github.com/pablobion/omdb/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pablobion/omdb?color=%23FF9000">
   </a>
-</p>
-
-<p align="center">
-  <a href="#-Sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Como-começar">Como começar</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 
@@ -53,7 +47,9 @@ Tecnologias que usei para desenvolver esse projeto
 **Clonando repositório e executando**
 
 ```bash
-$ git clone https://github.com/pablobion/omdb && cd omdb
+$ git clone https://github.com/pablobion/fake-news-detector
+ && cd fake-news-detector
+
 ```
 
 **Instalando as dependências**
