@@ -3,8 +3,6 @@
 
 <h3 align="center" justify="center">🔎&nbsp;&nbsp;&nbsp;Identifique noticias falsas.</h3>
 
-<h6 align="center">Demo: http://omdb-pablo.netlify.app/</h6>
-
 <p align="center">
   <a href="https://www.linkedin.com/in/pablobion/">
     <img alt="Made by" src="https://img.shields.io/badge/made%20by-Pablo%20Bion-%23FF9000">
@@ -20,24 +18,34 @@
 
 ## 📽 Sobre o projeto
 
-Projeto WEB de consulta de filmes, através da API pública http://imdbapi.org/
+Projeto WEB responsivel para detecção de noticias falsas na internet.
 
-O projeto conta com informações relevantes sobre o filme pesquisado, desde nome, produtora, sinopse, duração, prêmios e notas dadas para o filme.
-O mesmo conta com responsividade para dispositivos moveis, e conceitos de skeleton loading para diminuir a percepção de carregamento da api.
+Consiste em coletar uma noticia, seja por meio de url ou texto e verificar se é veridica. Feito em React-js utilizando algumas bibliotecas disponiveis.
+
+Ferramentas:
+
+- Pesquisar noticia (validar se é verdadeira)
+- Pesquisar noticia por URL.
+- Criação de grupo (para que seus amigos sejam notificados por e-mail quando você identificar que uma notifcia é falsa)
+- Pagina para aceitar e recusar grupo.
+- Pagina de perfil (onde contém todo as noticias pesquisadas e a data emq ue foram pesquisadas.)
+- Pagina de sugestão, para que seja notificado que uma noticia é falsa.
 
 
 
 ## 🚀 Tecnologias
 
-Tecnologias que usei para desenvolver esse projeto
+Tecnologias que usei para desenvolver esse projeto no front-end
 
 - [ReactJS](https://reactjs.org/)
 - [React Router DOM](https://reacttraining.com/react-router/)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
 - [Polished](https://github.com/styled-components/polished)
-- [Loading Skeleton](https://www.npmjs.com/package/react-loading-skeleton)
 - [React icons](https://react-icons.github.io/react-icons/)
+- [React Alert](https://www.npmjs.com/package/react-alert)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Lottie](https://www.npmjs.com/package/react-lottie)
 
 
 
