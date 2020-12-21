@@ -16,6 +16,14 @@
 
 <img  src="preview/preview-all.png" alt="preview">
 
+&nbsp;
+&nbsp;
+&nbsp;
+### Mais imagens do projeto [Clique Aqui](https://github.com/pablobion/fake-news-detector/tree/master/frontend)
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## 📽 Sobre o projeto
 
 Este foi um projeto em parceiria com meu amigo Pedro, para faculdade.
