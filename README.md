@@ -22,7 +22,7 @@
 
 ## 📽 Sobre o projeto
 
-Este foi um projeto em parceiria com meu amigo Pedro, para faculdade.
+Este foi um projeto em parceria com meu amigo Pedro, para faculdade.
 
 Projeto WEB responsivo para detecção de noticias falsas na internet.
 
